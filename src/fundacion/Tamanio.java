@@ -7,12 +7,8 @@ package fundacion;
 
 /**
  *
- * @author usuario
+ * @author Javier
  */
-public class UsuarioFuncionario extends Usuario{
-    
-    public void registarNUevoAnimal(){
-        
-    }
+public enum Tamanio {GRANDE, MEDIANO, PEQUEÑO
     
 }

@@ -15,7 +15,6 @@ public class Fundacion {
     private  ArrayList<Animal> registroAnimales;
     private  ArrayList<Empleado> registroEmpleados;
     private  ArrayList<Interesado> registroInteresados;
-    private  ArrayList<Usuario> registroUsuarios;
     private  ArrayList<Adopcion> registroAdopciones;
     private  ArrayList<GastoVeterinaria> registroGastosVeterinarios;
     private  ArrayList<Veterinaria> registroVeterinaria;

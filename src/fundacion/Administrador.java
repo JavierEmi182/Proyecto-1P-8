@@ -7,9 +7,8 @@ package fundacion;
 
 /**
  *
- * @author usuario
+ * @author Javier
  */
-public class Usuario {
-    private String usuario;
-    private String contraseña;
+public class Administrador extends Empleado {
+    
 }
