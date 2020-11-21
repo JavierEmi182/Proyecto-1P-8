@@ -5,8 +5,9 @@
  */
 package fundacion;
 
+import java.io.ObjectStreamConstants;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 /**
  *
  * @author usuario
@@ -18,7 +19,7 @@ public class Fundacion {
     private  ArrayList<Adopcion> registroAdopciones;
     private  ArrayList<GastoVeterinaria> registroGastosVeterinarios;
     private  ArrayList<Veterinaria> registroVeterinaria;
-
+    private Scanner sc;
     
     public Fundacion() {
         registroAnimales = new ArrayList<Animal>();
@@ -27,6 +28,7 @@ public class Fundacion {
         registroAdopciones = new ArrayList<Adopcion>();
         registroGastosVeterinarios = new ArrayList<GastoVeterinaria>();
         registroVeterinaria = new ArrayList<Veterinaria>();
+        sc = new Scanner(System.in);
     }
     //GETTERS AND SETTERS
 
@@ -107,8 +109,23 @@ public class Fundacion {
         registroEmpleados.add(p);
     }
     
+    public void registroAnimal(Animal a){
+        registroAnimales.add(a);
+    }
     
+    public void validacionStrings(String x,String a,String b){
+    do{
+       x = sc.nextLine();
+    }while(!(x.toUpperCase().equals(a) || x.toUpperCase().equals(b)));
+    
+    }
+    
+     public void validacionStrings3(String x,String a,String b,String c){
+    do{
+       x = sc.nextLine();
+    }while(!(x.toUpperCase().equals(a) || x.toUpperCase().equals(b) || x.toUpperCase().equals(c)));
+    
+    }
 }
-
-
-
+    
+    
