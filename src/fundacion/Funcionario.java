@@ -11,9 +11,14 @@ import java.util.Date;
  *
  * @author Javier
  */
-public class Funcionario extends Empleado {
+public class Funcionario extends Empleado{
+
+    public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, String fechaInicio, double sueldo, String usuario, String contrasena) {
+        super(nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
+    }
     
     
+    /*
     //metodos
     public void registrarNuevoAnimal(Date fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad, Tamanio tamanio){
         if (tamanio!=null){
@@ -21,5 +26,6 @@ public class Funcionario extends Empleado {
     }   else{
            Gato g1= new Gato(Date fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad);
         }
-    }
+    }*/ 
 }
+
