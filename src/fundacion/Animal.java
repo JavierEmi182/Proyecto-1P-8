@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * @author Javier
  */
 public class Animal {
-    private Date fechaIngreso;
+    private String fechaIngreso;
     private String nombre;
     private String raza;
     private String sexo;
@@ -26,7 +26,7 @@ public class Animal {
     
     public Animal(){}
     
-    public Animal(Date fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+    public Animal(String fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
         this.fechaIngreso=fechaIngreso;
         this.nombre=nombre;
         this.raza=raza;
@@ -39,11 +39,11 @@ public class Animal {
     
     //Setters and getters
 
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

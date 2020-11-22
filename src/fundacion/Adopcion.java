@@ -12,23 +12,23 @@ import java.util.Date;
  * @author usuario
  */
 public class Adopcion {
-    private Date fecha;
+    private String fecha;
     private int codigo=0;
     private Interesado adoptante;
     private  Animal animaAdoptado;
 
-    public Adopcion(Date fecha, Interesado adoptante, Animal animaAdoptado) {
+    public Adopcion(String fecha, Interesado adoptante, Animal animaAdoptado) {
         this.fecha = fecha;
         this.codigo +=1;
         this.adoptante = adoptante;
         this.animaAdoptado = animaAdoptado;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -55,5 +55,11 @@ public class Adopcion {
     public void setAnimaAdoptado(Animal animaAdoptado) {
         this.animaAdoptado = animaAdoptado;
     }
-    
+    @Override
+    public String toString(){
+        return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fecha;
+}
+    public String correo(){
+        return animaAdoptado.toString();
+    }
 }

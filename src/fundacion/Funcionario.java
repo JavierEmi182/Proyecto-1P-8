@@ -7,6 +7,7 @@ package fundacion;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -25,14 +26,15 @@ public class Funcionario extends Empleado{
         sc = new Scanner(System.in);
     }
     
-    public void registrarNuevoAnimal(){
+    public void registrarNuevoAnimal(){//COMPLETA
         String tipo;
         do{
         System.out.println("*****Registro de animales*****"); 
         System.out.println("Es gato o perro ? ");
         tipo = sc.nextLine();
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
-        Date fecha = new Date();
+        System.out.println("Ingrese fecha(DD/MM/YYYY): ");
+        String fecha = sc.nextLine();
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
         System.out.println("Raza: ");
@@ -85,7 +87,7 @@ public class Funcionario extends Empleado{
     }
     
     
-    public void registrarInteresadoAdopcion(){
+    public void registrarInteresadoAdopcion(){//COMPLETA
         System.out.println("*****Registrar Interesados*****");
         System.out.println("Ingrese Nombre: ");
         String nombre = sc.nextLine();
@@ -111,7 +113,7 @@ public class Funcionario extends Empleado{
         fundacion.registarInteresados(new Interesado(nombre,id,direccion,telefono,correo,tipo,raza,sexo));
     }
     
-    public void registrarAdopcion(){
+    public void registrarAdopcion(){//COMPLETA
         System.out.println("*****Registrar Adopcion*****");
         System.out.println("Ingrese codigo del animal");
         int codigo = sc.nextInt();
@@ -119,8 +121,8 @@ public class Funcionario extends Empleado{
         System.out.println("Ingrese ID de la persona");
         String id = sc.nextLine();
         animal= null;
-        Date fechaadopcion = new Date();
-        
+        System.out.println("Ingrese fecha (DD/MM/YYYY)");;
+        String fechaadopcion = sc.nextLine();
         for(Animal a :fundacion.getRegistroAnimales()){
             if (a.getCodigo()==codigo){
                 System.out.println(a.toString());
@@ -133,18 +135,67 @@ public class Funcionario extends Empleado{
         interesado = null;
         
         for(Interesado i : fundacion.getRegistroInteresados()){
-            if(i.getId()==id){
-                System.out.println(i.toString());//Falta creacion de toString
+            if(i.getId().equals(id)){
+                System.out.println(i.toString());
+                interesado = i;
+                fundacion.registrarAdopciones(new Adopcion(fechaadopcion, interesado, animal));
             }
         }
         if(interesado == null){    
         System.out.println("Interesado No Existe");
         }
         
-        fundacion.registrarAdopciones(new Adopcion(fechaadopcion, interesado, animal));
+        
     }
     
+    public void consultarAdopciones(){
+        Collections.reverse(fundacion.getRegistroAdopciones());
+        
+    }
+    public void consultarRegistrados(){
+        System.out.println("Ingrese ID: ");
+        String id = sc.nextLine();
+        interesado = null;
+        int x = 0;
+        for (Interesado i :fundacion.getRegistroInteresados()){
+            if(i.getId().equals(id)){
+                System.out.println(i.toString());
+                x = fundacion.getRegistroInteresados().indexOf(i);
+                interesado = i;
+                Adopcion adopcion = null;
+                for(Adopcion adop :fundacion.getRegistroAdopciones()){
+                    if(adop.getAdoptante()==i){
+                        System.out.println(adop.toString());
+                        adopcion = adop;
+                    }
+                }if(adopcion == null){
+                    System.out.println("No ha adoptado ningun animal");
+                }
+            }
+        }
+        if (interesado==null){
+            System.out.println("Interesado No Existe");
+        }
+        
+        System.out.println("Desea actualizar sus datos ? ");
+        String actualizacion = null;
+        fundacion.validacionStrings(actualizacion, "SI", "NO");
+        if(actualizacion.equals("SI")){
+            System.out.println("Actualize Direccion: ");
+            String direccion = sc.nextLine();
+            interesado.setDireccion(direccion);
+            System.out.println("Actualize Correo: ");
+            String correo = sc.nextLine();
+            interesado.setCorreoElectronico(correo);
+            System.out.println("ACtualize Telefono: ");
+            String telefono = sc.nextLine();
+            interesado.setNumeroTelefono(telefono);
+            fundacion.getRegistroInteresados().set(x, interesado);
+        }
+       
+    }
 }
+    
     /*
     //metodos
     public void registrarNuevoAnimal(Date fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad, Tamanio tamanio){
