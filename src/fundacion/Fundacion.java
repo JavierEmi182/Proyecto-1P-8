@@ -113,6 +113,16 @@ public class Fundacion {
         registroAnimales.add(a);
     }
     
+    public void registarInteresados(Interesado inte){
+        registroInteresados.add(inte);
+    }
+    
+    public void registrarAdopciones(Adopcion adop){
+        registroAdopciones.add(adop);
+    }
+    
+    
+    
     public void validacionStrings(String x,String a,String b){
     do{
        x = sc.nextLine();

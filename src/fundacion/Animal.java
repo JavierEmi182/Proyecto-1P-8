@@ -20,8 +20,7 @@ public class Animal {
     private double peso;
     private String observaciones;
     private int edad;
-    private static int codigoStatic=0000;  
-    private int codigo;
+    private int codigo = 0;
     
     //CONSTRUCTORES
     
@@ -35,7 +34,7 @@ public class Animal {
         this.peso=peso;
         this.observaciones=observaciones;
         this.edad=edad;
-        this.codigo=codigoStatic+1;
+        this.codigo+=1;
     }
     
     //Setters and getters
@@ -100,9 +99,7 @@ public class Animal {
         return codigo;
     }
     
-    public int getNumAnimales(){
-        return codigoStatic;
-    }
+    
     
     //Metodos
     public double calcularCostoMes(){
@@ -115,7 +112,5 @@ public class Animal {
     public String toString(){
         return "Nombre: "+getNombre()+", Fecha de ingreso: "+getFechaIngreso()+"\n Raza: "+getRaza()+", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "+getObservaciones()+"\n Codigo: "+getCodigo();
     }
-
-    
     
 }
