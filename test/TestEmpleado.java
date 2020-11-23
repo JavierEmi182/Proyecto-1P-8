@@ -11,6 +11,7 @@
 import fundacion.Administrador;
 import fundacion.Fundacion;
 import interfaz.FundacionUI;
+
 public class TestEmpleado {
     public static void main(String args[]){
         Administrador a = new Administrador("Juan","Ecuador", "2255", "josse@gmail,com", "25/12/2020", 2000, "juan", "123","225455");
@@ -21,6 +22,7 @@ public class TestEmpleado {
         a.registrarEmpleado();
         //System.out.println(fundacion.verificarUsuario("fgsg"));
         FundacionUI  fundacionui =new FundacionUI();
+        
         //fundacionui.presentarMenuPrincipal();
     }
         

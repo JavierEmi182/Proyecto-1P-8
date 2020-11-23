@@ -22,30 +22,21 @@ public class FundacionUI {
         fundacion = new Fundacion(); 
     }
     
+    ///aun a prueba, no se valida correctamente
     
     public void presentarMenuPrincipal(){
         String usuario="";
         String contraseña= "";
-        //boolean x = fundacion.validarCredenciales(usuario, contraseña);
-        System.out.println("Bienvenido ");
-        boolean x = false;
-        while( x == false){
+        System.out.println("*****Bienvenido***** ");
+        do{
             System.out.println("Ingrese su usuario:");
             usuario=sc.nextLine();       
             System.out.println("Ingrese su contraseña:");
             contraseña=sc.nextLine();
-            boolean condicion = fundacion.validarCredenciales(usuario, contraseña);
-           
-            if(condicion != false){
-                System.out.println("Credenciales válidas");
-                x = true;
+            if (fundacion.validarCredenciales(usuario, contraseña) == true){
                 break;
-            }else{
-                System.out.println("Credenciales inválidas");
             }
-        }
-        
-        
+        }while(true);
     }
     
     public void presentarMenuAdministrador(){

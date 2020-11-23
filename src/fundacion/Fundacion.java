@@ -85,26 +85,27 @@ public class Fundacion {
 
 
     //metodo para validar credenciales al inicio del programa 
-    public boolean validarCredenciales(String usuario, String contraseña){
-        for(Empleado e : registroEmpleados){
-            if(e.getUsuario().equals(usuario)){
-                if(e.getContrasena().equals(contraseña)){
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean validarCredenciales(String usuario1, String contraseña1){
+        for(Empleado empleado : registroEmpleados){
+           if(empleado.getUsuario().equals(usuario1)&& empleado.getContrasena().equals(contraseña1) ){
+               System.out.println("Credenciales válidas");
+               return true;
+           }else{
+               System.out.println("Credenciales inválidas. Vuelva a ingresar.");
+           }
+        }return false;
+       
     }
     //metodo para ver si existen usuarios repetidos al momento que el administrador los crea
     public boolean verificarUsuario(String usuario){
         for(Empleado e: registroEmpleados){
-            if(!e.getUsuario().equals(usuario)){
+            if(e.getUsuario().equals(usuario)){
                 return true;  
             }
         }
         return false;
     }
-    //metodo para añadir empleado al Array Empleados
+    //metodo para añadir empleado 
     public void añadirEmpleado(Empleado p){
         registroEmpleados.add(p);
     }
@@ -120,7 +121,24 @@ public class Fundacion {
     public void registrarAdopciones(Adopcion adop){
         registroAdopciones.add(adop);
     }
-    
+    public void regisrarVeterinaria(Veterinaria vet){
+        registroVeterinaria.add(vet);
+    }
+    public String mostrarRegistroVeterinarias(){
+        for (Veterinaria vet: registroVeterinaria){
+            return vet.toString();
+        }
+        return null;
+    }
+    public void registrarGastoVeterinaria(GastoVeterinaria gasto){
+        registroGastosVeterinarios.add(gasto);
+    }
+    public String mostrarRegistroGastoVeterinaria(){
+        for(GastoVeterinaria gasto: registroGastosVeterinarios){
+            return gasto.toString();
+        }
+        return null;
+    }
     
     
     public void validacionStrings(String x,String a,String b){
