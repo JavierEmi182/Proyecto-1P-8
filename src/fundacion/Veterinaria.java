@@ -5,6 +5,8 @@
  */
 package fundacion;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author user
@@ -13,4 +15,50 @@ public class Veterinaria {
     private String nombre;
     private String contacto;
     private String correo;
+    private ArrayList<CitaVeterinaria> citas;
+    
+    //CONSTRUCTORES
+
+    public Veterinaria(String nombre, String contacto, String correo) {
+        this.nombre = nombre;
+        this.contacto = contacto;
+        this.correo = correo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+    public ArrayList<CitaVeterinaria> getCitas(){
+        return citas;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public void setCitas(ArrayList<CitaVeterinaria> citas) {
+        this.citas = citas;
+    }
+
+    @Override
+    public String toString() {
+        return "Veterinaria: " + "nombre: " + nombre + ", contacto: " + contacto + ", correo: " + correo ;
+    }
+    
 }
+

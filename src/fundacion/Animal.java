@@ -12,22 +12,21 @@ import java.time.LocalDate;
  *
  * @author Javier
  */
-public class Animal {
-    private Date fechaIngreso;
+public abstract class Animal {
+    private LocalDate fechaIngreso;
     private String nombre;
     private String raza;
     private String sexo;
     private double peso;
     private String observaciones;
     private int edad;
-    private static int codigoStatic=0000;  
-    private int codigo;
+    private int codigo = 0;
     
     //CONSTRUCTORES
     
     public Animal(){}
     
-    public Animal(Date fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+    public Animal(LocalDate fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
         this.fechaIngreso=fechaIngreso;
         this.nombre=nombre;
         this.raza=raza;
@@ -35,16 +34,16 @@ public class Animal {
         this.peso=peso;
         this.observaciones=observaciones;
         this.edad=edad;
-        this.codigo=codigoStatic+1;
+        this.codigo+=1;
     }
     
     //Setters and getters
 
-    public Date getFechaIngreso() {
+    public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
@@ -100,22 +99,15 @@ public class Animal {
         return codigo;
     }
     
-    public int getNumAnimales(){
-        return codigoStatic;
-    }
+    
     
     //Metodos
-    public double calcularCostoMes(){
-        double costo=0;
-        LocalDate hoy= LocalDate.now();
-        LocalDate enUnMes= hoy.plusDays(30);
-        return costo;        
-    }
+    public abstract double  calcularCostoMes();
+            
+    
     @Override
     public String toString(){
         return "Nombre: "+getNombre()+", Fecha de ingreso: "+getFechaIngreso()+"\n Raza: "+getRaza()+", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "+getObservaciones()+"\n Codigo: "+getCodigo();
     }
-
-    
     
 }

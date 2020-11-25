@@ -5,7 +5,7 @@
  */
 package fundacion;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Perro extends Animal{
     private Tamanio tamanio;
     
     //Constructores
-    public Perro(Date fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad,Tamanio tamanio){
+    public Perro(LocalDate fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad,Tamanio tamanio){
         super(fechaIngreso, nombre,raza, sexo, peso, observaciones,edad);
         this.tamanio=tamanio;
     }
@@ -34,6 +34,7 @@ public class Perro extends Animal{
         double costoKilo;
         double kilosMes;
         double costoPaseos=1.00;
+        @SuppressWarnings("UnusedAssignment")
         double costoFinal=0;
         
         if (tamanio!=null){
@@ -56,7 +57,7 @@ public class Perro extends Animal{
                 default:
                     return -1;   
             }
-            return super.calcularCostoMes()+costoFinal;
+            return costoFinal;
         }return -1;
         
         /**if (tamanio.equals(tamanio.GRANDE)){

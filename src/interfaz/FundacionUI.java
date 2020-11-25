@@ -6,7 +6,9 @@
 package interfaz;
 import fundacion.Animal;
 import fundacion.Persona;
+import fundacion.Fundacion;
 import java.util.Scanner;
+
 
 /**
  *
@@ -14,21 +16,27 @@ import java.util.Scanner;
  */
 public class FundacionUI {
     private Scanner sc;
-    
+    private Fundacion fundacion;
     public FundacionUI(){
         sc= new Scanner(System.in);
+        fundacion = new Fundacion(); 
     }
     
+    ///aun a prueba, no se valida correctamente
     
     public void presentarMenuPrincipal(){
         String usuario="";
         String contraseña= "";
-        
-        System.out.println("Bienvenido ");
-        System.out.println("Ingrese su usario:");
-        usuario=sc.nextLine();       
-        System.out.println("Ingrese su contraseña:");
-        contraseña=sc.nextLine();
+        System.out.println("*****Bienvenido***** ");
+        do{
+            System.out.println("Ingrese su usuario:");
+            usuario=sc.nextLine();       
+            System.out.println("Ingrese su contraseña:");
+            contraseña=sc.nextLine();
+            if (fundacion.validarCredenciales(usuario, contraseña) == true){
+                break;
+            }
+        }while(true);
     }
     
     public void presentarMenuAdministrador(){

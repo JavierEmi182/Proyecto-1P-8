@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto.pkg1p.pkg8;
+import interfaz.FundacionUI;
 
 /**
  *
@@ -16,6 +17,8 @@ public class Proyecto1P8 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+     
+        
     }
     
 }
