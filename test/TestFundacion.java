@@ -14,7 +14,7 @@ import fundacion.Empleado;
 import interfaz.FundacionUI;
 public class TestFundacion {
     public static void main(String args[]){
-        
+       
         
         
         

@@ -16,8 +16,10 @@ import java.util.Scanner;
  *
  * @author Javier
  */
+
 public class Funcionario extends Empleado{
-    private Fundacion fundacion;
+    
+  //  private Fundacion fundacion;
     private Animal animal;
     private Interesado interesado;
     private Scanner sc;

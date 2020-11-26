@@ -22,10 +22,8 @@ public class Empleado{
     private double sueldo;
     private String usuario;
     private String contrasena;
-    
-    public Empleado(){
-        
-    }
+    protected Fundacion fundacion;
+  
 
     public Empleado(String nombre, String direccion, String numeroTelefono, String correoElectronico, String fechaInicio, double sueldo, String usuario, String contrasena){
         this.nombre = nombre;
@@ -36,6 +34,7 @@ public class Empleado{
         this.sueldo = sueldo;
         this.usuario = usuario;
         this.contrasena = contrasena;
+        fundacion = new Fundacion();
     }
     //GETTERS AND SETTERS
 
@@ -123,17 +122,13 @@ public class Empleado{
     }
     /*
     public boolean equals(Object obj){
-      if(obj != null){
-        if (obj instanceof Empleado){
-          Empleado other = (Empleado) obj;
-          if(usuario.equals(other.usuario) && contrasena.equals(other.contrasena)){
-            return true;
-          }
-
+        if(obj!=null){
+            if(obj instanceof Empleado){
+                Empleado c = (Empleado)obj;
+                return c.usuario.equals(usuario);
+            }
         }
-      }
-      return false;
-
+        return false;
     }*/
     
     

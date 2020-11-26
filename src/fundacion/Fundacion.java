@@ -91,7 +91,7 @@ public class Fundacion {
                System.out.println("Credenciales válidas");
                return true;
            }else{
-               System.out.println("Credenciales inválidas. Vuelva a ingresar.");
+               System.out.println("Credenciales inválidas. Vuelva a ingresar.");  
            }
         }return false;
        
@@ -102,8 +102,8 @@ public class Fundacion {
             if(e.getUsuario().equals(usuario)){
                 return true;  
             }
-        }
-        return false;
+            
+        }return false;
     }
     //metodo para añadir empleado 
     public void añadirEmpleado(Empleado p){
