@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Funcionario extends Empleado{
     
-  //  private Fundacion fundacion;
+    private Fundacion fundacion;
     private Animal animal;
     private Interesado interesado;
     private Scanner sc;
@@ -37,6 +37,7 @@ public class Funcionario extends Empleado{
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
         System.out.println("Ingrese fecha(DD/MM/YYYY): ");
         String fecha = sc.nextLine();
+        LocalDate fechalocal = Fundacion.toLocalDate(fecha);
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
         System.out.println("Raza: ");
@@ -65,10 +66,10 @@ public class Funcionario extends Empleado{
             System.out.println("Ingrese tamaño: ");
             String tamanio = sc.nextLine();
             Tamanio x = Tamanio.valueOf(tamanio.toUpperCase());
-            fundacion.registroAnimal(new Perro(fecha, nombre, raza, sexo, peso, observaciones, edad, x));
+            fundacion.registroAnimal(new Perro(fechalocal, nombre, raza, sexo, peso, observaciones, edad, x));
         }
 
-        fundacion.registroAnimal(new Gato(fecha, nombre, raza, sexo, peso, observaciones, edad));
+        fundacion.registroAnimal(new Gato(fechalocal, nombre, raza, sexo, peso, observaciones, edad));
     }
         
     

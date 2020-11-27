@@ -5,6 +5,8 @@
  */
 package interfaz;
 import fundacion.Animal;
+import fundacion.Empleado;
+import fundacion.Funcionario;
 import fundacion.Persona;
 import fundacion.Fundacion;
 import java.util.Scanner;
@@ -17,13 +19,14 @@ import java.util.Scanner;
 public class FundacionUI {
     private Scanner sc;
     private Fundacion fundacion;
-    public FundacionUI(){
+    private Funcionario funcionario;
+    public FundacionUI(Fundacion fundacion){
         sc= new Scanner(System.in);
-        fundacion = new Fundacion(); 
+        this.fundacion=fundacion;
     }
     
     ///aun a prueba, no se valida correctamente
-    
+    // Hay que poner en los contructores this.fundacion = fundacion . NO inicializarlo (fundacion = New Fundacion)
     public void presentarMenuPrincipal(){
         String usuario="";
         String contraseña= "";
@@ -34,10 +37,16 @@ public class FundacionUI {
             System.out.println("Ingrese su contraseña:");
             contraseña=sc.nextLine();
             if (fundacion.validarCredenciales(usuario, contraseña) == true){
+                for(Empleado emp : fundacion.getRegistroEmpleados()){
+                    if (emp instanceof Funcionario){
+                            iniciarFuncionario();
+                        }
                 break;
+                }
             }
         }while(true);
-    }
+        
+        }
     
     public void presentarMenuAdministrador(){
         System.out.println("Bienvenido");
@@ -106,7 +115,7 @@ public class FundacionUI {
             switch(entrada){
                 case "1":
                     //1. Registrar nuevo animal.
-                    
+                    funcionario.registrarNuevoAnimal();
                     break;
                 case "2":
                     //2. Consultar animales en la fundación

@@ -88,15 +88,15 @@ public class Fundacion {
 
     //metodo para validar credenciales al inicio del programa 
     public boolean validarCredenciales(String usuario1, String contraseña1){
+        boolean x = false;
         for(Empleado empleado : registroEmpleados){
            if(empleado.getUsuario().equals(usuario1)&& empleado.getContrasena().equals(contraseña1) ){
                System.out.println("Credenciales válidas");
-               return true;
+               x = true;
            }else{
-               System.out.println("Credenciales inválidas. Vuelva a ingresar.");  
-           }
-        }return false;
-       
+               System.out.println("Credenciales inválidas. Vuelva a ingresar."); 
+           } 
+        }return x;
     }
     //metodo para ver si existen usuarios repetidos al momento que el administrador los crea
     public boolean verificarUsuario(String usuario){
