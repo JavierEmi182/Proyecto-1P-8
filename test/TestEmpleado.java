@@ -11,12 +11,14 @@
 import fundacion.Administrador;
 import fundacion.Fundacion;
 import interfaz.FundacionUI;
+import java.time.LocalDate;
 
 public class TestEmpleado {
     public static void main(String args[]){
-        Administrador a = new Administrador("Juan","Ecuador", "2255", "josse@gmail,com", "25/12/2020", 2000, "juan1", "123","225455");
+        LocalDate date = Fundacion.toLocalDate("25/12/2020");
+        Administrador a = new Administrador("Juan","Ecuador", "2255", "josse@gmail,com", date, 2000, "juan1", "123","225455");
         Fundacion f = new Fundacion();
-        f.añadirEmpleado(a);
+        //f.añadirEmpleado(a);
         FundacionUI F= new FundacionUI();
         //F.presentarMenuPrincipal();
         
@@ -27,7 +29,8 @@ public class TestEmpleado {
         //System.out.println(fundacion.verificarUsuario("juan1"));
         //fundacionui.presentarMenuPrincipal();
         //System.out.println(f.validarCredenciales("juan1", "123"));
-        a.consultaRegistroVeterinaria();
+        //a.consultaRegistroVeterinaria();
+        a.consultaRegistroGastoVeterinaria();
 
         
     }

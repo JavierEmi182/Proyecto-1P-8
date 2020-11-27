@@ -5,7 +5,7 @@
  */
 package fundacion;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 /**
  *
  * @author user
@@ -13,10 +13,10 @@ import java.util.Date;
 public class GastoVeterinaria {
     private Veterinaria veterinaria;
     private Animal animal;
-    private Date fecha;
+    private LocalDate fecha;
     private double monto;
 //Constructores
-    public GastoVeterinaria(Animal animal, Date fecha, double monto) {
+    public GastoVeterinaria(Animal animal, LocalDate fecha, double monto) {
         this.animal = animal;
         this.fecha = fecha;
         this.monto = monto;
@@ -27,7 +27,7 @@ public class GastoVeterinaria {
         return animal;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
@@ -39,7 +39,7 @@ public class GastoVeterinaria {
         this.animal = animal;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

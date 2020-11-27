@@ -7,6 +7,7 @@ package fundacion;
 import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;  
+import java.time.LocalDate;
 
 
 /**
@@ -22,16 +23,24 @@ public class Administrador extends Empleado {
     private GastoVeterinaria gastoVeterinaria;
  
     //Constructor
-
-    public Administrador(String nombre, String direccion, String numeroTelefono, String correoElectronico, String fechaInicio, double sueldo, String usuario, String contrasena,String cuentaBancaria){
+/*
+    public Administrador(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena,String cuentaBancaria){
         super(nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         this.cuentaBancaria = cuentaBancaria;
         sc = new Scanner(System.in);
       //  fundacion= new Fundacion();
+    }*/
+
+    public Administrador( String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena, String cuentaBancaria) {
+        super(nombre,direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
+        sc = new Scanner(System.in);
+        this.cuentaBancaria = cuentaBancaria;
+       
     }
     
+    
     ///METODOS
-    //1. REGISTRAR EMPLEADOS (falta validar que usuario no se encuentre en el arreglo)
+    //1. REGISTRAR EMPLEADOS (validar que usuario no se encuentre en el arreglo)
 
     public void registrarEmpleado(){
         System.out.println("Ingrese nombre completo de empleado : ");
@@ -42,8 +51,8 @@ public class Administrador extends Empleado {
         String telefono = sc.nextLine();
         System.out.println("Ingrese correo electrónico: ");
         String correoElectronico = sc.nextLine();
-        System.out.println("Ingrese la fecha(formato dd/mm/aa) en que el empleado empieza a trabajar:");
-        String fechaInicio = sc.nextLine();
+        System.out.println("Ingrese la fecha(formato dd/MM/aa) en que el empleado empieza a trabajar:");
+        LocalDate fechaInicio = Fundacion.toLocalDate(sc.nextLine());
         System.out.println("Ingrese el sueldo: ");
         double sueldo = sc.nextDouble();
         sc.nextLine();
@@ -80,16 +89,16 @@ public class Administrador extends Empleado {
             System.out.println("Respuesta no válida");
         }
         }
-        
-        
-        
     }
-    //2 CONSULTA Y REGISTRO DE VETERINARIAS(revisar opcion2 )
+    //2 CONSULTA Y REGISTRO DE VETERINARIAS(terminada )
     public void consultaRegistroVeterinaria(){
         System.out.println("¿Qué desea realizar?:");
         System.out.println("1. Registrar nueva veterinaria");
         System.out.println("2. Visualizar información de veterinarias");
         String opcion;
+        String nombre;
+        String contacto;
+        String correo;
         Veterinaria veterinaria;
         boolean condicion = true;
         while(condicion == true){
@@ -98,12 +107,12 @@ public class Administrador extends Empleado {
             switch(opcion){
                 case "1":
                     System.out.println("Ingrese nombre de la veterinaria: ");
-                    String nombre = sc.nextLine();
+                    nombre = sc.nextLine();
                     System.out.println("Ingrese número de contacto: ");
-                    String contacto = sc.nextLine();
+                    contacto = sc.nextLine();
                     System.out.println("Ingrese correo electrónico: ");
-                    String correo = sc.nextLine();
-                    veterinaria = new Veterinaria (nombre,contacto,correo);
+                    correo = sc.nextLine();
+                    veterinaria = new Veterinaria(nombre,contacto,correo);
                     fundacion.regisrarVeterinaria(veterinaria);
                     System.out.println("Registro exitoso");
                     condicion = false;
@@ -116,35 +125,79 @@ public class Administrador extends Empleado {
                     System.out.println("Opción no encontrada");
                     break;
             }
+        }
       
     }
     
-    //3 CONSULTA Y REGISTRO GASTO VETERINARIA (revisar animal)
+    //3 CONSULTA Y REGISTRO GASTO VETERINARIA (falta lo de enum)
+    
     public void consultaRegistroGastoVeterinaria(){
         System.out.println("¿Qué desea realizar?");
         System.out.println("1. Consultar gastos de atención médica");
         System.out.println("2. Registrar Gastos Médicos");
-        System.out.println("Ingrese 1 / 2 :");
-        String opcion = sc.nextLine();
+        Animal animal;  
         
-        if (opcion.equals("1")){
-            System.out.println("Ingrese fecha de atención (DD/MM/AA): ");
-            String fecha = sc.nextLine();
-            System.out.println("Ingrese nombre del animal atendido: ");
-            String animal = sc.nextLine();
-           
-       
-            System.out.println("Ingrese monto incurrido: ");
-            double monto = sc.nextDouble();
-            sc.nextLine();
-            /*
-            gastoVeterinaria = new GastoVeterinaria(animal,fecha,monto);*/
-        }else if(opcion.equals("2")){
-            fundacion.mostrarRegistroGastoVeterinaria();
-        }else{
-            System.out.println("Opción no encontrada");
+        boolean condicion = true;
+        while(condicion == true){
+            System.out.println("Ingrese 1 ó 2 :");
+            String opcion = sc.nextLine();
+            switch(opcion){
+                case "1":
+                    condicion = false;
+                    break;
+                case "2":
+                    System.out.println("Ingrese fecha de atencion dd/MM/aaaa:");
+                    LocalDate fechaAtencion = Fundacion.toLocalDate(sc.nextLine());
+                    System.out.println("Ingrese monto incurrido");
+                    double monto = sc.nextDouble();
+                    System.out.println("*** Registros de Datos del animal ***");
+                    String tipo;
+                    do{
+                        System.out.println("Ingrese un número de acuerdo al tipo de animal:\n1. Gato \n2. Perro");
+                        tipo = sc.nextLine();
+                        if (tipo.equals("1") || tipo.equals("2")){
+                            break;
+                        }else{
+                            System.out.println("Ingrese opcion válida");
+                        }
+                    }while (true);
+                    System.out.println("Ingrese nombre:");
+                    String nombre = sc.nextLine();
+                    System.out.println("Ingrese raza: ");
+                    String raza = sc.nextLine();
+                    System.out.println("Ingrese sexo: ");
+                    String sexo = sc.nextLine();
+                    System.out.println("Ingrese peso: ");
+                    double peso = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.println("Ingrese observaciones: ");
+                    String observaciones = sc.nextLine();
+                    System.out.println("Ingrese edad");
+                    int edad = sc.nextInt();
+                    switch(tipo){
+                        case "1":
+                            animal = new Gato(fechaAtencion, nombre, raza, sexo,  peso,  observaciones,  edad);
+                            fundacion.registroAnimal(animal);
+                            System.out.println("Registro de gasto médico exitoso");
+                            break;
+                        case "2":
+                            System.out.print("Ingrese tamaño del perro: ");
+                            String tam = sc.nextLine();
+                            Tamanio tamanio = Tamanio.valueOf(tam.toUpperCase());
+                            animal = new Perro(fechaAtencion, nombre, raza, sexo,  peso,  observaciones,  edad,tamanio);
+                            fundacion.registroAnimal(animal);
+                            System.out.println("Registro de gasto médico exitoso");
+                            break;
+                    }
+                    condicion = false;
+                    break;
+
+            }
         }
     }
+    
+    
+   
     /*
     public boolean equals(Object obj){
         if(obj!=null){

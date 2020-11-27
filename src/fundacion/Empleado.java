@@ -5,9 +5,8 @@
  */
 package fundacion;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 /**
  *
@@ -18,19 +17,19 @@ public class Empleado{
     private String direccion;
     private String numeroTelefono;
     private String correoElectronico;
-    private Date fechaInicio;
+    private LocalDate fechaInicio;
     private double sueldo;
     private String usuario;
     private String contrasena;
     protected Fundacion fundacion;
   
 
-    public Empleado(String nombre, String direccion, String numeroTelefono, String correoElectronico, String fechaInicio, double sueldo, String usuario, String contrasena){
+    public Empleado(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena){
         this.nombre = nombre;
         this.direccion = direccion;
         this.numeroTelefono = numeroTelefono;
         this.correoElectronico = correoElectronico;
-        this.fechaInicio = toDate(fechaInicio);
+        this.fechaInicio = fechaInicio;
         this.sueldo = sueldo;
         this.usuario = usuario;
         this.contrasena = contrasena;
@@ -62,7 +61,7 @@ public class Empleado{
         return correoElectronico;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
@@ -86,8 +85,8 @@ public class Empleado{
         this.correoElectronico = correoElectronico;
     }
 
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = toDate(fechaInicio);
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public void setSueldo(double sueldo) {
@@ -101,25 +100,8 @@ public class Empleado{
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    //metodo para convertir strings a fecha 
-    /*
-    public static Date toDate(String fecha)throws Exception{
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");  
-        Date fechaInicio = formatter1.parse(fecha);
-        return fechaInicio;
-    }*/
-    public static Date toDate(String dateInString){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date(0);
-        try {
-
-            date = formatter.parse(dateInString);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
+   
+   
     /*
     public boolean equals(Object obj){
         if(obj!=null){

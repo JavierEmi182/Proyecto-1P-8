@@ -5,8 +5,10 @@
  */
 package fundacion;
 
-import java.io.ObjectStreamConstants;
+
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 /**
  *
@@ -122,24 +124,41 @@ public class Fundacion {
         registroAdopciones.add(adop);
     }
     public void regisrarVeterinaria(Veterinaria vet){
-        registroVeterinaria.add(vet);
+        if (vet != null){
+            registroVeterinaria.add(vet);
+        }
     }
     public String mostrarRegistroVeterinarias(){
-        for (Veterinaria vet: registroVeterinaria){
+        if (registroVeterinaria.size()>0){
+            for (Veterinaria vet: registroVeterinaria){
             return vet.toString();
+            }
         }
         return null;
     }
+        
     public void registrarGastoVeterinaria(GastoVeterinaria gasto){
         registroGastosVeterinarios.add(gasto);
     }
+    
     public String mostrarRegistroGastoVeterinaria(){
-        for(GastoVeterinaria gasto: registroGastosVeterinarios){
-            return gasto.toString();
+        if (registroGastosVeterinarios.size()>0){
+            for(GastoVeterinaria gasto: registroGastosVeterinarios){
+                  return gasto.toString();
+            } 
         }
         return null;
+         
     }
     
+    public static LocalDate toLocalDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        //String date = "16/08/2016";
+        //convert String to LocalDate
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate ;
+    }
+
     
     public void validacionStrings(String x,String a,String b){
     do{
