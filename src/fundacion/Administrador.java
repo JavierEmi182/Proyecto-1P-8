@@ -129,20 +129,28 @@ public class Administrador extends Empleado {
       
     }
     
-    //3 CONSULTA Y REGISTRO GASTO VETERINARIA (falta lo de enum)
+    //3 CONSULTA Y REGISTRO GASTO VETERINARIA (terminada)
     
     public void consultaRegistroGastoVeterinaria(){
         System.out.println("¿Qué desea realizar?");
         System.out.println("1. Consultar gastos de atención médica");
         System.out.println("2. Registrar Gastos Médicos");
         Animal animal;  
-        
         boolean condicion = true;
         while(condicion == true){
             System.out.println("Ingrese 1 ó 2 :");
             String opcion = sc.nextLine();
             switch(opcion){
                 case "1":
+                    System.out.println("Ingrese código del animal que desea consultar: ");
+                    int codigo = sc.nextInt();
+                    sc.nextLine();
+                    Animal animalBuscado = fundacion.buscarAnimal(codigo);
+                    if(animalBuscado == null){
+                        System.out.println("Animal no existe");
+                    }else{
+                        System.out.println(fundacion.consultarGastoAnimal(animalBuscado));
+                    }
                     condicion = false;
                     break;
                 case "2":
@@ -174,6 +182,7 @@ public class Administrador extends Empleado {
                     String observaciones = sc.nextLine();
                     System.out.println("Ingrese edad");
                     int edad = sc.nextInt();
+                    sc.nextLine();
                     switch(tipo){
                         case "1":
                             animal = new Gato(fechaAtencion, nombre, raza, sexo,  peso,  observaciones,  edad);
@@ -181,9 +190,19 @@ public class Administrador extends Empleado {
                             System.out.println("Registro de gasto médico exitoso");
                             break;
                         case "2":
-                            System.out.print("Ingrese tamaño del perro: ");
-                            String tam = sc.nextLine();
-                            Tamanio tamanio = Tamanio.valueOf(tam.toUpperCase());
+                            String tam = "";
+                            Tamanio tamanio;
+                            do{
+                                System.out.print("Ingrese tamaño del perro: ");
+                                tam = sc.nextLine().toUpperCase();
+                                if (tam.equals("GRANDE")|| tam.equals("MEDIANO") || tam.equals("PEQUEÑO")){
+                                    tamanio = Tamanio.valueOf(tam);
+                                    break;
+                                }else{
+                                    System.out.println("Tamanio no identificado");
+                                }
+                            }while(true);
+   
                             animal = new Perro(fechaAtencion, nombre, raza, sexo,  peso,  observaciones,  edad,tamanio);
                             fundacion.registroAnimal(animal);
                             System.out.println("Registro de gasto médico exitoso");

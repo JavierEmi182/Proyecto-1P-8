@@ -10,6 +10,6 @@ package fundacion;
  * @author Javier
  */
 public enum Tamanio {
-    GRANDE, MEDIANO, PEQUEÑO
+    GRANDE,MEDIANO,PEQUEÑO
     
 }

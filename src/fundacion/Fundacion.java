@@ -84,6 +84,30 @@ public class Fundacion {
     
   
     
+    //metodo para buscar animal por su codigo
+    public Animal buscarAnimal(int codigo){
+        if (codigo >0){
+            for(Animal a : registroAnimales){
+                if (a.getCodigo() == codigo){
+                    return a;
+                }
+            }
+        }else{
+            System.out.println("Animal no encontrado");
+            
+        }return null;
+    }
+    //consultar gastos medicos de un animal
+    public String consultarGastoAnimal(Animal a ){
+        if (a!= null){
+            for(GastoVeterinaria g: registroGastosVeterinarios){
+                if(g.getAnimal().getCodigo() == a.getCodigo()){
+                    return g.toString();
+                }
+            }
+        }return null;
+    }
+    
 
 
     //metodo para validar credenciales al inicio del programa 
