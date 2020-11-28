@@ -184,18 +184,18 @@ public class Fundacion {
     }
 
     
-    public void validacionStrings(String x,String a,String b){
+    public String validacionStrings(String x,String a,String b){
     do{
        x = sc.nextLine();
     }while(!(x.toUpperCase().equals(a) || x.toUpperCase().equals(b)));
-    
+    return x;
     }
     
-     public void validacionStrings3(String x,String a,String b,String c){
+     public String validacionStrings3(String x,String a,String b,String c){
     do{
        x = sc.nextLine();
     }while(!(x.toUpperCase().equals(a) || x.toUpperCase().equals(b) || x.toUpperCase().equals(c)));
-    
+    return x;
     }
 }
     

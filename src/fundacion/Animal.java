@@ -26,8 +26,8 @@ public abstract class Animal {
     
     public Animal(){}
     
-    public Animal(LocalDate fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
-        this.fechaIngreso=fechaIngreso;
+    public Animal(String fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+        fechaIngreso = Fundacion.toLocalDate(fecha);
         this.nombre=nombre;
         this.raza=raza;
         this.sexo=sexo;
@@ -43,8 +43,8 @@ public abstract class Animal {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(LocalDate fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public void setFechaIngreso(String fecha) {
+       fechaIngreso = Fundacion.toLocalDate(fecha);;
     }
 
     public String getNombre() {

@@ -23,7 +23,7 @@ public class Proyecto1P8 {
         // Lineas para hacer pruebas
         Fundacion fundacion001 = new Fundacion();
         FundacionUI fundacion = new FundacionUI(fundacion001);
-        fundacion001.añadirEmpleado(new Funcionario("wasd", "wasd", "wasd", "wasd", null, 500, "wasd", "wasd"));
+        fundacion001.añadirEmpleado(new Funcionario(fundacion001,"wasd", "wasd", "wasd", "wasd", null, 500, "wasd", "wasd"));
         fundacion.presentarMenuPrincipal();
         //fundacion001.validarCredenciales("wasd", "wasd");
         //System.err.println(fundacion001.validarCredenciales("wasd", "wasd"));

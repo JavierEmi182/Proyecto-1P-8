@@ -15,7 +15,7 @@ public class Perro extends Animal{
     private Tamanio tamanio;
     
     //Constructores
-    public Perro(LocalDate fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad,Tamanio tamanio){
+    public Perro(String fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad,Tamanio tamanio){
         super(fechaIngreso, nombre,raza, sexo, peso, observaciones,edad);
         this.tamanio=tamanio;
     }

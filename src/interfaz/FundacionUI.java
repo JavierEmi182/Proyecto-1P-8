@@ -39,7 +39,8 @@ public class FundacionUI {
             if (fundacion.validarCredenciales(usuario, contraseña) == true){
                 for(Empleado emp : fundacion.getRegistroEmpleados()){
                     if (emp instanceof Funcionario){
-                            iniciarFuncionario();
+                        Funcionario fun = (Funcionario)emp;
+                            iniciarFuncionario(fun); 
                         }
                 break;
                 }
@@ -106,7 +107,7 @@ public class FundacionUI {
         System.out.println("7. Cerrar Sesión.");
     }
     
-    public void iniciarFuncionario(){
+    public void iniciarFuncionario(Funcionario funcionario){
         String entrada="";
         do{
             presentarMenuFuncionario();
@@ -122,11 +123,11 @@ public class FundacionUI {
                     break;
                 case "3":
                     //3. Registrar interesado adopción.
-                    
+                    funcionario.registrarInteresadoAdopcion();
                     break;
                 case "4":
                     //4. Registrar adopción.
-                    
+                    funcionario.registrarAdopcion();
                     break;
                 case "5":
                     //5. Consultar adopciones.
@@ -134,7 +135,7 @@ public class FundacionUI {
                     break;
                 case "6":
                     //6. Consultar adoptantes.
-                    
+                    funcionario.consultarRegistrados();
                     break;
                 case "7":
                     System.out.println("Adios");

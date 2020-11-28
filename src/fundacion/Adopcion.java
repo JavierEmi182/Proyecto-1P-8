@@ -5,6 +5,7 @@
  */
 package fundacion;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -12,24 +13,24 @@ import java.util.Date;
  * @author usuario
  */
 public class Adopcion {
-    private String fecha;
+    private LocalDate fechalocal;
     private int codigo=0;
     private Interesado adoptante;
     private  Animal animaAdoptado;
 
-    public Adopcion(String fecha, Interesado adoptante, Animal animaAdoptado) {
-        this.fecha = fecha;
+    public Adopcion (String fecha, Interesado adoptante, Animal animaAdoptado) {
+        fechalocal = Fundacion.toLocalDate(fecha);;
         this.codigo +=1;
         this.adoptante = adoptante;
         this.animaAdoptado = animaAdoptado;
     }
 
-    public String getFecha() {
-        return fecha;
+    public LocalDate getFecha() {
+        return fechalocal;
     }
 
     public void setFecha(String fecha) {
-        this.fecha = fecha;
+        fechalocal = Fundacion.toLocalDate(fecha);;
     }
 
     public int getCodigo() {
@@ -57,7 +58,7 @@ public class Adopcion {
     }
     @Override
     public String toString(){
-        return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fecha;
+        return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fechalocal;
 }
     public String correo(){
         return animaAdoptado.toString();

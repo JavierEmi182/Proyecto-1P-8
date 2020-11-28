@@ -24,7 +24,7 @@ public class Empleado{
     protected Fundacion fundacion;
   
 
-    public Empleado(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena){
+    public Empleado(Fundacion fundacion, String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena){
         this.nombre = nombre;
         this.direccion = direccion;
         this.numeroTelefono = numeroTelefono;
@@ -33,7 +33,7 @@ public class Empleado{
         this.sueldo = sueldo;
         this.usuario = usuario;
         this.contrasena = contrasena;
-        fundacion = new Fundacion();
+        this.fundacion = fundacion;
     }
     //GETTERS AND SETTERS
 

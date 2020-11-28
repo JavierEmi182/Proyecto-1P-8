@@ -19,17 +19,17 @@ import java.util.Scanner;
 
 public class Funcionario extends Empleado{
     
-    private Fundacion fundacion;
     private Animal animal;
     private Interesado interesado;
     private Scanner sc;
-    public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
-        super(nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
+    public Funcionario(Fundacion fundacion,String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
+        super(fundacion, nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
+       
     }
     
     public void registrarNuevoAnimal(){//COMPLETA
-        String tipo;
+        String tipo = null;
         do{
         System.out.println("*****Registro de animales*****"); 
         System.out.println("Es gato o perro ? ");
@@ -37,23 +37,22 @@ public class Funcionario extends Empleado{
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
         System.out.println("Ingrese fecha(DD/MM/YYYY): ");
         String fecha = sc.nextLine();
-        LocalDate fechalocal = Fundacion.toLocalDate(fecha);
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
         System.out.println("Raza: ");
         String raza = sc.nextLine();
         String sexo = null;
+        System.out.println("Ingrese sexo (MACHO O HEMABRA)");
+        sexo = fundacion.validacionStrings( sexo, "MACHO", "HEMBRA");
         
+        //Otra manera de hacerlo
         /*do{
         System.out.println("Sexo: ");
         sexo = sc.nextLine();
         }while(!(sexo.toUpperCase().equals("MACHO") || sexo.toUpperCase().equals("Hembra")));
         */
-        
-        // Falta probarla 
-        fundacion.validacionStrings( sexo, "MACHO", "HEMBRA");
-        
-        System.out.println("Peso: ");
+
+        System.out.println("Peso: (KG)");
         double peso = sc.nextDouble();
         sc.nextLine();
         System.out.println("Edad: ");
@@ -61,26 +60,29 @@ public class Funcionario extends Empleado{
         sc.nextLine();
         System.out.println("Observaciones: ");
         String observaciones  = sc.nextLine();
+        
+        //System.out.println(tipo+"     "+sexo);
 
         if(tipo.toUpperCase().equals("PERRO")){
             System.out.println("Ingrese tamaño: ");
             String tamanio = sc.nextLine();
             Tamanio x = Tamanio.valueOf(tamanio.toUpperCase());
-            fundacion.registroAnimal(new Perro(fechalocal, nombre, raza, sexo, peso, observaciones, edad, x));
+            fundacion.registroAnimal(new Perro(fecha, nombre, raza, sexo, peso, observaciones, edad, x));
         }
 
-        fundacion.registroAnimal(new Gato(fechalocal, nombre, raza, sexo, peso, observaciones, edad));
+        fundacion.registroAnimal(new Gato(fecha, nombre, raza, sexo, peso, observaciones, edad));
     }
         
     
     public void consultarAnimales(){
         System.out.println("*****Consultar Animales*****");
-        System.out.println("Ingrese tipo de Animal");
+        System.out.println("Ingrese tipo de Animal (GATO,PERRO O AMBOS)");
         String tipo = null;
-        fundacion.validacionStrings3(tipo, "GATO", "PERRO","TODO");
-        System.out.println("Ingrese sexo animal");
+        fundacion.validacionStrings3(tipo, "GATO", "PERRO","AMBOS");
+        System.out.println("Ingrese sexo animal (MACHO,HEMBRA,AMBOS)");
         String sexo = null;
-        fundacion.validacionStrings3(sexo, "MACHO","HEMBRA", "TODO");
+        fundacion.validacionStrings3(sexo, "MACHO","HEMBRA", "AMBOS");
+        
         System.out.println("Ingrese raza del Animal");
         String raza = sc.nextLine();
         
@@ -103,14 +105,21 @@ public class Funcionario extends Empleado{
         System.out.println("Ingrese Correo Electronico: ");
         String correo = sc.nextLine();
         System.out.println("*****Ingrese sus intereses*****");
-        System.out.println("Tipo: ");
+        System.out.println("Tipo de Animal: (GATO, PERRO, AMBOS)");
         String tipo = null;
-        fundacion.validacionStrings3(tipo, "GATO", "PERRO","TODO");
-        System.out.println("Ingrese sexo animal");
+        tipo = fundacion.validacionStrings3(tipo, "GATO", "PERRO","AMBOS");
+        System.out.println("Ingrese sexo animal (MACHO, HEMBRA, AMBOS)");
         String sexo = null;
-        fundacion.validacionStrings3(sexo, "MACHO","HEMBRA","TODO");
-        System.out.println("Ingrese raza del Animal");
-        String raza = sc.nextLine();
+        sexo = fundacion.validacionStrings3(sexo, "MACHO","HEMBRA","AMBOS");
+        String raza = "Ambas";
+        
+        //System.out.println(tipo+ "    " +sexo);
+        
+        if (!(tipo.toUpperCase().equals("AMBOS"))){
+            System.out.println("Ingrese raza del Animal");
+            raza = sc.nextLine();
+        }
+        
         
         
         fundacion.registarInteresados(new Interesado(nombre,id,direccion,telefono,correo,tipo,raza,sexo));
@@ -183,7 +192,7 @@ public class Funcionario extends Empleado{
         System.out.println("Desea actualizar sus datos ? ");
         String actualizacion = null;
         fundacion.validacionStrings(actualizacion, "SI", "NO");
-        if(actualizacion.equals("SI")){
+        if(actualizacion.toUpperCase().equals("SI")){
             System.out.println("Actualize Direccion: ");
             String direccion = sc.nextLine();
             interesado.setDireccion(direccion);
