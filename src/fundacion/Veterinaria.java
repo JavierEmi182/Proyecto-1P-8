@@ -15,7 +15,7 @@ public class Veterinaria {
     private String nombre;
     private String contacto;
     private String correo;
-    private ArrayList<CitaVeterinaria> citas;
+
     
     //CONSTRUCTORES
 
@@ -36,9 +36,7 @@ public class Veterinaria {
     public String getCorreo() {
         return correo;
     }
-    public ArrayList<CitaVeterinaria> getCitas(){
-        return citas;
-    }
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -51,9 +49,7 @@ public class Veterinaria {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public void setCitas(ArrayList<CitaVeterinaria> citas) {
-        this.citas = citas;
-    }
+  
 
     @Override
     public String toString() {

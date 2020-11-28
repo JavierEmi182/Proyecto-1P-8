@@ -21,10 +21,10 @@ public class Empleado{
     private double sueldo;
     private String usuario;
     private String contrasena;
-    protected Fundacion fundacion;
+    protected Fundacion fundacion ;
   
 
-    public Empleado(Fundacion fundacion, String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena){
+    public Empleado( String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena){
         this.nombre = nombre;
         this.direccion = direccion;
         this.numeroTelefono = numeroTelefono;
@@ -33,7 +33,7 @@ public class Empleado{
         this.sueldo = sueldo;
         this.usuario = usuario;
         this.contrasena = contrasena;
-        this.fundacion = fundacion;
+        
     }
     //GETTERS AND SETTERS
 

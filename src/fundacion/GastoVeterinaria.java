@@ -52,16 +52,7 @@ public class GastoVeterinaria {
         return "GastoVeterinaria" + "animal: " + animal + ", fecha: " + fecha + ", monto: " + monto ;
     }
     
-    public void montoTotal(ArrayList<Veterinaria> RegistroVeterinaria){
-        
-        for(Veterinaria v:RegistroVeterinaria){
-            ArrayList<CitaVeterinaria> ArrayCitas= v.getCitas();
-            for (CitaVeterinaria c:ArrayCitas){
-                double Costo=c.getPrecio();
-                monto+=Costo;
-            }
-        }
-    }
+
     
 
   

@@ -22,8 +22,8 @@ public class Funcionario extends Empleado{
     private Animal animal;
     private Interesado interesado;
     private Scanner sc;
-    public Funcionario(Fundacion fundacion,String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
-        super(fundacion, nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
+    public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
+        super( nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
        
     }
