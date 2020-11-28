@@ -9,6 +9,13 @@ import fundacion.Empleado;
 import fundacion.Funcionario;
 import fundacion.Persona;
 import fundacion.Fundacion;
+import fundacion.Adopcion;
+import fundacion.CitaVeterinaria;
+import fundacion.Interesado;
+import fundacion.Tamanio;
+import fundacion.Veterinaria;
+import fundacion.Administrador;
+import fundacion.JavaMailUtil;
 import java.util.Scanner;
 
 
@@ -18,11 +25,12 @@ import java.util.Scanner;
  */
 public class FundacionUI {
     private Scanner sc;
-    private Fundacion fundacion;
-    private Funcionario funcionario;
-    public FundacionUI(Fundacion fundacion){
+    static public Fundacion fundacionAmigosDeCuatroPatas;
+    //private Funcionario funcionario;
+    public FundacionUI(){
         sc= new Scanner(System.in);
-        this.fundacion=fundacion;
+        fundacionAmigosDeCuatroPatas=new Fundacion();
+        
     }
     
     ///aun a prueba, no se valida correctamente
@@ -36,8 +44,8 @@ public class FundacionUI {
             usuario=sc.nextLine();       
             System.out.println("Ingrese su contraseña:");
             contraseña=sc.nextLine();
-            if (fundacion.validarCredenciales(usuario, contraseña) == true){
-                for(Empleado emp : fundacion.getRegistroEmpleados()){
+            if (fundacionAmigosDeCuatroPatas.validarCredenciales(usuario, contraseña) == true){
+                for(Empleado emp : fundacionAmigosDeCuatroPatas.getRegistroEmpleados()){
                     if (emp instanceof Funcionario){
                         Funcionario fun = (Funcionario)emp;
                             iniciarFuncionario(fun); 

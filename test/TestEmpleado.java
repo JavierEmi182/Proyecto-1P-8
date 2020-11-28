@@ -23,7 +23,7 @@ public class TestEmpleado {
         Administrador a = new Administrador("Juan","Ecuador", "2255", "josse@gmail,com", date, 2000, "juan1", "123","225455");
         Fundacion f = new Fundacion();
         //f.añadirEmpleado(a);
-        FundacionUI F= new FundacionUI(f);
+        FundacionUI F= new FundacionUI();
         //F.presentarMenuPrincipal();
         
         //System.out.println(fundacion.getRegistroEmpleados().size());

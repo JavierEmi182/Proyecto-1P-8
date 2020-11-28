@@ -35,8 +35,8 @@ public class Funcionario extends Empleado{
         System.out.println("Es gato o perro ? ");
         tipo = sc.nextLine();
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
-        System.out.println("Ingrese fecha(DD/MM/YYYY): ");
-        String fecha = sc.nextLine();
+        System.out.println("Ingrese fecha(DD/MM/YYYY): ");       
+        LocalDate fecha = Fundacion.toLocalDate(sc.nextLine());
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
         System.out.println("Raza: ");

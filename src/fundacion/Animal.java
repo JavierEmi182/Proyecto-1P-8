@@ -21,13 +21,14 @@ public abstract class Animal {
     private String observaciones;
     private int edad;
     private int codigo = 0;
+    private static int codigostatic= 0000;
     
     //CONSTRUCTORES
     
     public Animal(){}
     
-    public Animal(String fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
-        fechaIngreso = Fundacion.toLocalDate(fecha);
+    public Animal(LocalDate fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+        this.fechaIngreso=fecha;
         this.nombre=nombre;
         this.raza=raza;
         this.sexo=sexo;
