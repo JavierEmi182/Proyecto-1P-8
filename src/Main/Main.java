@@ -8,7 +8,7 @@ package Main;
 import interfaz.FundacionUI;
 import fundacion.Administrador;
 import fundacion.Empleado;
-//import fundacion.Funcionario;
+import fundacion.Funcionario;
 
 import fundacion.Fundacion;
 import java.time.LocalDate;
@@ -28,20 +28,30 @@ public class Main {
         //jvadmin.registrarEmpleado();
         System.out.println(jvadmin);
         
-        interfaz.FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(jvadmin);
+        FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(jvadmin);
         
         FundacionUI fundui = new FundacionUI();
         fundui.presentarMenuPrincipal();
      
         // Lineas para hacer pruebas
         
-        //Fundacion fundacion001 = new Fundacion();
-        //FundacionUI fundacion = new FundacionUI(fundacion001);
-        //fundacion001.añadirEmpleado(new Funcionario(fundacion001,"wasd", "wasd", "wasd", "wasd", null, 500, "wasd", "wasd"));
-        //fundacion.presentarMenuPrincipal();
+        /*Fundacion fundacion001 = new Fundacion();
+        FundacionUI fundacion = new FundacionUI(fundacion001);
+        fundacion001.añadirEmpleado(new Funcionario(fundacion001,"wasd", "wasd", "wasd", "wasd", null, 500, "wasd", "wasd"));
+        fundacion.presentarMenuPrincipal();
         
-        //fundacion001.validarCredenciales("wasd", "wasd");
-        //System.err.println(fundacion001.validarCredenciales("wasd", "wasd"));
+        fundacion001.validarCredenciales("wasd", "wasd");
+        System.err.println(fundacion001.validarCredenciales("wasd", "wasd"));*/
+        
+        
+        
+        /*LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
+        Funcionario funcionario = new Funcionario("xyz" , "xyz", "xyz", "xyz", fecha, 777, "xyz", "xyz");
+        FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(funcionario);
+        FundacionUI fundacionUI = new FundacionUI();
+        fundacionUI.presentarMenuPrincipal();*/
+        
+        }
     }
     
-}
+

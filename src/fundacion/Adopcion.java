@@ -19,7 +19,7 @@ public class Adopcion {
     private  Animal animaAdoptado;
 
     public Adopcion (String fecha, Interesado adoptante, Animal animaAdoptado) {
-        fechalocal = Fundacion.toLocalDate(fecha);;
+        fechalocal = Fundacion.toLocalDate(fecha);
         this.codigo +=1;
         this.adoptante = adoptante;
         this.animaAdoptado = animaAdoptado;

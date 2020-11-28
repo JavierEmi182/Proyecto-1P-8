@@ -25,12 +25,10 @@ import java.util.Scanner;
  */
 public class FundacionUI {
     private Scanner sc;
-    static public Fundacion fundacionAmigosDeCuatroPatas;
+    public static Fundacion fundacionAmigosDeCuatroPatas = new Fundacion();
     //private Funcionario funcionario;
     public FundacionUI(){
-        sc= new Scanner(System.in);
-        fundacionAmigosDeCuatroPatas=new Fundacion();
-        
+        sc= new Scanner(System.in); 
     }
     
     ///aun a prueba, no se valida correctamente
