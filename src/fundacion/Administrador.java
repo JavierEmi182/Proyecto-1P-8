@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package fundacion;
+import interfaz.FundacionUI;
 import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;  
@@ -20,7 +21,6 @@ public class Administrador extends Empleado {
     
     //private Fundacion fundacion;
     
-    private GastoVeterinaria gastoVeterinaria;
  
     //Constructor
 /*
@@ -60,10 +60,10 @@ public class Administrador extends Empleado {
         String usuario = "";
         boolean opcionusuario = true;
         while(opcionusuario == true){
-            System.out.println("Ingrese usuario");
+            System.out.println("Ingrese usuario: ");
             usuario = sc.nextLine();
-            opcionusuario = fundacion.verificarUsuario(usuario);
-
+            opcionusuario = FundacionUI.fundacionAmigosDeCuatroPatas.verificarUsuario(usuario);
+            System.out.println("Usuario existente");
         }
         System.out.println("Ingrese contraseña: ");
         String contraseña = sc.nextLine();
@@ -79,16 +79,17 @@ public class Administrador extends Empleado {
             System.out.println("Ingrese cuenta bancaria del administrador: ");
             cuentaBancaria = sc.nextLine();
             empleado = new Administrador(nombre,direccion,telefono,correoElectronico,fechaInicio,sueldo,usuario,contraseña,cuentaBancaria);
-            fundacion.añadirEmpleado(empleado);
+            FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(empleado);
+            
             x=false;
         }else if (opcion.equals("no")) {
             empleado = new Funcionario(nombre,direccion,telefono,correoElectronico,fechaInicio,sueldo,usuario,contraseña);
-            fundacion.añadirEmpleado(empleado);
+            FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(empleado);
             x=false;
         }else{
             System.out.println("Respuesta no válida");
         }
-        }
+        }System.out.println("Empleado registrado exitosamente");
     }
     //2 CONSULTA Y REGISTRO DE VETERINARIAS(terminada )
     public void consultaRegistroVeterinaria(){
@@ -113,12 +114,12 @@ public class Administrador extends Empleado {
                     System.out.println("Ingrese correo electrónico: ");
                     correo = sc.nextLine();
                     veterinaria = new Veterinaria(nombre,contacto,correo);
-                    fundacion.regisrarVeterinaria(veterinaria);
+                    FundacionUI.fundacionAmigosDeCuatroPatas.regisrarVeterinaria(veterinaria);
                     System.out.println("Registro exitoso");
                     condicion = false;
                     break;
                 case "2":
-                    System.out.println(fundacion.mostrarRegistroVeterinarias());
+                    System.out.println(FundacionUI.fundacionAmigosDeCuatroPatas.mostrarRegistroVeterinarias());
                     condicion = false;
                     break;   
                 default:
@@ -145,11 +146,11 @@ public class Administrador extends Empleado {
                     System.out.println("Ingrese código del animal que desea consultar: ");
                     int codigo = sc.nextInt();
                     sc.nextLine();
-                    Animal animalBuscado = fundacion.buscarAnimal(codigo);
+                    Animal animalBuscado = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigo);
                     if(animalBuscado == null){
                         System.out.println("Animal no existe");
                     }else{
-                        System.out.println(fundacion.consultarGastoAnimal(animalBuscado));
+                        System.out.println(FundacionUI.fundacionAmigosDeCuatroPatas.consultarGastoAnimal(animalBuscado));
                     }
                     condicion = false;
                     break;
@@ -158,6 +159,7 @@ public class Administrador extends Empleado {
                     LocalDate fechaAtencion = Fundacion.toLocalDate(sc.nextLine());
                     System.out.println("Ingrese monto incurrido");
                     double monto = sc.nextDouble();
+                    sc.nextLine();
                     System.out.println("*** Registros de Datos del animal ***");
                     String tipo;
                     do{
@@ -186,7 +188,7 @@ public class Administrador extends Empleado {
                     switch(tipo){
                         case "1":
                             animal = new Gato(fechaAtencion, nombre, raza, sexo,  peso,  observaciones,  edad);
-                            fundacion.registroAnimal(animal);
+                            FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(animal);
                             System.out.println("Registro de gasto médico exitoso");
                             break;
                         case "2":
@@ -204,7 +206,7 @@ public class Administrador extends Empleado {
                             }while(true);
    
                             animal = new Perro(fechaAtencion, nombre, raza, sexo,  peso,  observaciones,  edad,tamanio);
-                            fundacion.registroAnimal(animal);
+                            FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(animal);
                             System.out.println("Registro de gasto médico exitoso");
                             break;
                     }
@@ -214,7 +216,17 @@ public class Administrador extends Empleado {
             }
         }
     }
-    
+    public double calcularPresupuestoMensual(){
+        double gastoAdministrativos = FundacionUI.fundacionAmigosDeCuatroPatas.calcularGastosAdministrativos();
+        double gastosPerro = FundacionUI.fundacionAmigosDeCuatroPatas.calcularGastosPerros();
+        double gastosGato = FundacionUI.fundacionAmigosDeCuatroPatas.calcularGastosGatos();
+        double gastoVeterinaria = FundacionUI.fundacionAmigosDeCuatroPatas.calcularGastosVeterinariosMes();
+        double total = gastoAdministrativos+gastosPerro+gastosGato+gastoVeterinaria;
+        System.out.println(" *** Presupuesto Mensual de la Fundacion ***");
+        System.out.println("Total de Gastos Administrativos: "+gastoAdministrativos+"\n"+"Total Gastos en Gatos: "+gastosGato+"\n"+"Total Gastos en Perro: "+gastosPerro+"\n"+"Total Gastos de Veterinaria del mes: "+gastoVeterinaria);
+        System.out.println("Estimado total: "+total);
+        return total;
+    }
     
    
     /*

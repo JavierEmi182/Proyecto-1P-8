@@ -111,16 +111,19 @@ public class Fundacion {
 
 
     //metodo para validar credenciales al inicio del programa 
-    public boolean validarCredenciales(String usuario1, String contraseña1){
-        boolean x = false;
-        for(Empleado empleado : registroEmpleados){
-           if(empleado.getUsuario().equals(usuario1)&& empleado.getContrasena().equals(contraseña1) ){
-               System.out.println("Credenciales válidas");
-               x = true;
-           }else{
-               System.out.println("Credenciales inválidas. Vuelva a ingresar."); 
-           } 
-        }return x;
+    public Empleado validarCredenciales(String usuario1, String contrasena1){
+        if ( usuario1!=null && contrasena1!=null){
+            for(Empleado empleado : registroEmpleados){
+               if(empleado.getUsuario().equals(usuario1) && empleado.getContrasena().equals(contrasena1) ){
+                   System.out.println("Credenciales válidas");
+                   return empleado;          
+               }else{
+                   System.out.println("Credenciales inválidas. Vuelva a ingresar.");
+                   return null;
+               } 
+            }
+        }  
+        return null;
     }
     //metodo para ver si existen usuarios repetidos al momento que el administrador los crea
     public boolean verificarUsuario(String usuario){
@@ -174,6 +177,58 @@ public class Fundacion {
         return null;
          
     }
+    public double calcularGastosAdministrativos(){
+        double monto = 0;
+        if(registroEmpleados.size()>0){
+            for(Empleado e: registroEmpleados){
+            monto += e.getSueldo();
+            }
+        }
+        return monto+150;
+    }
+    
+    public double calcularGastosPerros(){
+        double monto =0;
+        if(registroAnimales.size()>0){
+            for(Animal a : registroAnimales){
+                if(a instanceof Perro){
+                    monto+=a.calcularCostoMes();
+                }
+            }
+        }
+            
+        return monto;
+    }
+    public double calcularGastosGatos(){
+        double monto=0;
+        if(registroAnimales.size()>0){
+            for(Animal a : registroAnimales){
+                if(a instanceof Gato){
+                    monto+=a.calcularCostoMes();
+                }
+            }
+        }
+        return monto;
+    }
+    
+    public double calcularGastosVeterinariosMes(){
+        String mesConsulta= LocalDate.now().getMonth().toString();
+        String mes = "";
+        double monto=0;
+        if(registroGastosVeterinarios.size()>0){
+            for(GastoVeterinaria g: registroGastosVeterinarios){
+                 mes=g.getFecha().getMonth().toString();
+                 if(mesConsulta.equals(mes)){
+                     monto+= g.getMonto();
+                 }
+            }
+        }
+        return monto;
+    }
+    
+    
+    
+    
     
     public static LocalDate toLocalDate(String date){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");

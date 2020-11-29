@@ -25,7 +25,8 @@ public class TestAnimal {
         
       //convert String to LocalDate
         LocalDate localDate = LocalDate.parse(date, formatter);
-        Animal a = new Gato(localDate, "misifu", "no se", "hembra", 25.2, "Gato sano", 25);
+        Animal av = new Gato(localDate, "misifu", "no se", "hembra", 25.2, "Gato sano", 25);
+        
     
     
 }

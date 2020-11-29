@@ -39,12 +39,13 @@ public class TestEmpleado {
         String date1 = "16/08/2016";
         LocalDate localDate = LocalDate.parse(date1, formatter);
         Animal ab= new Gato(localDate, "misifu", "no se", "hembra", 25.2, "Gato sano", 25);
-        f.registroAnimal(ab);
-        System.out.println(f.buscarAnimal(ab.getCodigo()));
+        //f.registroAnimal(ab);
+        //System.out.println(f.buscarAnimal(ab.getCodigo()));
        // System.out.println(f.buscarAnimal(2));
-       GastoVeterinaria v = new GastoVeterinaria(ab, localDate, 857);
-       f.registrarGastoVeterinaria(v);
-       System.out.println(f.consultarGastoAnimal(ab));
+       //GastoVeterinaria v = new GastoVeterinaria(ab, localDate, 857);
+       //f.registrarGastoVeterinaria(v);
+       //System.out.println(f.consultarGastoAnimal(ab));
+       ab.calcularCostoMes();
     }
         
 }

@@ -6,7 +6,7 @@
 package fundacion;
 
 import java.time.LocalDate;
-
+import interfaz.FundacionUI;
 
 /**
  *
@@ -21,7 +21,7 @@ public class Empleado{
     private double sueldo;
     private String usuario;
     private String contrasena;
-    protected Fundacion fundacion ;
+   
   
 
     public Empleado( String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena){

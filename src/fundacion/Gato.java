@@ -22,14 +22,13 @@ public class Gato extends Animal{
     public double calcularCostoMes(){
         double costoKilo;
         double kilosMes=2.5;
-        int edad=getEdad();
+        int edad= getEdad();
         double costoFinal=0;
         if (edad<8){
             costoKilo=3;
             costoFinal=costoKilo*kilosMes;
             return costoFinal;
         }
-        
         else{
             costoKilo=5;
             costoFinal=costoKilo*kilosMes;

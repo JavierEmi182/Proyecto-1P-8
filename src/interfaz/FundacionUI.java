@@ -36,25 +36,24 @@ public class FundacionUI {
     public void presentarMenuPrincipal(){
         String usuario="";
         String contraseña= "";
-        System.out.println("*****Bienvenido***** ");
+        System.out.println("***** Bienvenido ***** ");
+        Empleado empleado = null;
         do{
             System.out.println("Ingrese su usuario:");
             usuario=sc.nextLine();       
             System.out.println("Ingrese su contraseña:");
             contraseña=sc.nextLine();
-            if (fundacionAmigosDeCuatroPatas.validarCredenciales(usuario, contraseña) == true){
-                for(Empleado emp : fundacionAmigosDeCuatroPatas.getRegistroEmpleados()){
-                    if (emp instanceof Funcionario){
-                        Funcionario fun = (Funcionario)emp;
-                            iniciarFuncionario(fun); 
-                        }
-                break;
-                }
-            }
-        }while(true);
-        
+            empleado = fundacionAmigosDeCuatroPatas.validarCredenciales(usuario, contraseña);
+        }while(empleado == null);
+        if (empleado instanceof Administrador){
+            iniciarAdministrador();
+        }else{
+            iniciarFuncionario();
+            
         }
+    }
     
+        
     public void presentarMenuAdministrador(){
         System.out.println("Bienvenido");
         System.out.println("1. Registrar Empleados.");
@@ -73,7 +72,7 @@ public class FundacionUI {
             switch(entrada){
                 case "1":
                     //1. Registrar Empleados.
-                    
+                 
                     break;
                 case "2":
                     //2. Consultar y registrar Veterinarias.
@@ -113,7 +112,7 @@ public class FundacionUI {
         System.out.println("7. Cerrar Sesión.");
     }
     
-    public void iniciarFuncionario(Funcionario funcionario){
+    public void iniciarFuncionario(){
         String entrada="";
         do{
             presentarMenuFuncionario();
@@ -122,18 +121,18 @@ public class FundacionUI {
             switch(entrada){
                 case "1":
                     //1. Registrar nuevo animal.
-                    funcionario.registrarNuevoAnimal();
+                   // funcionario.registrarNuevoAnimal();
                     break;
                 case "2":
                     //2. Consultar animales en la fundación
                     break;
                 case "3":
                     //3. Registrar interesado adopción.
-                    funcionario.registrarInteresadoAdopcion();
+                  //  funcionario.registrarInteresadoAdopcion();
                     break;
                 case "4":
                     //4. Registrar adopción.
-                    funcionario.registrarAdopcion();
+                   // funcionario.registrarAdopcion();
                     break;
                 case "5":
                     //5. Consultar adopciones.
@@ -141,7 +140,7 @@ public class FundacionUI {
                     break;
                 case "6":
                     //6. Consultar adoptantes.
-                    funcionario.consultarRegistrados();
+                  //  funcionario.consultarRegistrados();
                     break;
                 case "7":
                     System.out.println("Adios");
