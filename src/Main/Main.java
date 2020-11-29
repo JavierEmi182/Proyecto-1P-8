@@ -23,7 +23,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LocalDate date=Fundacion.toLocalDate("21/07/2020");
+        /*LocalDate date=Fundacion.toLocalDate("21/07/2020");
         Administrador jvadmin= new Administrador( "Javier Vergara" , "via a la costa", "0999999999", "javier@prueba.com", date , 350.00 , "Javier182" , "abc123", "123456789");
         //jvadmin.registrarEmpleado();
         System.out.println(jvadmin);
@@ -31,7 +31,7 @@ public class Main {
         FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(jvadmin);
         
         FundacionUI fundui = new FundacionUI();
-        fundui.presentarMenuPrincipal();
+        fundui.presentarMenuPrincipal();*/
      
         // Lineas para hacer pruebas
         
@@ -45,11 +45,11 @@ public class Main {
         
         
         
-        /*LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
+        LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
         Funcionario funcionario = new Funcionario("xyz" , "xyz", "xyz", "xyz", fecha, 777, "xyz", "xyz");
         FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(funcionario);
         FundacionUI fundacionUI = new FundacionUI();
-        fundacionUI.presentarMenuPrincipal();*/
+        fundacionUI.presentarMenuPrincipal();
         
         }
     }

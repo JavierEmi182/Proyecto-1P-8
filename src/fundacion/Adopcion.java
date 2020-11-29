@@ -12,14 +12,14 @@ import java.util.Date;
  *
  * @author usuario
  */
-public class Adopcion {
+public class Adopcion implements Comparable<Adopcion>{
     private LocalDate fechalocal;
     private int codigo=0;
     private Interesado adoptante;
     private  Animal animaAdoptado;
 
-    public Adopcion (String fecha, Interesado adoptante, Animal animaAdoptado) {
-        fechalocal = Fundacion.toLocalDate(fecha);
+    public Adopcion (LocalDate fecha, Interesado adoptante, Animal animaAdoptado) {
+        fechalocal = fecha;
         this.codigo +=1;
         this.adoptante = adoptante;
         this.animaAdoptado = animaAdoptado;
@@ -63,4 +63,9 @@ public class Adopcion {
     public String correo(){
         return animaAdoptado.toString();
     }
+
+    @Override
+    public int compareTo(Adopcion t) {
+        return fechalocal.compareTo(t.getFecha());
+        }
 }

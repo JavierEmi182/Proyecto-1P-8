@@ -48,7 +48,8 @@ public class FundacionUI {
         if (empleado instanceof Administrador){
             iniciarAdministrador();
         }else{
-            iniciarFuncionario();
+            Funcionario funcionario = (Funcionario)empleado;
+            iniciarFuncionario(funcionario);
             
         }
     }
@@ -112,7 +113,7 @@ public class FundacionUI {
         System.out.println("7. Cerrar Sesión.");
     }
     
-    public void iniciarFuncionario(){
+    public void iniciarFuncionario(Funcionario funcionario){
         String entrada="";
         do{
             presentarMenuFuncionario();
@@ -121,26 +122,27 @@ public class FundacionUI {
             switch(entrada){
                 case "1":
                     //1. Registrar nuevo animal.
-                   // funcionario.registrarNuevoAnimal();
+                    funcionario.registrarNuevoAnimal();
                     break;
                 case "2":
                     //2. Consultar animales en la fundación
+                    funcionario.consultarAnimales();
                     break;
                 case "3":
                     //3. Registrar interesado adopción.
-                  //  funcionario.registrarInteresadoAdopcion();
+                    funcionario.registrarInteresadoAdopcion();
                     break;
                 case "4":
                     //4. Registrar adopción.
-                   // funcionario.registrarAdopcion();
+                    funcionario.registrarAdopcion();
                     break;
                 case "5":
                     //5. Consultar adopciones.
-                    
+                    funcionario.consultarAdopciones();
                     break;
                 case "6":
                     //6. Consultar adoptantes.
-                  //  funcionario.consultarRegistrados();
+                    funcionario.consultarRegistrados();
                     break;
                 case "7":
                     System.out.println("Adios");
