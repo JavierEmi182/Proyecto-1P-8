@@ -35,7 +35,7 @@ public abstract class Animal implements Comparable <Animal>{
         this.peso=peso;
         this.observaciones=observaciones;
         this.edad=edad;
-        this.codigostatic+=1;
+        //this.codigostatic+=1;
     }
     
     //Setters and getters
@@ -43,9 +43,9 @@ public abstract class Animal implements Comparable <Animal>{
         return codigostatic;
     }
     
-    /*public void setCodigoStatico(int y){
+    public void setCodigoStatico(int y){
         Animal.codigostatic=y;
-    }*/
+    }
 
     public LocalDate getFechaIngreso() {
         return fechaIngreso;
@@ -116,7 +116,7 @@ public abstract class Animal implements Comparable <Animal>{
     @Override
     public String toString(){
         
-        //setCodigoStatico(codigostatic+1);
+        setCodigoStatico(codigostatic+1);
         return " Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"\n Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
                 +getObservaciones()+"\n Codigo: "+getCodigoStatico();

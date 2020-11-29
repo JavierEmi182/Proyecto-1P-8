@@ -46,7 +46,7 @@ public class Main {
         
         
         LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
-        Funcionario funcionario = new Funcionario("xyz" , "xyz", "xyz", "xyz", fecha, 777, "xyz", "xyz");
+        Funcionario funcionario = new Funcionario("wasd" , "wasd", "wasd", "wasd", fecha, 777, "wasd", "wasd");
         FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(funcionario);
         FundacionUI fundacionUI = new FundacionUI();
         fundacionUI.presentarMenuPrincipal();

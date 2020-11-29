@@ -80,11 +80,11 @@ public class Funcionario extends Empleado{
     public void consultarAnimales(){
         System.out.println("*****Consultar Animales*****");
         System.out.println("Ingrese tipo de Animal (GATO,PERRO O AMBOS)");
-        String tipo = "";
-        FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3(tipo, "GATO", "PERRO","AMBOS");
+        String tipo =  null;
+        tipo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3(tipo, "GATO", "PERRO","AMBOS");
         System.out.println("Ingrese sexo animal (MACHO,HEMBRA,AMBOS)");
         String sexo = null;
-        FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3(sexo, "MACHO","HEMBRA", "AMBOS");
+        sexo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3(sexo, "MACHO","HEMBRA", "AMBOS");
         
         String raza = "TODAS";
         if (!(tipo.toUpperCase().equals("AMBOS"))){
@@ -120,10 +120,14 @@ public class Funcionario extends Empleado{
                     Perro perro = (Perro)animal;
                     if (sexo.toUpperCase().equals(perro.getSexo())){
                         System.out.println(perro.toString());
+                    }else if(sexo.toUpperCase().equals("AMBOS")){
+                        System.out.println(perro.toString());
                     }
             }else if(tipo.toUpperCase().equals("AMBOS") && animal instanceof Gato) {
                     Gato gato = (Gato)animal;
                     if (sexo.toUpperCase().equals(gato.getSexo())){
+                        System.out.println(gato.toString());
+                    }else if(sexo.toUpperCase().equals("AMBOS")){
                         System.out.println(gato.toString());
                     }            
             }
