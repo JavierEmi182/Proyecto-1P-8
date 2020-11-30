@@ -35,6 +35,18 @@ public class Empleado{
         this.contrasena = contrasena;
         
     }
+    
+    public Empleado( String nombre, String direccion, String numeroTelefono, String correoElectronico, double sueldo, String usuario, String contrasena){
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.numeroTelefono = numeroTelefono;
+        this.correoElectronico = correoElectronico;
+        this.fechaInicio = LocalDate.now();
+        this.sueldo = sueldo;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        
+    }
     //GETTERS AND SETTERS
 
     public String getUsuario() {

@@ -20,13 +20,14 @@ public abstract class Animal implements Comparable <Animal>{
     private String observaciones;
     private int edad;
     private int codigo;
+    private static int codigostatic = 0000;
     
     
     //CONSTRUCTORES
     
     public Animal(){}
     
-    public Animal(int codigo,LocalDate fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+    public Animal(LocalDate fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
         this.fechaIngreso=fecha;
         this.nombre=nombre;
         this.raza=raza;
@@ -34,7 +35,20 @@ public abstract class Animal implements Comparable <Animal>{
         this.peso=peso;
         this.observaciones=observaciones;
         this.edad=edad;
-        this.codigo=codigo;
+        codigostatic+=1;
+        this.codigo=codigostatic;
+    }
+    
+    public Animal(String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+        this.fechaIngreso=LocalDate.now();
+        this.nombre=nombre;
+        this.raza=raza;
+        this.sexo=sexo;
+        this.peso=peso;
+        this.observaciones=observaciones;
+        this.edad=edad;
+        codigostatic+=1;
+        this.codigo=codigostatic;
     }
     
     //Setters and getters
