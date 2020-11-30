@@ -5,7 +5,6 @@
  */
 package fundacion;
 
-import java.util.Date;
 import java.time.LocalDate;
 
 /**
@@ -20,14 +19,14 @@ public abstract class Animal implements Comparable <Animal>{
     private double peso;
     private String observaciones;
     private int edad;
-    private int codigo = 0;
-    private static int codigostatic = 0;
+    private int codigo;
+    
     
     //CONSTRUCTORES
     
     public Animal(){}
     
-    public Animal(LocalDate fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
+    public Animal(int codigo,LocalDate fecha, String nombre, String raza, String sexo, double peso, String observaciones, int edad){
         this.fechaIngreso=fecha;
         this.nombre=nombre;
         this.raza=raza;
@@ -35,17 +34,10 @@ public abstract class Animal implements Comparable <Animal>{
         this.peso=peso;
         this.observaciones=observaciones;
         this.edad=edad;
-        //this.codigostatic+=1;
+        this.codigo=codigo;
     }
     
     //Setters and getters
-    public static int getCodigoStatico(){
-        return codigostatic;
-    }
-    
-    public void setCodigoStatico(int y){
-        Animal.codigostatic=y;
-    }
 
     public LocalDate getFechaIngreso() {
         return fechaIngreso;
@@ -116,10 +108,10 @@ public abstract class Animal implements Comparable <Animal>{
     @Override
     public String toString(){
         
-        setCodigoStatico(codigostatic+1);
+        
         return " Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"\n Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
-                +getObservaciones()+"\n Codigo: "+getCodigoStatico();
+                +getObservaciones()+"\n Codigo: "+getCodigo();
     }
     
      @Override

@@ -14,13 +14,13 @@ import java.util.Date;
  */
 public class Adopcion implements Comparable<Adopcion>{
     private LocalDate fechalocal;
-    private int codigo=0;
+    private int codigo;
     private Interesado adoptante;
     private  Animal animaAdoptado;
 
-    public Adopcion (LocalDate fecha, Interesado adoptante, Animal animaAdoptado) {
+    public Adopcion (int codigo, LocalDate fecha, Interesado adoptante, Animal animaAdoptado) {
         fechalocal = fecha;
-        this.codigo +=1;
+        this.codigo = codigo;
         this.adoptante = adoptante;
         this.animaAdoptado = animaAdoptado;
     }
@@ -58,7 +58,8 @@ public class Adopcion implements Comparable<Adopcion>{
     }
     @Override
     public String toString(){
-        return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fechalocal;
+        return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fechalocal
+                +"Codigo: "+ getCodigo();
 }
     public String correo(){
         return animaAdoptado.toString();

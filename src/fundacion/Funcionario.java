@@ -22,11 +22,31 @@ public class Funcionario extends Empleado{
     
     private Animal animal;
     private Interesado interesado;
+    public static int codigoanimal = 0;
+    public static int codigoadoptante = 0;
+    private int codigoanim;
+    private int codigoadop;
     private Scanner sc;
     public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
         super( nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
-       
+    }
+
+    public static int getCodigoadoptante() {
+        return codigoadoptante;
+    }
+
+    public static void setCodigoadoptante(int codigoadoptante) {
+        Funcionario.codigoadoptante = codigoadoptante;
+    }
+    
+
+    public static int getCodigoanimal() {
+        return codigoanimal;
+    }
+
+    public static void setCodigoanimal(int codigoanimal) {
+        Funcionario.codigoanimal = codigoanimal;
     }
     
     public void registrarNuevoAnimal(){//COMPLETA
@@ -62,15 +82,17 @@ public class Funcionario extends Empleado{
         System.out.println("Observaciones: ");
         String observaciones  = sc.nextLine();
         
+        setCodigoanimal(codigoanimal+1);
+        codigoanim = getCodigoanimal();
         //System.out.println(tipo+"     "+sexo);
 
         if(tipo.toUpperCase().equals("PERRO")){
             System.out.println("Ingrese tamaño: ");
             String tamanio = sc.nextLine();
             Tamanio x = Tamanio.valueOf(tamanio.toUpperCase());
-            FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro(fecha, nombre, raza, sexo, peso, observaciones, edad, x));
+            FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro(codigoanim, fecha, nombre, raza, sexo, peso, observaciones, edad, x));
         }else{
-           FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Gato(fecha, nombre, raza, sexo, peso, observaciones, edad));  
+           FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Gato(codigoanim,fecha, nombre, raza, sexo, peso, observaciones, edad));  
         }
 
         
@@ -188,12 +210,14 @@ public class Funcionario extends Empleado{
         System.out.println("Codigo No Existe");
         }
         interesado = null;
+        setCodigoanimal(codigoadoptante+1);
+        codigoadop = getCodigoadoptante();
         
         for(Interesado i : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados()){
             if(i.getId().equals(id)){
                 System.out.println(i.toString());
                 interesado = i;
-                FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(fecha, interesado, animal));
+                FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(codigoadop, fecha, interesado, animal));
             }
         }
         if(interesado == null){    

@@ -13,8 +13,8 @@ import java.time.LocalDate;
  */
 public class Gato extends Animal{
     //Constructores
-    public Gato(LocalDate fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad){
-        super(fechaIngreso, nombre,raza, sexo, peso, observaciones,edad);
+    public Gato(int codigo, LocalDate fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad){
+        super(codigo, fechaIngreso, nombre,raza, sexo, peso, observaciones,edad);
     }
     
     //Metodos
