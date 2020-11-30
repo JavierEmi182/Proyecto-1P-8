@@ -115,9 +115,9 @@ public class Funcionario extends Empleado{
         }
        
         Collections.sort(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales(),Collections.reverseOrder());
-        for(Animal animal : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
-            if(tipo.toUpperCase().equals("PERRO") && animal instanceof Perro){
-                Perro perro = (Perro)animal;
+        for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
+            if(tipo.toUpperCase().equals("PERRO") && ani instanceof Perro){
+                Perro perro = (Perro)ani;
                 if (sexo.toUpperCase().equals(perro.getSexo())){
                     if(raza.toUpperCase().equals(perro.getRaza())){
                         System.out.println(perro.toString());
@@ -127,8 +127,8 @@ public class Funcionario extends Empleado{
                         System.out.println(perro.toString());
                     }
                 }
-            }else if(tipo.toUpperCase().equals("GATO") && animal instanceof Gato){
-                Gato gato = (Gato)animal;
+            }else if(tipo.toUpperCase().equals("GATO") && ani instanceof Gato){
+                Gato gato = (Gato)ani;
                 if (sexo.toUpperCase().equals(gato.getSexo())){
                     if(raza.toUpperCase().equals(gato.getRaza())){
                         System.out.println(gato.toString());
@@ -138,15 +138,15 @@ public class Funcionario extends Empleado{
                         System.out.println(gato.toString());
                     }
                 }
-            }else if(tipo.toUpperCase().equals("AMBOS") && animal instanceof Perro) {
-                    Perro perro = (Perro)animal;
+            }else if(tipo.toUpperCase().equals("AMBOS") && ani instanceof Perro) {
+                    Perro perro = (Perro)ani;
                     if (sexo.toUpperCase().equals(perro.getSexo())){
                         System.out.println(perro.toString());
                     }else if(sexo.toUpperCase().equals("AMBOS")){
                         System.out.println(perro.toString());
                     }
-            }else if(tipo.toUpperCase().equals("AMBOS") && animal instanceof Gato) {
-                    Gato gato = (Gato)animal;
+            }else if(tipo.toUpperCase().equals("AMBOS") && ani instanceof Gato) {
+                    Gato gato = (Gato)ani;
                     if (sexo.toUpperCase().equals(gato.getSexo())){
                         System.out.println(gato.toString());
                     }else if(sexo.toUpperCase().equals("AMBOS")){

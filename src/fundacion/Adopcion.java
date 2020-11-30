@@ -37,10 +37,6 @@ public class Adopcion implements Comparable<Adopcion>{
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
     public Interesado getAdoptante() {
         return adoptante;
     }
