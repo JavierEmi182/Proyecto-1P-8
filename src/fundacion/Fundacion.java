@@ -127,28 +127,40 @@ public class Fundacion {
     }
     //metodo para ver si existen usuarios repetidos al momento que el administrador los crea
     public boolean verificarUsuario(String usuario){
-        for(Empleado e: registroEmpleados){
+        if(usuario !=null){
+            for(Empleado e: registroEmpleados){
             if(e.getUsuario().equals(usuario)){
                 return true;  
             }
             
-        }return false;
+        }
+        }
+        return false;
     }
-    //metodo para añadir empleado 
+ 
     public void añadirEmpleado(Empleado p){
-        registroEmpleados.add(p);
+        if (p!=null){
+            registroEmpleados.add(p);
+        }
     }
     
     public void registroAnimal(Animal a){
-        registroAnimales.add(a);
+        if(a!=null){
+           registroAnimales.add(a);
+        }
     }
     
     public void registarInteresados(Interesado inte){
-        registroInteresados.add(inte);
+        if (inte !=null){
+          registroInteresados.add(inte);     
+        } 
+     
     }
     
     public void registrarAdopciones(Adopcion adop){
-        registroAdopciones.add(adop);
+        if (adop !=null){
+            registroAdopciones.add(adop);
+        }
     }
     public void regisrarVeterinaria(Veterinaria vet){
         if (vet != null){
@@ -161,7 +173,7 @@ public class Fundacion {
             return vet.toString();
             }
         }
-        return null;
+        return "No hay Registros de Veterinarias por mostrar ";
     }
         
     public void registrarGastoVeterinaria(GastoVeterinaria gasto){
@@ -174,7 +186,7 @@ public class Fundacion {
                   return gasto.toString();
             } 
         }
-        return null;
+        return "No hay registros de Gastos de Veterinaria para mostrar";
          
     }
     public double calcularGastosAdministrativos(){
@@ -225,8 +237,47 @@ public class Fundacion {
         }
         return monto;
     }
-    
-    
+    /*
+    public Interesado enviarMailInteresados(){
+        for(Interesado interesado: registroInteresados){
+            for(Animal animal:registroAnimales){
+                if(interesado.getRaza().equals(animal.getRaza())&& interesado.getSexo().equals(animal.getSexo())){
+                    return interesado;
+                }
+            }
+            
+        }
+    }*/
+    public static boolean isNumeric(String string) {
+    if (string == null || string.isEmpty()) {
+        return false;
+    }
+    int i = 0;
+    int stringLength = string.length();
+    if (string.charAt(0) == '-') {
+        if (stringLength > 1) {
+            i++;
+        } else {
+            return false;
+        }
+    }
+    if (!Character.isDigit(string.charAt(i))
+            || !Character.isDigit(string.charAt(stringLength - 1))) {
+        return false;
+    }
+    i++;
+    stringLength--;
+    if (i >= stringLength) {
+        return true;
+    }
+    for (; i < stringLength; i++) {
+        if (!Character.isDigit(string.charAt(i))
+                && string.charAt(i) != '.') {
+            return false;
+        }
+    }
+    return true;
+}
     
     
     
@@ -237,6 +288,8 @@ public class Fundacion {
         LocalDate localDate = LocalDate.parse(date, formatter);
         return localDate ;
     }
+    
+  
 
     
     public String validacionStrings(String x,String a,String b){

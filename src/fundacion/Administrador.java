@@ -19,17 +19,6 @@ public class Administrador extends Empleado {
     private Scanner sc;
     private String cuentaBancaria;
     
-    //private Fundacion fundacion;
-    
- 
-    //Constructor
-/*
-    public Administrador(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena,String cuentaBancaria){
-        super(nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
-        this.cuentaBancaria = cuentaBancaria;
-        sc = new Scanner(System.in);
-      //  fundacion= new Fundacion();
-    }*/
 
     public Administrador( String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena, String cuentaBancaria) {
         super(nombre,direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
@@ -51,8 +40,7 @@ public class Administrador extends Empleado {
         String telefono = sc.nextLine();
         System.out.println("Ingrese correo electrónico: ");
         String correoElectronico = sc.nextLine();
-        System.out.println("Ingrese la fecha(formato dd/MM/aa) en que el empleado empieza a trabajar:");
-        LocalDate fechaInicio = Fundacion.toLocalDate(sc.nextLine());
+        LocalDate fechaInicio = LocalDate.now();
         System.out.println("Ingrese el sueldo: ");
         double sueldo = sc.nextDouble();
         sc.nextLine();
@@ -143,20 +131,23 @@ public class Administrador extends Empleado {
             String opcion = sc.nextLine();
             switch(opcion){
                 case "1":
-                    System.out.println("Ingrese código del animal que desea consultar: ");
-                    int codigo = sc.nextInt();
-                    sc.nextLine();
-                    Animal animalBuscado = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigo);
-                    if(animalBuscado == null){
-                        System.out.println("Animal no existe");
-                    }else{
+                    do{
+                        System.out.println("Ingrese código del animal que desea consultar: ");
+                        int codigo = sc.nextInt();
+                        sc.nextLine();
+                        Animal animalBuscado = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigo);
+                        if(animalBuscado == null){
+                        System.out.println("No se ha encontrado animal con ese código");  
+                        }else{
                         System.out.println(FundacionUI.fundacionAmigosDeCuatroPatas.consultarGastoAnimal(animalBuscado));
-                    }
+                        break;
+                        
+                        }
+                    }while(true);
                     condicion = false;
                     break;
                 case "2":
-                    System.out.println("Ingrese fecha de atencion dd/MM/aaaa:");
-                    LocalDate fechaAtencion = Fundacion.toLocalDate(sc.nextLine());
+                    LocalDate fechaAtencion = LocalDate.now();
                     System.out.println("Ingrese monto incurrido");
                     double monto = sc.nextDouble();
                     sc.nextLine();
@@ -228,16 +219,6 @@ public class Administrador extends Empleado {
         return total;
     }
     
-   
-    /*
-    public boolean equals(Object obj){
-        if(obj!=null){
-            if(obj instanceof Administrador){
-                Administrador c = (Administrador)obj;
-                return c.getUsuario().equals(c.getUsuario());
-            }
-        }
-        return false;
-    }*/
     
+   
 }

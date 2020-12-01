@@ -21,6 +21,7 @@ public class TestEmpleado {
     public static void main(String args[]){
         LocalDate date = Fundacion.toLocalDate("25/12/2020");
         Administrador a = new Administrador("Juan","Ecuador", "2255", "josse@gmail,com", date, 2000, "juan1", "123","225455");
+        
         Fundacion f = new Fundacion();
         //f.añadirEmpleado(a);
         FundacionUI F= new FundacionUI();

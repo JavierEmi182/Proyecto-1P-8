@@ -112,18 +112,18 @@ public class Empleado{
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-   
-   
-    /*
-    public boolean equals(Object obj){
-        if(obj!=null){
-            if(obj instanceof Empleado){
-                Empleado c = (Empleado)obj;
-                return c.usuario.equals(usuario);
+    
+    public boolean eguals(Object o){
+        if (o!=null){
+            if(o instanceof Empleado){
+                Empleado other =(Empleado)o;
+                if (usuario.equals(other.usuario)&& contrasena.equals(other.contrasena)){
+                    return true;
+                }
             }
-        }
-        return false;
-    }*/
+        }return false;
+    }
+   
     
     
     

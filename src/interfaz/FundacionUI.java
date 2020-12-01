@@ -10,12 +10,13 @@ import fundacion.Funcionario;
 import fundacion.Persona;
 import fundacion.Fundacion;
 import fundacion.Adopcion;
-import fundacion.CitaVeterinaria;
+
 import fundacion.Interesado;
 import fundacion.Tamanio;
 import fundacion.Veterinaria;
 import fundacion.Administrador;
 import fundacion.JavaMailUtil;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 
@@ -30,6 +31,15 @@ public class FundacionUI {
     public FundacionUI(){
         sc= new Scanner(System.in); 
     }
+    // para inicializar
+    public void inicializarSistema(){
+         Empleado administrador = new Administrador ("Juan Leon","Av. de las Américas", "0961212788", "juanleon@gmail.com", LocalDate.now(), 1000, "juanleon123", "J000","123789654"); 
+         fundacionAmigosDeCuatroPatas.añadirEmpleado(administrador);
+         Empleado funcionario = new Funcionario ("Maria Alonso","Urdesa","0963547802","mariap@gmail.com",LocalDate.now(),600,"maria123","M000");
+         fundacionAmigosDeCuatroPatas.añadirEmpleado(funcionario);
+    }
+    
+    
     
     ///aun a prueba, no se valida correctamente
     // Hay que poner en los contructores this.fundacion = fundacion . NO inicializarlo (fundacion = New Fundacion)
@@ -46,7 +56,8 @@ public class FundacionUI {
             empleado = fundacionAmigosDeCuatroPatas.validarCredenciales(usuario, contraseña);
         }while(empleado == null);
         if (empleado instanceof Administrador){
-            iniciarAdministrador();
+            Administrador administrador = (Administrador)empleado;
+            iniciarAdministrador(administrador);
         }else{
             Funcionario funcionario = (Funcionario)empleado;
             iniciarFuncionario(funcionario);
@@ -64,7 +75,7 @@ public class FundacionUI {
         System.out.println("5. Enviar correos a interesados.");
         System.out.println("6. Cerrar Sesión.");
     }
-    public void iniciarAdministrador(){
+    public void iniciarAdministrador(Administrador administrador){
         String entrada="";
         do{
             presentarMenuAdministrador();
@@ -73,18 +84,19 @@ public class FundacionUI {
             switch(entrada){
                 case "1":
                     //1. Registrar Empleados.
-                 
+                    administrador.registrarEmpleado();
                     break;
                 case "2":
                     //2. Consultar y registrar Veterinarias.
+                    administrador.consultaRegistroVeterinaria();
                     break;
                 case "3":
                     //3. Consultar y registrar Gastos Veterinaria.
-                    
+                    administrador.consultaRegistroGastoVeterinaria();
                     break;
                 case "4":
                     //4. Calcular presupuesto Mensual.
-                    
+                    administrador.calcularPresupuestoMensual();
                     break;
                 case "5":
                     //5. Enviar correos a interesados.
