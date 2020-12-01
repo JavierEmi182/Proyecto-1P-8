@@ -11,7 +11,7 @@ import java.time.LocalDate;
  *
  * @author Javier
  */
-public abstract class Animal implements Comparable <Animal>{
+public abstract class Animal{
     private LocalDate fechaIngreso;
     private String nombre;
     private String raza;
@@ -20,7 +20,7 @@ public abstract class Animal implements Comparable <Animal>{
     private String observaciones;
     private int edad;
     private int codigo;
-    private static int codigostatic = 0000;
+    private static int codigostatic = 0;
     
     
     //CONSTRUCTORES
@@ -120,17 +120,10 @@ public abstract class Animal implements Comparable <Animal>{
             
     
     @Override
-    public String toString(){
-        
-        
+    public String toString(){ 
         return " Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"\n Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
                 +getObservaciones()+"\n Codigo: "+getCodigo();
-    }
-    
-     @Override
-    public int compareTo(Animal t) {
-        return fechaIngreso.compareTo(t.getFechaIngreso());
     }
     
 }

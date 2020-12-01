@@ -87,7 +87,7 @@ public class Perro extends Animal{
 }
     @Override
     public String toString(){
-        return " Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"\n Raza: "+getRaza()
+        return "\n*****PERRO*****\n"+" Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"\n Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
                 +getObservaciones()+"Tamaño: "+getTamanio()+"\n Codigo: "+getCodigo();
     }

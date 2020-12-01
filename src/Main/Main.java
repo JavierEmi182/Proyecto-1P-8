@@ -11,6 +11,9 @@ import fundacion.Empleado;
 import fundacion.Funcionario;
 
 import fundacion.Fundacion;
+import fundacion.Gato;
+import fundacion.Perro;
+import fundacion.Tamanio;
 import java.time.LocalDate;
 /**
  *
@@ -49,6 +52,9 @@ public class Main {
         Funcionario funcionario = new Funcionario("wasd" , "wasd", "wasd", "wasd", fecha, 777, "wasd", "wasd");
         FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(funcionario);
         FundacionUI fundacionUI = new FundacionUI();
+        FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro("wasd", "wasd", "MACHO", 5, "", 5, Tamanio.GRANDE));
+        FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro("XYZ", "wasd", "MACHO", 5, "", 5, Tamanio.GRANDE));
+        FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Gato("XYZ", "wasd", "MACHO", 5, "", 5));
         fundacionUI.presentarMenuPrincipal();
         
         }

@@ -6,23 +6,24 @@
 package fundacion;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *
  * @author usuario
  */
-public class Adopcion implements Comparable<Adopcion>{
+public class Adopcion {
     private LocalDate fechalocal;
-    private int codigo;
     private Interesado adoptante;
     private  Animal animaAdoptado;
+    private int codigo;
+    private static int codigostaticadopcion = 0;
 
-    public Adopcion (int codigo, LocalDate fecha, Interesado adoptante, Animal animaAdoptado) {
-        fechalocal = fecha;
-        this.codigo = codigo;
+    public Adopcion (Interesado adoptante, Animal animaAdoptado) {
+        fechalocal = LocalDate.now();
         this.adoptante = adoptante;
         this.animaAdoptado = animaAdoptado;
+        codigostaticadopcion+=1;
+        this.codigo=codigostaticadopcion;
     }
 
     public LocalDate getFecha() {
@@ -31,10 +32,6 @@ public class Adopcion implements Comparable<Adopcion>{
 
     public void setFecha(String fecha) {
         fechalocal = Fundacion.toLocalDate(fecha);;
-    }
-
-    public int getCodigo() {
-        return codigo;
     }
 
     public Interesado getAdoptante() {
@@ -52,17 +49,18 @@ public class Adopcion implements Comparable<Adopcion>{
     public void setAnimaAdoptado(Animal animaAdoptado) {
         this.animaAdoptado = animaAdoptado;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
     @Override
     public String toString(){
         return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fechalocal
-                +"Codigo: "+ getCodigo();
+                +"Codigo: "+getCodigo();
 }
     public String correo(){
         return animaAdoptado.toString();
     }
 
-    @Override
-    public int compareTo(Adopcion t) {
-        return fechalocal.compareTo(t.getFecha());
-        }
 }

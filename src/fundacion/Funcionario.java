@@ -7,9 +7,7 @@ package fundacion;
 
 
 import interfaz.FundacionUI;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -20,33 +18,14 @@ import java.util.Scanner;
 
 public class Funcionario extends Empleado{
     
+    //AUXILIARES 
     private Animal animal;
     private Interesado interesado;
-    public static int codigoanimal = 0;
-    public static int codigoadoptante = 0;
-    private int codigoanim;
-    private int codigoadop;
     private Scanner sc;
+    
     public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
         super( nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
-    }
-
-    public static int getCodigoadoptante() {
-        return codigoadoptante;
-    }
-
-    public static void setCodigoadoptante(int codigoadoptante) {
-        Funcionario.codigoadoptante = codigoadoptante;
-    }
-    
-
-    public static int getCodigoanimal() {
-        return codigoanimal;
-    }
-
-    public static void setCodigoanimal(int codigoanimal) {
-        Funcionario.codigoanimal = codigoanimal;
     }
     
     public void registrarNuevoAnimal(){//COMPLETA
@@ -56,8 +35,6 @@ public class Funcionario extends Empleado{
         System.out.println("Es gato o perro ? ");
         tipo = sc.nextLine();
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
-        System.out.println("Ingrese fecha(DD/MM/YYYY): ");       
-        LocalDate fecha = Fundacion.toLocalDate(sc.nextLine());
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
         System.out.println("Raza: ");
@@ -82,17 +59,16 @@ public class Funcionario extends Empleado{
         System.out.println("Observaciones: ");
         String observaciones  = sc.nextLine();
         
-        setCodigoanimal(codigoanimal+1);
-        codigoanim = getCodigoanimal();
         //System.out.println(tipo+"     "+sexo);
 
         if(tipo.toUpperCase().equals("PERRO")){
             System.out.println("Ingrese tamaño: ");
-            String tamanio = sc.nextLine();
+            String tamanio = "";
+            tamanio = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3( tamanio, "GRANDE", "MEDIANO", "PEQUEÑO");
             Tamanio x = Tamanio.valueOf(tamanio.toUpperCase());
-            FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro(codigoanim, fecha, nombre, raza, sexo, peso, observaciones, edad, x));
+            FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro(nombre, raza, sexo, peso, observaciones, edad, x));
         }else{
-           FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Gato(codigoanim,fecha, nombre, raza, sexo, peso, observaciones, edad));  
+           FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Gato(nombre, raza, sexo, peso, observaciones, edad));  
         }
 
         
@@ -113,9 +89,10 @@ public class Funcionario extends Empleado{
             System.out.println("Ingrese raza del Animal");
             raza = sc.nextLine();
         }
-       
-        Collections.sort(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales(),Collections.reverseOrder());
-        for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
+
+        Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales());
+        
+        for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){ 
             if(tipo.toUpperCase().equals("PERRO") && ani instanceof Perro){
                 Perro perro = (Perro)ani;
                 if (sexo.toUpperCase().equals(perro.getSexo())){
@@ -197,8 +174,6 @@ public class Funcionario extends Empleado{
         System.out.println("Ingrese ID de la persona");
         String id = sc.nextLine();
         animal= null;
-        System.out.println("Ingrese fecha (DD/MM/YYYY)");;
-        LocalDate fecha = Fundacion.toLocalDate(sc.nextLine());
         
         for(Animal a :FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
             if (a.getCodigo()==codigo){
@@ -210,14 +185,12 @@ public class Funcionario extends Empleado{
         System.out.println("Codigo No Existe");
         }
         interesado = null;
-        setCodigoanimal(codigoadoptante+1);
-        codigoadop = getCodigoadoptante();
-        
+
         for(Interesado i : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados()){
             if(i.getId().equals(id)){
                 System.out.println(i.toString());
                 interesado = i;
-                FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(codigoadop, fecha, interesado, animal));
+                FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(interesado, animal));
             }
         }
         if(interesado == null){    
@@ -229,7 +202,7 @@ public class Funcionario extends Empleado{
     
     public void consultarAdopciones(){
         System.out.println("*****Consultar Adopciones*****");
-         Collections.sort(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones(),Collections.reverseOrder());
+        Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones());
         for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
         
         }
