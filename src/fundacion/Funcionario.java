@@ -24,11 +24,18 @@ public class Funcionario extends Empleado{
     private Interesado interesado;
     private Scanner sc;
     
+    //Constructores
     public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
         super( nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
     }
     
+    public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, double sueldo, String usuario, String contrasena) {
+        super( nombre, direccion, numeroTelefono, correoElectronico, sueldo, usuario, contrasena);
+        sc = new Scanner(System.in);
+    }
+    
+    //Metodos
     public void registrarNuevoAnimal(){//COMPLETA
         String tipo = null;
         do{

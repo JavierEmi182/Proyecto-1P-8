@@ -19,12 +19,18 @@ public class Administrador extends Empleado {
     private Scanner sc;
     private String cuentaBancaria;
     
-
+    //Constructores
+    
     public Administrador( String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena, String cuentaBancaria) {
         super(nombre,direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
         this.cuentaBancaria = cuentaBancaria;
        
+    }
+    public Administrador( String nombre, String direccion, String numeroTelefono, String correoElectronico, double sueldo, String usuario, String contrasena, String cuentaBancaria) {
+        super(nombre,direccion, numeroTelefono, correoElectronico, sueldo, usuario, contrasena);   
+        sc = new Scanner(System.in);
+        this.cuentaBancaria = cuentaBancaria;       
     }
     
     

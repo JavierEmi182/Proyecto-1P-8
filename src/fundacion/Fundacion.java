@@ -81,7 +81,7 @@ public class Fundacion {
     public void setRegistroVeterinaria(ArrayList<Veterinaria> registroVeterinaria) {
         this.registroVeterinaria = registroVeterinaria;
     }
-    
+    //
   
     
     //metodo para buscar animal por su codigo

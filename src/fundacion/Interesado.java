@@ -15,14 +15,17 @@ public class Interesado extends Persona{
     private String tipo;
     private String raza;
     private String sexo;
+    private ArrayList<Animal> listaAdoptados;
     
+    //Constructores
     public Interesado(String nombre, String id, String direccion, String numerTelefono, String correoElectronico, String tipo,String raza,String sexo){
          super(nombre, id, direccion, numerTelefono, correoElectronico);
          this.tipo=tipo;
          this.raza=raza;
          this.sexo=sexo;
     }
-
+    
+    //Getters and Setters
     public String getTipo() {
         return tipo;
     }
@@ -47,10 +50,17 @@ public class Interesado extends Persona{
         this.sexo = sexo;
     }
     
+    //Metodos
+    public void agregarAdopcion(Animal a){
+        if (a.equals(null)){
+            listaAdoptados.add(a);
+        }       
+    }
+    
     @Override
     public String toString(){
-        return "nombre: "+getNombre()+"id: "+getId()+"direccion: "+getDireccion()
-                +"telefono: "+getNumeroTelefono()+"correo: "+getCorreoElectronico()
-                +"\nPrefererncias\n"+"tipo: "+ tipo+"raza: "+raza+"sexo: "+sexo;
+        return "Nombre: "+getNombre()+", ID: "+getId()+"\n Direccion: "+getDireccion()
+                +", Telefono: "+getNumeroTelefono()+"\n Correo: "+getCorreoElectronico()
+                +"\nPreferencias\n"+"Tipo: "+ tipo+", Raza: "+raza+", Sexo: "+sexo;
     }
 }
