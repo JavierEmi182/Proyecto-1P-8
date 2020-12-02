@@ -7,6 +7,7 @@ package fundacion;
 
 
 import interfaz.FundacionUI;
+import java.io.IOException;
 import java.util.Collections;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -92,7 +93,7 @@ public class Funcionario extends Empleado{
 
         Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales());
         
-        for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){ 
+        for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
             if(tipo.toUpperCase().equals("PERRO") && ani instanceof Perro){
                 Perro perro = (Perro)ani;
                 if (sexo.toUpperCase().equals(perro.getSexo())){
@@ -166,7 +167,7 @@ public class Funcionario extends Empleado{
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(new Interesado(nombre,id,direccion,telefono,correo,tipo,raza,sexo));
     }
     
-    public void registrarAdopcion(){//COMPLETA
+    public void registrarAdopcion() throws IOException{//COMPLETA
         System.out.println("*****Registrar Adopcion*****");
         System.out.println("Ingrese codigo del animal");
         int codigo = sc.nextInt();
@@ -189,8 +190,10 @@ public class Funcionario extends Empleado{
         for(Interesado i : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados()){
             if(i.getId().equals(id)){
                 System.out.println(i.toString());
-                interesado = i;
+                 interesado = i;
                 FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(interesado, animal));
+                JavaMailUtil.SendMail(interesado.getCorreoElectronico(), animal.toString());
+                FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales().remove(animal);
             }
         }
         if(interesado == null){    
@@ -219,7 +222,7 @@ public class Funcionario extends Empleado{
                 }
             }
         }
-    }
+    }       
     public void consultarRegistrados(){
         System.out.println("Ingrese ID: ");
         String id = sc.nextLine();

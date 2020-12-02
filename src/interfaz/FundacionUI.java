@@ -16,6 +16,7 @@ import fundacion.Tamanio;
 import fundacion.Veterinaria;
 import fundacion.Administrador;
 import fundacion.JavaMailUtil;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -43,7 +44,7 @@ public class FundacionUI {
     
     ///aun a prueba, no se valida correctamente
     // Hay que poner en los contructores this.fundacion = fundacion . NO inicializarlo (fundacion = New Fundacion)
-    public void presentarMenuPrincipal(){
+    public void presentarMenuPrincipal() throws IOException{
         String usuario="";
         String contraseña= "";
         System.out.println("***** Bienvenido ***** ");
@@ -125,7 +126,7 @@ public class FundacionUI {
         System.out.println("7. Cerrar Sesión.");
     }
     
-    public void iniciarFuncionario(Funcionario funcionario){
+    public void iniciarFuncionario(Funcionario funcionario) throws IOException{
         String entrada="";
         do{
             presentarMenuFuncionario();

@@ -14,6 +14,7 @@ import fundacion.Fundacion;
 import fundacion.Gato;
 import fundacion.Perro;
 import fundacion.Tamanio;
+import java.io.IOException;
 import java.time.LocalDate;
 /**
  *
@@ -24,7 +25,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         /*LocalDate date=Fundacion.toLocalDate("21/07/2020");
         Administrador jvadmin= new Administrador( "Javier Vergara" , "via a la costa", "0999999999", "javier@prueba.com", date , 350.00 , "Javier182" , "abc123", "123456789");
