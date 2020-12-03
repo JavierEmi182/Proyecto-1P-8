@@ -89,6 +89,6 @@ public class Perro extends Animal{
     public String toString(){
         return "\n*****PERRO*****\n"+" Fecha de ingreso: "+getFechaIngreso()+", Nombre: "+getNombre()+"\n Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
-                +getObservaciones()+", Tamaño: "+getTamanio()+"\n Codigo: "+getCodigo();
+                +getObservaciones()+", Tamaño: "+getTamanio()+"\n Codigo del Animal: "+getCodigo();
     }
 }

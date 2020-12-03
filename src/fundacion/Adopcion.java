@@ -12,26 +12,26 @@ import java.time.LocalDate;
  * @author usuario
  */
 public class Adopcion {
-    private LocalDate fechalocal;
+    private LocalDate fechaAdopcion;
     private Interesado adoptante;
-    private  Animal animaAdoptado;
+    private  Animal animalAdoptado;
     private int codigo;
     private static int codigostaticadopcion = 0;
 
     public Adopcion (Interesado adoptante, Animal animaAdoptado) {
-        fechalocal = LocalDate.now();
+        fechaAdopcion = LocalDate.now();
         this.adoptante = adoptante;
-        this.animaAdoptado = animaAdoptado;
+        this.animalAdoptado = animaAdoptado;
         codigostaticadopcion+=1;
         this.codigo=codigostaticadopcion;
     }
 
     public LocalDate getFecha() {
-        return fechalocal;
+        return fechaAdopcion;
     }
 
     public void setFecha(String fecha) {
-        fechalocal = Fundacion.toLocalDate(fecha);;
+        fechaAdopcion = Fundacion.toLocalDate(fecha);;
     }
 
     public Interesado getAdoptante() {
@@ -43,11 +43,11 @@ public class Adopcion {
     }
 
     public Animal getAnimaAdoptado() {
-        return animaAdoptado;
+        return animalAdoptado;
     }
 
     public void setAnimaAdoptado(Animal animaAdoptado) {
-        this.animaAdoptado = animaAdoptado;
+        this.animalAdoptado = animaAdoptado;
     }
 
     public int getCodigo() {
@@ -56,11 +56,9 @@ public class Adopcion {
 
     @Override
     public String toString(){
-        return "tipo: "+ adoptante.getTipo()+"raza: "+adoptante.getRaza()+"sexo: "+adoptante.getSexo()+"fecha : "+fechalocal
-                +"Codigo: "+getCodigo();
+        return "Fecha de la adopcion: "+ getFecha()+"\n ***ADOPTANTE*** \n: "+adoptante.presentarInfo()+"\n ***ANIMAL***\n: "+animalAdoptado.toString()+
+                "\n Codigo de la adopción: "+getCodigo();
 }
-    public String correo(){
-        return animaAdoptado.toString();
-    }
+    
 
 }

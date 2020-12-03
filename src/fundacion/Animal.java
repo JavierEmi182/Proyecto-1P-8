@@ -123,7 +123,7 @@ public abstract class Animal{
     public String toString(){ 
         return " Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"\n Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
-                +getObservaciones()+"\n Codigo: "+getCodigo();
+                +getObservaciones()+"\n Codigo del Animal: "+getCodigo();
     }
     
 }
