@@ -65,7 +65,7 @@ public class Interesado extends Persona{
     }
     
     public String presentarInfo(){
-        return "Nombre: "+getNombre()+", ID: "+getId()+"\n Direccion: "+getDireccion()
-                +", Telefono: "+getNumeroTelefono()+"\n Correo: "+getCorreoElectronico();
+        return "Nombre: "+getNombre()+", ID: "+getId()+"<br> Direccion: "+getDireccion()
+                +", Telefono: "+getNumeroTelefono()+"<br> Correo: "+getCorreoElectronico();
     }
 }

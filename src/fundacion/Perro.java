@@ -91,4 +91,10 @@ public class Perro extends Animal{
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
                 +getObservaciones()+", Tamaño: "+getTamanio()+"\n Codigo del Animal: "+getCodigo();
     }
+    
+    public String toCorreo(){
+        return "<br> <b> *****PERRO*****</b> <br>"+" Fecha de ingreso: "+getFechaIngreso()+", Nombre: "+getNombre()+"<br> Raza: "+getRaza()
+                +", Sexo: "+getSexo()+"<br> Peso: "+getPeso()+", Edad: "+getEdad()+"<br> Observaciones: "
+                +getObservaciones()+", Tamaño: "+getTamanio()+"<br> Codigo del Animal: "+getCodigo();
+    }
 }

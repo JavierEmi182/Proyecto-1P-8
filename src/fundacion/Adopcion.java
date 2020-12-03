@@ -59,6 +59,11 @@ public class Adopcion {
         return "Fecha de la adopcion: "+ getFecha()+"\n ***ADOPTANTE*** \n: "+adoptante.presentarInfo()+"\n ***ANIMAL***\n: "+animalAdoptado.toString()+
                 "\n Codigo de la adopción: "+getCodigo();
 }
+    public String toCorreo(){
+        return "Fecha de la adopcion: "+ getFecha()+"<br> <b> ***ADOPTANTE***</b> <br> "+adoptante.presentarInfo()
+                +"<br> <b> ***ANIMAL***</b> <br>: "+animalAdoptado.toString()+
+                "<br> Codigo de la adopción: "+getCodigo();
+}
     
 
 }
