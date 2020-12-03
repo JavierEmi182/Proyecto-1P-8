@@ -92,7 +92,7 @@ public class Funcionario extends Empleado{
         
         String raza = "TODAS";
         if (!(tipo.toUpperCase().equals("AMBOS"))){
-            System.out.println("Ingrese raza del Animal");
+            System.out.println("Ingrese raza del Animal (Si desea mostrar todas: TODAS)");
             raza = sc.nextLine();
         }
 

@@ -15,6 +15,7 @@ import fundacion.Interesado;
 import fundacion.Tamanio;
 import fundacion.Veterinaria;
 import fundacion.Administrador;
+import fundacion.GastoVeterinaria;
 import fundacion.Gato;
 import fundacion.JavaMailUtil;
 import fundacion.Perro;
@@ -37,10 +38,23 @@ public class FundacionUI {
     // para inicializar
     public void inicializarSistema(){
         LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
+        
+        //Admins
         Empleado administrador = new Administrador ("Juan Leon","Av. de las Américas", "0961212788", "juanleon@gmail.com", LocalDate.now(), 1000, "juanleon123", "J000","123789654"); 
         fundacionAmigosDeCuatroPatas.añadirEmpleado(administrador);
+        Administrador admin1 = new Administrador("Stove Jeebs","Cupertino, California, US","(408)606-5775","stovejeebs@hotmail.com",fecha,300,"StoveJ","Apple", "1234567890");
+        FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(admin1);
+        //Usuario: juanleon123  contraseña: J000
+        //Usuario: StoveJ  contraseña: Apple
+        
+        
+        //Funcionario
         Empleado funcionario = new Funcionario ("Maria Alonso","Urdesa","0963547802","mariap@gmail.com",LocalDate.now(),600,"maria123","M000");
         fundacionAmigosDeCuatroPatas.añadirEmpleado(funcionario);
+        Funcionario func1 = new Funcionario("Bill Puertas","Lake Washington","(206)709-3400","billpuertas@hotmail.com",fecha, 700,"Bpuertas","Money");
+        FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(func1);
+        //Usuario: maria123  contraseña: M000
+        //Usuario: Bpuertas  contraseña: Money 
          
          //Perros y Gatos
         Perro perro1 = new Perro(fecha, "Kira", "Mestizo", "Hembra", 27,"Tiene cuatro patas, dos ojos",1, Tamanio.MEDIANO);
@@ -53,7 +67,6 @@ public class FundacionUI {
         Gato gato3 = new Gato(fecha, "Arya","Angora","Hembra",6,"Es blanco con negro",4);
         Gato gato4 = new Gato(fecha, "Macarena","Mestizo","Hembra",3.5,"Parece hitler",3);
         
-        //Registrar Perros y Gatos
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro1);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro2);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro3);
@@ -71,6 +84,14 @@ public class FundacionUI {
         //Adopciones
         Adopcion adop1 = new Adopcion(interesado1,perro4);
         FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(adop1);
+        
+        //Veterinaria
+        Veterinaria vet1 = new Veterinaria("Pet Health","0987654321","pethealth@hotmail.com");
+        FundacionUI.fundacionAmigosDeCuatroPatas.regisrarVeterinaria(vet1);
+        
+        //GatoVeterinaria
+        GastoVeterinaria gastVet1 = new GastoVeterinaria(perro1,fecha, 200,vet1);
+        FundacionUI.fundacionAmigosDeCuatroPatas.registrarGastoVeterinaria(gastVet1);
     }
     
     

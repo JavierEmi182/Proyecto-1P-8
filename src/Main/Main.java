@@ -57,13 +57,13 @@ public class Main {
         //Constructor Administrador
         //String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, 
         //double sueldo, String usuario, String contrasena, String cuentaBancaria
-        LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
-        Administrador admin1 = new Administrador("Stove Jeebs","Cupertino, California, US","(408)606-5775","stovejeebs@hotmail.com",fecha,300,"StoveJ","Apple", "1234567890");
-        FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(admin1);
+        //LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
+        //Administrador admin1 = new Administrador("Stove Jeebs","Cupertino, California, US","(408)606-5775","stovejeebs@hotmail.com",fecha,300,"StoveJ","Apple", "1234567890");
+        //FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(admin1);
         //Usuario StoveJ   Contraseña Apple
-        Funcionario func1 = new Funcionario("Bill Puertas","Lake Washington","(206)709-3400","billpuertas@hotmail.com",fecha, 700,"Bpuertas","Money");
-        FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(func1);
-        System.out.println(func1);
+        //Funcionario func1 = new Funcionario("Bill Puertas","Lake Washington","(206)709-3400","billpuertas@hotmail.com",fecha, 700,"Bpuertas","Money");
+        //FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(func1);
+        //System.out.println(func1);
         //Usuario BPuertas   Constraseña Money
         
         //Constructor Perro
@@ -113,6 +113,7 @@ public class Main {
         //FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro("wasd", "wasd", "MACHO", 5, "", 5, Tamanio.GRANDE));
         //FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro("XYZ", "wasd", "MACHO", 5, "", 5, Tamanio.GRANDE));
         //FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Gato("XYZ", "wasd", "MACHO", 5, "", 5));
+        fundacionUI.inicializarSistema();
         fundacionUI.presentarMenuPrincipal();
         
         }
