@@ -53,7 +53,7 @@ public class Perro extends Animal{
                     kilosMes=6;
                     costoFinal=(costoKilo*kilosMes)+costoPaseos;
                     break;
-                case PEQUEÑO:
+                case PEQUENIO:
                     costoKilo=5;
                     kilosMes=4;
                     costoFinal=(costoKilo*kilosMes)+costoPaseos;

@@ -59,7 +59,7 @@ public class FundacionUI {
          //Perros y Gatos
         Perro perro1 = new Perro(fecha, "Kira", "Mestizo", "Hembra", 27,"Tiene cuatro patas, dos ojos",1, Tamanio.MEDIANO);
         Perro perro2 = new Perro(fecha, "Dustin", "Pastor Aleman", "Macho", 36,"Pastor de pelo largo y bastante docil",7, Tamanio.GRANDE);
-        Perro perro3 = new Perro(fecha, "Jack", "Fox Terrier", "Macho", 7,"Cariñoso pero temperamentar con otros perros",2, Tamanio.PEQUEÑO);
+        Perro perro3 = new Perro(fecha, "Jack", "Fox Terrier", "Macho", 7,"Cariñoso pero temperamentar con otros perros",2, Tamanio.PEQUENIO);
         Perro perro4 = new Perro(fecha, "Tom", "Golden Retriever", "Macho", 27,"Muy cariñoso y jugueton, educado",3, Tamanio.GRANDE);
         
         Gato gato1 = new Gato(fecha, "Nilo","Mestizo","Macho",5.5,"Es gris con blanco",6);
@@ -70,6 +70,7 @@ public class FundacionUI {
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro1);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro2);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro3);
+        FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(perro4);
         
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato1);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato2);

@@ -43,7 +43,7 @@ public class Funcionario extends Empleado{
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
-        System.out.println("Raza: ");
+        System.out.println("Raza: (GRANDE,MEDIANO,PEQUENIO)");
         String raza = sc.nextLine();
         String sexo = null;
         System.out.println("Ingrese sexo (MACHO O HEMABRA)");
@@ -101,40 +101,50 @@ public class Funcionario extends Empleado{
         for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
             if(tipo.toUpperCase().equals("PERRO") && ani instanceof Perro){
                 Perro perro = (Perro)ani;
-                if (sexo.toUpperCase().equals(perro.getSexo())){
-                    if(raza.toUpperCase().equals(perro.getRaza())){
+                if (sexo.toUpperCase().equals(perro.getSexo().toUpperCase())){
+                    if(raza.toUpperCase().equals(perro.getRaza().toUpperCase())){
+                        System.out.println(perro.toString());
+                    }else if(raza.toUpperCase().equals("TODAS")){
                         System.out.println(perro.toString());
                     }
-                }else if(sexo.toUpperCase().equals("TODAS")){
-                    if(raza.toUpperCase().equals(perro.getRaza())){
+                }else if(sexo.toUpperCase().equals("AMBOS")){
+                    if(raza.toUpperCase().equals(perro.getRaza().toUpperCase())){
                         System.out.println(perro.toString());
+                    }else if(raza.toUpperCase().equals("TODAS")){
+                        System.out.println(perro.toString());
+                        //-----------------------------
                     }
                 }
             }else if(tipo.toUpperCase().equals("GATO") && ani instanceof Gato){
                 Gato gato = (Gato)ani;
-                if (sexo.toUpperCase().equals(gato.getSexo())){
-                    if(raza.toUpperCase().equals(gato.getRaza())){
+                if (sexo.toUpperCase().equals(gato.getSexo().toUpperCase())){
+                    if(raza.toUpperCase().equals(gato.getRaza().toUpperCase())){
+                        System.out.println(gato.toString());
+                    }else if(raza.toUpperCase().equals("TODAS")){
                         System.out.println(gato.toString());
                     }
-                }else if(sexo.toUpperCase().equals("TODAS")){
-                    if(raza.toUpperCase().equals(gato.getRaza())){
+                }else if(sexo.toUpperCase().equals("AMBOS")){
+                    if(raza.toUpperCase().equals(gato.getRaza().toUpperCase())){
                         System.out.println(gato.toString());
+                    }else if(raza.toUpperCase().equals("TODAS")){
+                        System.out.println(gato.toString());
+                        //-------------------------------
                     }
                 }
             }else if(tipo.toUpperCase().equals("AMBOS") && ani instanceof Perro) {
                     Perro perro = (Perro)ani;
-                    if (sexo.toUpperCase().equals(perro.getSexo())){
+                    if (sexo.toUpperCase().equals(perro.getSexo().toUpperCase())){
                         System.out.println(perro.toString());
                     }else if(sexo.toUpperCase().equals("AMBOS")){
                         System.out.println(perro.toString());
                     }
             }else if(tipo.toUpperCase().equals("AMBOS") && ani instanceof Gato) {
                     Gato gato = (Gato)ani;
-                    if (sexo.toUpperCase().equals(gato.getSexo())){
+                    if (sexo.toUpperCase().equals(gato.getSexo().toUpperCase())){
                         System.out.println(gato.toString());
                     }else if(sexo.toUpperCase().equals("AMBOS")){
                         System.out.println(gato.toString());
-                    }            
+                    }
             }
         }
     }
