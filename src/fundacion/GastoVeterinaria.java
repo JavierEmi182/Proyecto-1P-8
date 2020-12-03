@@ -16,10 +16,17 @@ public class GastoVeterinaria {
     private LocalDate fecha;
     private double monto;
 //Constructores
-    public GastoVeterinaria(Animal animal, LocalDate fecha, double monto) {
+    public GastoVeterinaria(Animal animal, LocalDate fecha, double monto,Veterinaria vet) {
         this.animal = animal;
         this.fecha = fecha;
         this.monto = monto;
+        veterinaria = vet;
+    }
+    public GastoVeterinaria(Animal animal, double monto, Veterinaria vet){
+        this.animal = animal;
+        this.monto = monto;
+        veterinaria = vet;
+        fecha = LocalDate.now();
     }
    //Getters and Setters
 
@@ -34,6 +41,9 @@ public class GastoVeterinaria {
     public double getMonto() {
         return monto;
     }
+    public Veterinaria getVeterinaria(){
+        return veterinaria;
+    }
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
@@ -46,10 +56,13 @@ public class GastoVeterinaria {
     public void setMonto(double monto) {
         this.monto = monto;
     }
+    public void setVeterinaria(Veterinaria vet){
+        veterinaria = vet;
+    }
 //Metodos
     @Override
     public String toString() {
-        return "GastoVeterinaria" + "animal: " + animal + ", fecha: " + fecha + ", monto: " + monto ;
+        return "GastoVeterinaria" + "animal: " + animal + ", fecha: " + fecha + ", monto: " + monto +"Veterinaria"+veterinaria;
     }
     
 

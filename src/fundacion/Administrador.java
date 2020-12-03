@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;  
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 /**
@@ -46,7 +47,6 @@ public class Administrador extends Empleado {
         String telefono = sc.nextLine();
         System.out.println("Ingrese correo electrónico: ");
         String correoElectronico = sc.nextLine();
-        LocalDate fechaInicio = LocalDate.now();
         System.out.println("Ingrese el sueldo: ");
         double sueldo = sc.nextDouble();
         sc.nextLine();
@@ -72,12 +72,12 @@ public class Administrador extends Empleado {
             if(opcion.equals("si")){
             System.out.println("Ingrese cuenta bancaria del administrador: ");
             cuentaBancaria = sc.nextLine();
-            empleado = new Administrador(nombre,direccion,telefono,correoElectronico,fechaInicio,sueldo,usuario,contraseña,cuentaBancaria);
+            empleado = new Administrador(nombre,direccion,telefono,correoElectronico,sueldo,usuario,contraseña,cuentaBancaria);
             FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(empleado);
             
             x=false;
         }else if (opcion.equals("no")) {
-            empleado = new Funcionario(nombre,direccion,telefono,correoElectronico,fechaInicio,sueldo,usuario,contraseña);
+            empleado = new Funcionario(nombre,direccion,telefono,correoElectronico,sueldo,usuario,contraseña);
             FundacionUI.fundacionAmigosDeCuatroPatas.añadirEmpleado(empleado);
             x=false;
         }else{
@@ -89,7 +89,7 @@ public class Administrador extends Empleado {
     public void consultaRegistroVeterinaria(){
         System.out.println("¿Qué desea realizar?:");
         System.out.println("1. Registrar nueva veterinaria");
-        System.out.println("2. Visualizar información de veterinarias");
+        System.out.println("2. Visualizar información de Veterinarias Registradas");
         String opcion;
         String nombre;
         String contacto;
@@ -109,7 +109,7 @@ public class Administrador extends Empleado {
                     correo = sc.nextLine();
                     veterinaria = new Veterinaria(nombre,contacto,correo);
                     FundacionUI.fundacionAmigosDeCuatroPatas.regisrarVeterinaria(veterinaria);
-                    System.out.println("Registro exitoso");
+                    System.out.println("Registro de Veterinaria exitoso");
                     condicion = false;
                     break;
                 case "2":
@@ -123,20 +123,70 @@ public class Administrador extends Empleado {
         }
       
     }
+    // 3 REGISTRO Y CONSULTA DE GASTO VETERINARIA falta validar animall vacio
+    public void consultaRegistroGastoVeterinaria(){
+        Animal animal;
+        boolean condicion = true;
+        GastoVeterinaria gastoVeterinaria ;
+        Veterinaria veterinaria;
+        int codigoAnimal;
+        System.out.println("¿Qué desea realizar?");
+        System.out.println("1. Registrar Gastos de Atención Médica");
+        System.out.println("2. Consultar Gastos de atención médica");
+        String opcion = sc.nextLine();
+        do{
+            System.out.print("Ingrese 1 ó 2: ");
+            switch(opcion){
+                case "1":
+                    System.out.println("Ingrese el código del animal atentido: ");
+                    codigoAnimal = sc.nextInt();
+                    sc.nextLine();
+                    animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
+                    System.out.println("Ingrese monto incurrido en el gasto animal");
+                    double monto = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.println("Ingrese nombre de la Veterinaria que lo atendió");
+                    String nombre = sc.nextLine();
+                    veterinaria = FundacionUI.fundacionAmigosDeCuatroPatas.buscarVeterinaria(nombre);
+                    gastoVeterinaria = new GastoVeterinaria(animal,monto,veterinaria);
+                    FundacionUI.fundacionAmigosDeCuatroPatas.registrarGastoVeterinaria(gastoVeterinaria);
+                    condicion = false;
+                    break;
+                case "2":
+                    System.out.println("Ingrese el código del animal que desea consultar gasto médico");
+                    codigoAnimal = sc.nextInt();
+                    sc.nextLine();
+                    animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
+                    if (animal!=null){
+                        System.out.println(FundacionUI.fundacionAmigosDeCuatroPatas.consultarGastoAnimal(animal));
+                    }else{
+                        System.out.println("Animal no econtrado");
+                    }
+                    condicion = false;
+                    break;
+                default: 
+                    System.out.println("Opcion no encontrada");
+                    break;
+            }                    
+        }while(condicion ==true);
+        
+        
+    }
     
     //3 CONSULTA Y REGISTRO GASTO VETERINARIA (terminada)
-    
+    /*
     public void consultaRegistroGastoVeterinaria(){
         System.out.println("¿Qué desea realizar?");
-        System.out.println("1. Consultar gastos de atención médica");
-        System.out.println("2. Registrar Gastos Médicos");
+        System.out.println("1. Registrar Gastos Médicos");
+        System.out.println("2. Consultar gastos de atención médica");
+        
         Animal animal;  
         boolean condicion = true;
         while(condicion == true){
             System.out.println("Ingrese 1 ó 2 :");
             String opcion = sc.nextLine();
             switch(opcion){
-                case "1":
+                case "2":///consultar gastos
                     do{
                         System.out.println("Ingrese código del animal que desea consultar: ");
                         int codigo = sc.nextInt();
@@ -152,11 +202,12 @@ public class Administrador extends Empleado {
                     }while(true);
                     condicion = false;
                     break;
-                case "2":
+                case "1":
                     LocalDate fechaAtencion = LocalDate.now();
                     System.out.println("Ingrese monto incurrido");
                     double monto = sc.nextDouble();
                     sc.nextLine();
+                    
                     System.out.println("*** Registros de Datos del animal ***");
                     String tipo;
                     do{
@@ -212,7 +263,8 @@ public class Administrador extends Empleado {
 
             }
         }
-    }
+    }*/
+    //TERMINADA
     public double calcularPresupuestoMensual(){
         double gastoAdministrativos = FundacionUI.fundacionAmigosDeCuatroPatas.calcularGastosAdministrativos();
         double gastosPerro = FundacionUI.fundacionAmigosDeCuatroPatas.calcularGastosPerros();
@@ -225,6 +277,18 @@ public class Administrador extends Empleado {
         return total;
     }
     
-    
+    public void enviarMailInteresado(){
+        int registro = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().size();
+        Interesado interesado; 
+        Animal animal; 
+        String cuerpo;
+        while(registro>0){
+            interesado =  FundacionUI.fundacionAmigosDeCuatroPatas.filtrarInteresado();
+            animal = FundacionUI.fundacionAmigosDeCuatroPatas.filtrarAnimal();
+            cuerpo = "Saludos "+interesado.getNombre()+",<br>"+"Acabamos de recibir un animal acorde a sus preferencias; a continuación dejamos los datos del mismo: <br>"+animal.toCorreo();
+            JavaMailUtil.SendMail(interesado.getCorreoElectronico(),cuerpo);
+            registro--;
+        }
+    }
    
 }

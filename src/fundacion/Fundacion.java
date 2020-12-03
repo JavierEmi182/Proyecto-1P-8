@@ -186,7 +186,7 @@ public class Fundacion {
                   return gasto.toString();
             } 
         }
-        return "No hay registros de Gastos de Veterinaria para mostrar";
+        return "No hay registros de Gastos de Veterinaria por mostrar";
          
     }
     public double calcularGastosAdministrativos(){
@@ -237,17 +237,55 @@ public class Fundacion {
         }
         return monto;
     }
-    /*
-    public Interesado enviarMailInteresados(){
-        for(Interesado interesado: registroInteresados){
-            for(Animal animal:registroAnimales){
-                if(interesado.getRaza().equals(animal.getRaza())&& interesado.getSexo().equals(animal.getSexo())){
-                    return interesado;
+    public Veterinaria buscarVeterinaria(String nombre){
+        if(nombre !=null){
+            for(Veterinaria vet: registroVeterinaria){
+                if(vet.getNombre().toUpperCase().equals(nombre.toUpperCase())){
+                    return vet;
                 }
             }
             
-        }
-    }*/
+        }return null;
+    }
+    
+    public Interesado filtrarInteresado(){
+        Interesado inte1 = null;
+        if(registroInteresados.size()>0){
+            if(registroAnimales.size()>0){
+                for(Interesado interesado: registroInteresados){
+                  for(Animal animal:registroAnimales){
+                   if(interesado.getRaza().equals(animal.getRaza())&& interesado.getSexo().equals(animal.getSexo())){
+                       if(!(interesado.equals(inte1))){
+                           inte1=interesado;
+                           return interesado;
+                       }
+                    
+                    }
+                  }
+            
+                }
+            }
+            
+        }return null;
+   
+    }
+    public Animal filtrarAnimal(){
+        if(registroInteresados.size()>0){
+            if(registroAnimales.size()>0){
+                for(Interesado interesado: registroInteresados){
+                  for(Animal animal:registroAnimales){
+                   if(interesado.getRaza().equals(animal.getRaza())&& interesado.getSexo().equals(animal.getSexo())){
+                    return animal;
+                    }
+                  }
+            
+                }
+            }
+            
+        }return null;
+    }
+    
+    
     public static boolean isNumeric(String string) {
     if (string == null || string.isEmpty()) {
         return false;

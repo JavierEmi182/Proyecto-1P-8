@@ -68,4 +68,14 @@ public class Interesado extends Persona{
         return "Nombre: "+getNombre()+", ID: "+getId()+"<br> Direccion: "+getDireccion()
                 +", Telefono: "+getNumeroTelefono()+"<br> Correo: "+getCorreoElectronico();
     }
+    public boolean equals(Object o){
+        if (o !=null){
+            if(o instanceof Interesado){
+                Interesado other = (Interesado)o;
+                if(getId().equals(other.getId())){
+                    return true;
+                }
+            }
+        }return false;
+    }
 }
