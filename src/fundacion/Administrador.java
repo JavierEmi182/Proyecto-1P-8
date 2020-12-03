@@ -5,6 +5,7 @@
  */
 package fundacion;
 import interfaz.FundacionUI;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;  
@@ -277,7 +278,7 @@ public class Administrador extends Empleado {
         return total;
     }
     
-    public void enviarMailInteresado(){
+    public void enviarMailInteresado() throws IOException{
         int registro = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().size();
         Interesado interesado; 
         Animal animal; 

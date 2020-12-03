@@ -20,8 +20,6 @@ import java.util.Scanner;
 public class Funcionario extends Empleado{
     
     //AUXILIARES 
-    private Animal animal;
-    private Interesado interesado;
     private Scanner sc;
     
     //Constructores
@@ -175,6 +173,8 @@ public class Funcionario extends Empleado{
     }
     
     public void registrarAdopcion() throws IOException{//COMPLETA
+        Animal animal;
+        Interesado interesado;
         System.out.println("*****Registrar Adopcion*****");
         System.out.println("Ingrese codigo del animal");
         int codigo = sc.nextInt();
@@ -231,6 +231,8 @@ public class Funcionario extends Empleado{
         }
     }       
     public void consultarRegistrados(){
+
+        Interesado interesado;
         System.out.println("Ingrese ID: ");
         String id = sc.nextLine();
         interesado = null;
