@@ -43,7 +43,7 @@ public class Funcionario extends Empleado{
         }while(!(tipo.toUpperCase().equals("PERRO") || tipo.toUpperCase().equals("GATO")));
         System.out.println("Nombre: ");
         String nombre = sc.nextLine();
-        System.out.println("Raza: (GRANDE,MEDIANO,PEQUENIO)");
+        System.out.println("Raza: ");
         String raza = sc.nextLine();
         String sexo = null;
         System.out.println("Ingrese sexo (MACHO O HEMABRA)");
@@ -70,7 +70,7 @@ public class Funcionario extends Empleado{
         if(tipo.toUpperCase().equals("PERRO")){
             System.out.println("Ingrese tamaño: ");
             String tamanio = "";
-            tamanio = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3( tamanio, "GRANDE", "MEDIANO", "PEQUEÑO");
+            tamanio = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3( tamanio, "GRANDE", "MEDIANO", "PEQUENIO");
             Tamanio x = Tamanio.valueOf(tamanio.toUpperCase());
             FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(new Perro(nombre, raza, sexo, peso, observaciones, edad, x));
         }else{
