@@ -126,4 +126,6 @@ public abstract class Animal{
                 +getObservaciones()+"\n Codigo del Animal: "+getCodigo();
     }
     
+    public abstract String toCorreo();
+    
 }

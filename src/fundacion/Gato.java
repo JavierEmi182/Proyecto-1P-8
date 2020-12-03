@@ -45,6 +45,7 @@ public class Gato extends Animal{
                 +", Sexo: "+getSexo()+"\n Peso: "+getPeso()+", Edad: "+getEdad()+"\n Observaciones: "
                 +getObservaciones()+"\n Codigo del Animal: "+getCodigo();
     }
+    @Override
     public String toCorreo(){
         return "<br><b>*****GATO*****</b> <br>"+" Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"<br> Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"<br> Peso: "+getPeso()+", Edad: "+getEdad()+"<br> Observaciones: "
