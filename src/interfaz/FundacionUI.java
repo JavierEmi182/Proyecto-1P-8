@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package interfaz;
-import fundacion.Animal;
+
 import fundacion.Empleado;
 import fundacion.Funcionario;
-import fundacion.Persona;
 import fundacion.Fundacion;
 import fundacion.Adopcion;
-
 import fundacion.Interesado;
 import fundacion.Tamanio;
 import fundacion.Veterinaria;
 import fundacion.Administrador;
 import fundacion.GastoVeterinaria;
 import fundacion.Gato;
-import fundacion.JavaMailUtil;
 import fundacion.Perro;
 import java.io.IOException;
 import java.time.LocalDate;

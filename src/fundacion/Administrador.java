@@ -7,8 +7,6 @@ package fundacion;
 import interfaz.FundacionUI;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Date;
-import java.text.SimpleDateFormat;  
 import java.time.LocalDate;
 import java.util.ArrayList;
 

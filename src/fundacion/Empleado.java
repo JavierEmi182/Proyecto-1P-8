@@ -6,7 +6,6 @@
 package fundacion;
 
 import java.time.LocalDate;
-import interfaz.FundacionUI;
 
 /**
  *

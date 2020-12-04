@@ -8,7 +8,6 @@ package fundacion;
 
 import java.io.IOException;
 import java.util.Properties;
-import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
