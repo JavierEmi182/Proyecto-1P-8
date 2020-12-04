@@ -49,6 +49,6 @@ public class Gato extends Animal{
     public String toCorreo(){
         return "<br><b>*****GATO*****</b> <br>"+" Fecha de ingreso: "+getFechaIngreso()+" Nombre: "+getNombre()+"<br> Raza: "+getRaza()
                 +", Sexo: "+getSexo()+"<br> Peso: "+getPeso()+", Edad: "+getEdad()+"<br> Observaciones: "
-                +getObservaciones()+"<br> Codigo del Animal: "+getCodigo();
+                +getObservaciones()+"<br> Codigo del Animal: "+getCodigo()+"<br>";
     }
 }

@@ -56,13 +56,13 @@ public class Adopcion {
 
     @Override
     public String toString(){
-        return "Fecha de la adopcion: "+ getFecha()+"\n ***ADOPTANTE*** \n: "+adoptante.toStringSinPreferencias()+"\n ***ANIMAL*** "+animalAdoptado.toString()+
-                "\n Codigo de la adopción: "+getCodigo();
+        return "Fecha de la adopcion: "+ getFecha()+"\n ***ADOPTANTE*** \n: "+adoptante.infoAdoptante()+"\n ***ANIMAL*** "+animalAdoptado.toString()+
+                "\n Codigo de la adopción: "+getCodigo()+"\n";
 }
     public String toCorreo(){
         return "Fecha de la adopcion: "+ getFecha()+"<br> <b> ***ADOPTANTE***</b> <br> "+adoptante.presentarInfo()
-                +"<br> <b> ***ANIMAL***</b> <br>: "+animalAdoptado.toCorreo()+
-                "<br> Codigo de la adopción: "+getCodigo();
+                +"<br> <b> ***ANIMAL***</b> "+animalAdoptado.toCorreo()+
+                "<br> Codigo de la adopción: "+getCodigo()+"<br>";
 }
     
 

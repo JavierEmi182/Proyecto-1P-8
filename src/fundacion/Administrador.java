@@ -294,7 +294,7 @@ public class Administrador extends Empleado {
                     if(animal.getDisponible()==true){
                                             
                     for(Interesado interesado: registroInteresado){
-                        if (animal.getRaza().equals(interesado.getRaza()) && animal.getSexo().equals(interesado.getSexo())){
+                        if (animal.getRaza().toUpperCase().equals(interesado.getRaza().toUpperCase()) && animal.getSexo().toUpperCase().equals(interesado.getSexo().toUpperCase())){
                             cuerpo = "Saludos "+interesado.getNombre()+",<br>"+"Acabamos de recibir un animal acorde a sus preferencias; a continuación dejamos los datos del mismo: <br>"+animal.toCorreo();
                             JavaMailUtil.SendMail(interesado.getCorreoElectronico(),cuerpo);
                         }

@@ -85,6 +85,9 @@ public class FundacionUI {
         //Adopciones
         Adopcion adop1 = new Adopcion(interesado1,perro4);
         FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(adop1);
+        interesado1.agregarAdopcion(perro4);
+        perro4.adoptado();
+        
         
         //Veterinaria
         Veterinaria vet1 = new Veterinaria("Pet Health","0987654321","pethealth@hotmail.com");
@@ -161,6 +164,7 @@ public class FundacionUI {
                     break;
                 case "6":
                     System.out.println("Adios");
+                    entrada="7";
                     presentarMenuPrincipal();
                   
                     break;
@@ -220,6 +224,7 @@ public class FundacionUI {
                     break;
                 case "7":
                     System.out.println("Adios");
+                    entrada="8";
                     presentarMenuPrincipal();
                     break;
                 case "8":
