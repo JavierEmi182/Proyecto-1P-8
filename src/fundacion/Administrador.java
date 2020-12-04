@@ -46,9 +46,13 @@ public class Administrador extends Empleado {
         String telefono = sc.nextLine();
         System.out.println("Ingrese correo electrónico: ");
         String correoElectronico = sc.nextLine();
+        
         System.out.println("Ingrese el sueldo: ");
         double sueldo = sc.nextDouble();
         sc.nextLine();
+        
+        
+        
         System.out.println("****  Creación de la cuenta del Empleado  ****");
         String usuario = "";
         String contraseña = "";
@@ -168,12 +172,12 @@ public class Administrador extends Empleado {
                         codigoAnimal  = sc.nextInt();
                         sc.nextLine();
                         animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
-                        if (animal != null){
-                            break;
-                        }else if(animal == null) {
+                        if(animal == null) {
                             System.out.println("Animal no encontrado");
                         }else if (animal.getDisponible()== false){
                             System.out.println("Este animal ya ha sido adoptado");
+                        }else{
+                            break;
                         }
                     }                   
                     System.out.println("Ingrese monto incurrido en el gasto animal");

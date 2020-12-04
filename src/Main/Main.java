@@ -20,7 +20,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FundacionUI fundacionUI = new FundacionUI();
         fundacionUI.inicializarSistema();
-        fundacionUI.presentarMenuPrincipal();        
+        fundacionUI.presentarMenuPrincipal();
+  
+               
         }
     }
     
