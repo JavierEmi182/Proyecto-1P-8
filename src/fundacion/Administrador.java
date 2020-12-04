@@ -172,8 +172,10 @@ public class Administrador extends Empleado {
                         animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
                         if (animal != null){
                             break;
-                        }else{
+                        }else if(animal == null) {
                             System.out.println("Animal no encontrado");
+                        }else if (animal.getDisponible()== false){
+                            System.out.println("Este animal ya ha sido adoptado");
                         }
                     }                   
                     System.out.println("Ingrese monto incurrido en el gasto animal");
