@@ -116,7 +116,13 @@ public class Administrador extends Empleado {
                     condicion = false;
                     break;
                 case "2":
-                    System.out.println(FundacionUI.fundacionAmigosDeCuatroPatas.mostrarRegistroVeterinarias());
+                    if(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroVeterinaria().size()>0){
+                        for (Veterinaria veterinarias : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroVeterinaria()){
+                        System.out.println(veterinarias.toString());
+                        }
+                    }
+                    
+                   // System.out.println(FundacionUI.fundacionAmigosDeCuatroPatas.mostrarRegistroVeterinarias());
                     condicion = false;
                     break;   
                 default:

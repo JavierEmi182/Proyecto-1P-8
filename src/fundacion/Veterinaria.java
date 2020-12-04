@@ -53,7 +53,7 @@ public class Veterinaria {
 
     @Override
     public String toString() {
-        return "Veterinaria: " + "nombre: " + nombre + ", contacto: " + contacto + ", correo: " + correo ;
+        return "**** Veterinaria ****:\n " + "Nombre : " + nombre+"\n" + " Contacto: " + contacto +"\n"+ " Correo: " + correo ;
     }
     
 }

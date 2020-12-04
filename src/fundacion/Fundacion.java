@@ -166,6 +166,7 @@ public class Fundacion {
             registroVeterinaria.add(vet);
         
     }
+    /*
     public String mostrarRegistroVeterinarias(){
         if (registroVeterinaria.size()>0){
             for (Veterinaria vet: registroVeterinaria){
@@ -173,7 +174,7 @@ public class Fundacion {
             }
         }
         return "No hay Registros de Veterinarias por mostrar ";
-    }
+    }*/
         
     public void registrarGastoVeterinaria(GastoVeterinaria gasto){
         registroGastosVeterinarios.add(gasto);
