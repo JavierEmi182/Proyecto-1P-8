@@ -38,6 +38,7 @@ public class FundacionUI {
     // para inicializar
     public void inicializarSistema(){
         LocalDate fecha = Fundacion.toLocalDate("28/11/2020");
+        LocalDate fecha2 = Fundacion.toLocalDate("02/12/2020");
         
         //Admins
         Empleado administrador = new Administrador ("Juan Leon","Av. de las Américas", "0961212788", "juanleon@gmail.com", LocalDate.now(), 1000, "juanleon123", "J000","123789654"); 
@@ -96,6 +97,8 @@ public class FundacionUI {
         //GatoVeterinaria
         GastoVeterinaria gastVet1 = new GastoVeterinaria(perro1,fecha, 200,vet1);
         FundacionUI.fundacionAmigosDeCuatroPatas.registrarGastoVeterinaria(gastVet1);
+        GastoVeterinaria gastVet2 = new GastoVeterinaria(gato4, fecha2,50,vet1);
+        FundacionUI.fundacionAmigosDeCuatroPatas.registrarGastoVeterinaria(gastVet2);
     }
     
     
