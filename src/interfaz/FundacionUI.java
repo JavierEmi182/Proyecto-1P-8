@@ -76,9 +76,9 @@ public class FundacionUI {
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato2);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato3);
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato4);
-        
+        //
         //Interesados
-        Interesado interesado1 = new Interesado("Ricardo Espinoza","0925543210","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
+        Interesado interesado1 = new Interesado("Ricardo Espinoza","0925543210","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Macho");
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado1);
         interesado1.agregarAdopcion(perro4);
         
@@ -131,7 +131,7 @@ public class FundacionUI {
         System.out.println("5. Enviar correos a interesados.");
         System.out.println("6. Cerrar Sesión.");
     }
-    public void iniciarAdministrador(Administrador administrador){
+    public void iniciarAdministrador(Administrador administrador)throws IOException{
         String entrada="";
         do{
             presentarMenuAdministrador();
@@ -156,11 +156,11 @@ public class FundacionUI {
                     break;
                 case "5":
                     //5. Enviar correos a interesados.
-                    
+                    administrador.enviarMailInteresado();
                     break;
                 case "6":
                     System.out.println("Adios");
-                    
+                  
                     break;
                 default:
                     //la opcion ingreada no esta dentro de las opciones del menu

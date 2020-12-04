@@ -246,44 +246,7 @@ public class Fundacion {
             
         }return null;
     }
-    
-    public Interesado filtrarInteresado(){
-        Interesado inte1 = null;
-        if(registroInteresados.size()>0){
-            if(registroAnimales.size()>0){
-                for(Interesado interesado: registroInteresados){
-                  for(Animal animal:registroAnimales){
-                   if(interesado.getRaza().equals(animal.getRaza())&& interesado.getSexo().equals(animal.getSexo())){
-                       if(!(interesado.equals(inte1))){
-                           inte1=interesado;
-                           return interesado;
-                       }
-                    
-                    }
-                  }
-            
-                }
-            }
-            
-        }return null;
-   
-    }
-    public Animal filtrarAnimal(){
-        if(registroInteresados.size()>0){
-            if(registroAnimales.size()>0){
-                for(Interesado interesado: registroInteresados){
-                  for(Animal animal:registroAnimales){
-                   if(interesado.getRaza().equals(animal.getRaza())&& interesado.getSexo().equals(animal.getSexo())){
-                    return animal;
-                    }
-                  }
-            
-                }
-            }
-            
-        }return null;
-    }
-    
+ 
     
     public static boolean isNumeric(String string) {
     if (string == null || string.isEmpty()) {

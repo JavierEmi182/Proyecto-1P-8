@@ -10,14 +10,15 @@
  */
 import fundacion.*;
 import interfaz.FundacionUI;
+import java.io.IOException;
 import java.time.LocalDate;
 public class TestUI {
-    public static void main (String[] args){
+    public static void main (String[] args)throws IOException{
   
         FundacionUI fundacionn = new FundacionUI();
         fundacionn.inicializarSistema();
-        fundacionn.presentarMenuPrincipal();
-      
+      fundacionn.presentarMenuPrincipal();
+
 
     }
     

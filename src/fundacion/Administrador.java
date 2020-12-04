@@ -134,9 +134,11 @@ public class Administrador extends Empleado {
         System.out.println("¿Qué desea realizar?");
         System.out.println("1. Registrar Gastos de Atención Médica");
         System.out.println("2. Consultar Gastos de atención médica");
+        System.out.print("Ingrese 1 ó 2: ");
         String opcion = sc.nextLine();
+        
         do{
-            System.out.print("Ingrese 1 ó 2: ");
+            
             switch(opcion){
                 case "1":
                     System.out.println("Ingrese el código del animal atentido: ");
@@ -279,16 +281,21 @@ public class Administrador extends Empleado {
     }
     
     public void enviarMailInteresado() throws IOException{
-        int registro = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().size();
-        Interesado interesado; 
-        Animal animal; 
+        ArrayList<Animal> registroAnimal= FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales();
+        ArrayList<Interesado> registroInteresado = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados();
+     
         String cuerpo;
-        while(registro>0){
-            interesado =  FundacionUI.fundacionAmigosDeCuatroPatas.filtrarInteresado();
-            animal = FundacionUI.fundacionAmigosDeCuatroPatas.filtrarAnimal();
-            cuerpo = "Saludos "+interesado.getNombre()+",<br>"+"Acabamos de recibir un animal acorde a sus preferencias; a continuación dejamos los datos del mismo: <br>"+animal.toCorreo();
-            JavaMailUtil.SendMail(interesado.getCorreoElectronico(),cuerpo);
-            registro--;
+        if(registroAnimal.size()>0){
+            if(registroInteresado.size()>0){
+                for(Animal animal : registroAnimal){
+                    for(Interesado interesado: registroInteresado){
+                        if (animal.getRaza().equals(interesado.getRaza()) && animal.getSexo().equals(interesado.getSexo())){
+                            cuerpo = "Saludos "+interesado.getNombre()+",<br>"+"Acabamos de recibir un animal acorde a sus preferencias; a continuación dejamos los datos del mismo: <br>"+animal.toCorreo();
+                            JavaMailUtil.SendMail(interesado.getCorreoElectronico(),cuerpo);
+                        }
+                    }
+                }
+            }
         }
     }
    
