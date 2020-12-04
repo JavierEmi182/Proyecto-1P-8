@@ -78,7 +78,7 @@ public class FundacionUI {
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato4);
         //
         //Interesados
-        Interesado interesado1 = new Interesado("Ricardo Espinoza","0925543210","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Macho");
+        Interesado interesado1 = new Interesado("Ricardo Espinoza","0925543210","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado1);
         interesado1.agregarAdopcion(perro4);
         
@@ -129,7 +129,8 @@ public class FundacionUI {
         System.out.println("3. Consultar y registrar Gastos Veterinaria.");
         System.out.println("4. Calcular presupuesto Mensual.");
         System.out.println("5. Enviar correos a interesados.");
-        System.out.println("6. Cerrar Sesión.");
+        System.out.println("6. Cerrar sesión.");
+        System.out.println("7. Cerrar aplicación.");
     }
     public void iniciarAdministrador(Administrador administrador)throws IOException{
         String entrada="";
@@ -160,7 +161,11 @@ public class FundacionUI {
                     break;
                 case "6":
                     System.out.println("Adios");
+                    presentarMenuPrincipal();
                   
+                    break;
+                case "7":
+                    System.out.println("Se cerro la aplicacion");
                     break;
                 default:
                     //la opcion ingreada no esta dentro de las opciones del menu
@@ -168,7 +173,7 @@ public class FundacionUI {
                     break;
                         
             }
-        }while(!entrada.equals("6"));
+        }while(!entrada.equals("7"));
     }
     public void presentarMenuFuncionario(){
         System.out.println("Bienvenido");
@@ -178,7 +183,8 @@ public class FundacionUI {
         System.out.println("4. Registrar adopción.");
         System.out.println("5. Consultar adopciones.");
         System.out.println("6. Consultar adoptantes.");
-        System.out.println("7. Cerrar Sesión.");
+        System.out.println("7. Cerrar sesión.");
+        System.out.println("8. Cerrar aplicación.");
     }
     
     public void iniciarFuncionario(Funcionario funcionario) throws IOException{
@@ -214,7 +220,10 @@ public class FundacionUI {
                     break;
                 case "7":
                     System.out.println("Adios");
-                    
+                    presentarMenuPrincipal();
+                    break;
+                case "8":
+                    System.out.println("Se cerro la aplicación");
                     break;
                 default:
                     //la opcion ingreada no esta dentro de las opciones del menu

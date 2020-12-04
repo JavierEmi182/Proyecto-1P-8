@@ -288,13 +288,15 @@ public class Administrador extends Empleado {
         if(registroAnimal.size()>0){
             if(registroInteresado.size()>0){
                 for(Animal animal : registroAnimal){
+                    if(animal.getDisponible()==true){
+                                            
                     for(Interesado interesado: registroInteresado){
                         if (animal.getRaza().equals(interesado.getRaza()) && animal.getSexo().equals(interesado.getSexo())){
                             cuerpo = "Saludos "+interesado.getNombre()+",<br>"+"Acabamos de recibir un animal acorde a sus preferencias; a continuación dejamos los datos del mismo: <br>"+animal.toCorreo();
                             JavaMailUtil.SendMail(interesado.getCorreoElectronico(),cuerpo);
                         }
                     }
-                }
+                }}
             }
         }
     }

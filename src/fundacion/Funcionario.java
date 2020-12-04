@@ -46,7 +46,7 @@ public class Funcionario extends Empleado{
         System.out.println("Raza: ");
         String raza = sc.nextLine();
         String sexo = null;
-        System.out.println("Ingrese sexo (MACHO O HEMABRA)");
+        System.out.println("Ingrese sexo (MACHO O HEMBRA)");
         sexo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings( sexo, "MACHO", "HEMBRA");
         
         //Otra manera de hacerlo
@@ -99,6 +99,8 @@ public class Funcionario extends Empleado{
         Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales());
         
         for(Animal ani : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales()){
+          if (ani.getDisponible()==true){
+                           
             if(tipo.toUpperCase().equals("PERRO") && ani instanceof Perro){
                 Perro perro = (Perro)ani;
                 if (sexo.toUpperCase().equals(perro.getSexo().toUpperCase())){
@@ -146,7 +148,7 @@ public class Funcionario extends Empleado{
                         System.out.println(gato.toString());
                     }
             }
-        }
+        }}
     }
     
     public void registrarInteresadoAdopcion(){//COMPLETA
@@ -209,8 +211,14 @@ public class Funcionario extends Empleado{
                 System.out.println(i.toString());
                  interesado = i;
                 FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(interesado, animal));
-                JavaMailUtil.SendMail(interesado.getCorreoElectronico(), animal.toString());
-                FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAnimales().remove(animal);
+                if (animal instanceof Perro){
+                    JavaMailUtil.SendMail(interesado.getCorreoElectronico(), animal.toCorreo());
+                }
+                else if (animal instanceof Gato){
+                    JavaMailUtil.SendMail(interesado.getCorreoElectronico(), animal.toCorreo());
+                }
+ 
+
             }
         }
         if(interesado == null){    

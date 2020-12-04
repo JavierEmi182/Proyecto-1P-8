@@ -21,6 +21,7 @@ public abstract class Animal{
     private int edad;
     private int codigo;
     private static int codigostatic = 0;
+    private boolean disponible = true;
     
     
     //CONSTRUCTORES
@@ -111,6 +112,14 @@ public abstract class Animal{
     
     public int getCodigo(){
         return codigo;
+    }
+    
+    public boolean getDisponible(){
+        return disponible;
+    }
+    
+    public void adoptado(){
+        this.disponible=false;
     }
     
     
