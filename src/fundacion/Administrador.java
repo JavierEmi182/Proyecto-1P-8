@@ -109,7 +109,9 @@ public class Administrador extends Empleado {
                     System.out.println("Ingrese correo electrónico: ");
                     correo = sc.nextLine();
                     veterinaria = new Veterinaria(nombre,contacto,correo);
+                    System.out.println(veterinaria);
                     FundacionUI.fundacionAmigosDeCuatroPatas.regisrarVeterinaria(veterinaria);
+                    
                     System.out.println("Registro de Veterinaria exitoso");
                     condicion = false;
                     break;
@@ -144,6 +146,7 @@ public class Administrador extends Empleado {
                     System.out.println("Ingrese el código del animal atentido: ");
                     codigoAnimal = sc.nextInt();
                     sc.nextLine();
+                   // FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroGastosVeterinarios().add(codigoAnimal, gastoVeterinaria);
                     animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
                     System.out.println("Ingrese monto incurrido en el gasto animal");
                     double monto = sc.nextDouble();

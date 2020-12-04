@@ -227,27 +227,30 @@ public class Funcionario extends Empleado{
         
         
     }
-    
+
     public void consultarAdopciones(){
         System.out.println("*****Consultar Adopciones*****");
-        Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones());
-        for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
-        
-        }
+        Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones());   
         System.out.println("Desea ver una adopcion en especifico?");
         String respuesta = null;
         respuesta = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(respuesta, "SI", "NO");
         if (respuesta.toUpperCase().equals("SI")){
             System.out.println("Ingrese codigo de adopcion: ");
             int codigo = sc.nextInt();
-            for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
+              for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
                 if (adopciones.getCodigo() == codigo){
                     System.out.println(adopciones.toString());
-                    System.out.println(adopciones.getAdoptante().toString());
+                    //System.out.println(adopciones.getAdoptante().toString());
                 }
             }
+        }else{
+            for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
+                  System.out.println(adopciones.toString());
         }
-    }       
+        }
+        
+        
+    }
     public void consultarRegistrados(){
 
         Interesado interesado;

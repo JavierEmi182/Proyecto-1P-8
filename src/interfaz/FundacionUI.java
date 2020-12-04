@@ -80,7 +80,7 @@ public class FundacionUI {
         //Interesados
         Interesado interesado1 = new Interesado("Ricardo Espinoza","0925543210","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado1);
-        interesado1.agregarAdopcion(perro4);
+        //interesado1.agregarAdopcion(perro4);
         
         //Adopciones
         Adopcion adop1 = new Adopcion(interesado1,perro4);

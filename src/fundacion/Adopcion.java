@@ -56,7 +56,7 @@ public class Adopcion {
 
     @Override
     public String toString(){
-        return "Fecha de la adopcion: "+ getFecha()+"\n ***ADOPTANTE*** \n: "+adoptante.presentarInfo()+"\n ***ANIMAL***\n: "+animalAdoptado.toString()+
+        return "Fecha de la adopcion: "+ getFecha()+"\n ***ADOPTANTE*** \n: "+adoptante.toStringSinPreferencias()+"\n ***ANIMAL***\n: "+animalAdoptado.toString()+
                 "\n Codigo de la adopción: "+getCodigo();
 }
     public String toCorreo(){

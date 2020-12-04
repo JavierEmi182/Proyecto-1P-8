@@ -162,9 +162,9 @@ public class Fundacion {
         }
     }
     public void regisrarVeterinaria(Veterinaria vet){
-        if (vet != null){
+    
             registroVeterinaria.add(vet);
-        }
+        
     }
     public String mostrarRegistroVeterinarias(){
         if (registroVeterinaria.size()>0){
