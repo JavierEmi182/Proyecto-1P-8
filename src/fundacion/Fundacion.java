@@ -99,13 +99,12 @@ public class Fundacion {
     }
     //consultar gastos medicos de un animal
     public String consultarGastoAnimal(Animal a ){
-        if (a!= null){
-            for(GastoVeterinaria g: registroGastosVeterinarios){
-                if(g.getAnimal().getCodigo() == a.getCodigo()){
+        for(GastoVeterinaria g: registroGastosVeterinarios){
+                if((g.getAnimal().getCodigo() == a.getCodigo()) && g.getAnimal()!=null){
                     return g.toString();
                 }
             }
-        }return null;
+        return null;
     }
     
 
@@ -113,12 +112,14 @@ public class Fundacion {
     //metodo para validar credenciales al inicio del programa 
     public Empleado validarCredenciales(String usuario1, String contrasena1){
         Empleado emp = null;
-        for (Empleado empleado : registroEmpleados){
+        if (!(usuario1.equals(""))&& !(contrasena1.equals(""))){
+            for (Empleado empleado : registroEmpleados){
             if(empleado.getUsuario().equals(usuario1) && empleado.getContrasena().equals(contrasena1)){
                 System.out.println("Credenciales validas");
                 emp = empleado;
                 }
             }
+        } 
         if (emp == null){
                 System.out.println("Credenciales invalidas. Vuelva a ingresar");
         }
@@ -203,8 +204,10 @@ public class Fundacion {
         double monto =0;
         if(registroAnimales.size()>0){
             for(Animal a : registroAnimales){
-                if(a instanceof Perro){
-                    monto+=a.calcularCostoMes();
+                if (a.getDisponible() == true){
+                    if(a instanceof Perro){
+                       monto+=a.calcularCostoMes();
+                }
                 }
             }
         }
@@ -215,9 +218,12 @@ public class Fundacion {
         double monto=0;
         if(registroAnimales.size()>0){
             for(Animal a : registroAnimales){
-                if(a instanceof Gato){
+                if (a.getDisponible() == true){
+                    if(a instanceof Gato){               
                     monto+=a.calcularCostoMes();
                 }
+                }
+                
             }
         }
         return monto;
