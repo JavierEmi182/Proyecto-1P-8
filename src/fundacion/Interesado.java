@@ -49,6 +49,9 @@ public class Interesado extends Persona{
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+    public ArrayList<Animal> getlistaAdoptados(){
+        return listaAdoptados;
+    }
     
     //Metodos
     /*
@@ -64,9 +67,24 @@ public class Interesado extends Persona{
                 +", Telefono: "+getNumeroTelefono()+"\n Correo: "+getCorreoElectronico()
                 +"\nPreferencias\n"+"Tipo: "+ tipo+", Raza: "+raza+", Sexo: "+sexo;
     }
+    
+    public String imprimirLista(){
+        String lista="";
+        for (Animal a:listaAdoptados){
+            lista+=a.toString();
+            
+        }
+        return lista;
+    }
     public String toStringSinPreferencias(){
-        return "Nombre: "+getNombre()+", ID: "+getId()+"\n Direccion: "+getDireccion()
-                +", Telefono: "+getNumeroTelefono()+"\n Correo: "+getCorreoElectronico();
+        if (!listaAdoptados.isEmpty()){
+            return "Nombre: "+getNombre()+", ID: "+getId()+"\n Direccion: "+getDireccion()
+                +", Telefono: "+getNumeroTelefono()+"\n Correo: "+getCorreoElectronico()+
+                    imprimirLista();
+        } else {
+            return "Nombre: "+getNombre()+", ID: "+getId()+"\n Direccion: "+getDireccion()
+                    +", Telefono: "+getNumeroTelefono()+"\n Correo: "+getCorreoElectronico();
+        }        
     }
     
     

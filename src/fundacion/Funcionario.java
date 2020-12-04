@@ -210,19 +210,20 @@ public class Funcionario extends Empleado{
             if(i.getId().equals(id)){
                 System.out.println(i.toString());
                  interesado = i;
-                FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(new Adopcion(interesado, animal));
+                 Adopcion adop = new Adopcion(interesado, animal);
+                FundacionUI.fundacionAmigosDeCuatroPatas.registrarAdopciones(adop);
                 if (animal instanceof Perro){
-                    JavaMailUtil.SendMail(interesado.getCorreoElectronico(), animal.toCorreo());
+                    JavaMailUtil.SendMail(interesado.getCorreoElectronico(), adop.toCorreo());
                 }
                 else if (animal instanceof Gato){
-                    JavaMailUtil.SendMail(interesado.getCorreoElectronico(), animal.toCorreo());
+                    JavaMailUtil.SendMail(interesado.getCorreoElectronico(), adop.toCorreo());
                 }
  
 
             }
         }
         if(interesado == null){    
-        System.out.println("Interesado No Existe");
+        System.out.println("Interesado No Existe, Porfavor registrelo ");
         }
         
         
@@ -252,6 +253,10 @@ public class Funcionario extends Empleado{
         
     }
     public void consultarRegistrados(){
+        for (Interesado i:FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados()){
+            System.out.println(i.toStringSinPreferencias());
+            System.out.println("\n La persona ha adoptado: "+i.getlistaAdoptados().size());
+        }
 
         Interesado interesado;
         System.out.println("Ingrese ID: ");
@@ -260,17 +265,29 @@ public class Funcionario extends Empleado{
         int x = 0;
         for (Interesado i :FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados()){
             if(i.getId().equals(id)){
-                System.out.println(i.toString());
-                x = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().indexOf(i);
-                interesado = i;
-                Adopcion adopcion = null;
-                for(Adopcion adop :FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
-                    if(adop.getAdoptante()==i){
-                        System.out.println(adop.toString());
-                        adopcion = adop;
+                if (i.getlistaAdoptados().size()>0){
+                    System.out.println(i.toStringSinPreferencias());
+                    System.out.println("Desea editar los datos? (si/no)");
+                    String resp = sc.nextLine();
+                    if(resp.toUpperCase().equals("SI")){
+                        //String direccion, String numerTelefono, String correoElectronico, String tipo,String raza,String sexo
+                        System.out.println("");
                     }
-                }if(adopcion == null){
-                    System.out.println("No ha adoptado ningun animal");
+                    
+                }else{
+                    
+                //x = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().indexOf(i);
+                //interesado = i;
+                //Adopcion adopcion = null;
+                //for(Adopcion adop :FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
+                    //if(adop.getAdoptante()==i){
+                        //System.out.println(adop.toString());
+                        //adopcion = adop;
+                    //}
+                //}if(adopcion == null){
+                    
+                    System.out.println(i.toStringSinPreferencias());
+                    System.out.println("\nNo ha adoptado ningun animal");
                 }
             }
         }

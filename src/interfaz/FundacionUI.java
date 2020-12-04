@@ -78,7 +78,7 @@ public class FundacionUI {
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato4);
         //
         //Interesados
-        Interesado interesado1 = new Interesado("Ricardo Espinoza","0925543210","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
+        Interesado interesado1 = new Interesado("Ricardo Espinoza","0987654321","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado1);
         //interesado1.agregarAdopcion(perro4);
         
@@ -231,6 +231,6 @@ public class FundacionUI {
                     break;
                         
             }
-        }while(!entrada.equals("7"));
+        }while(!entrada.equals("8"));
     }
 }
