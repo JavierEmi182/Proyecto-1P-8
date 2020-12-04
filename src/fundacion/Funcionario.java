@@ -155,33 +155,33 @@ public class Funcionario extends Empleado{
         System.out.println("*****Registrar Interesados*****");
         System.out.println("Ingrese Nombre: ");
         String nombre = sc.nextLine();
-        System.out.println("Ingrese ID");
+        System.out.println("Ingrese ID: ");
         String id = sc.nextLine();
         System.out.println("Ingrese Direccion: ");
         String direccion = sc.nextLine();
-        System.out.println("Ingrese Telefono");
+        System.out.println("Ingrese Telefono: ");
         String telefono = sc.nextLine();
         System.out.println("Ingrese Correo Electronico: ");
         String correo = sc.nextLine();
         System.out.println("*****Ingrese sus intereses*****");
-        System.out.println("Tipo de Animal: (GATO, PERRO, AMBOS)");
+        System.out.println("Tipo de Animal: (GATO, PERRO)");
         String tipo = null;
-        tipo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3(tipo, "GATO", "PERRO","AMBOS");
-        System.out.println("Ingrese sexo animal (MACHO, HEMBRA, AMBOS)");
+        tipo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(tipo, "GATO", "PERRO");
+        System.out.println("Ingrese sexo animal: (MACHO, HEMBRA)");
         String sexo = null;
-        sexo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings3(sexo, "MACHO","HEMBRA","AMBOS");
-        String raza = "TODAS";
+        sexo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(sexo, "MACHO","HEMBRA");
+        //String raza = "TODAS";
         
         //System.out.println(tipo+ "    " +sexo);
         
-        if (!(tipo.toUpperCase().equals("AMBOS"))){
-            System.out.println("Ingrese raza del Animal");
-            raza = sc.nextLine();
-        }
+        //if (!(tipo.toUpperCase().equals("AMBOS"))){
+            System.out.println("Ingrese raza del Animal: ");
+            String raza = sc.nextLine();
+        //}
         
         
-        
-        FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(new Interesado(nombre,id,direccion,telefono,correo,tipo,raza,sexo));
+        Interesado interesado= new Interesado(nombre, id, direccion, telefono,correo,tipo,raza,sexo);
+        FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado);
     }
     
     public void registrarAdopcion() throws IOException{//COMPLETA
@@ -234,12 +234,13 @@ public class Funcionario extends Empleado{
     public void consultarAdopciones(){
         System.out.println("*****Consultar Adopciones*****");
         Collections.reverse(FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones());   
-        System.out.println("Desea ver una adopcion en especifico?");
+        System.out.println("Desea ver una adopcion en especifico?(si/no)");
         String respuesta = null;
         respuesta = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(respuesta, "SI", "NO");
         if (respuesta.toUpperCase().equals("SI")){
             System.out.println("Ingrese codigo de adopcion: ");
             int codigo = sc.nextInt();
+            sc.nextLine();
               for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
                 if (adopciones.getCodigo() == codigo){
                     System.out.println(adopciones.toString());
@@ -261,7 +262,7 @@ public class Funcionario extends Empleado{
         }
 
         Interesado interesado;
-        System.out.println("Ingrese ID: ");
+        System.out.println("Si desea ver mas información, ingrese el ID: ");
         String id = sc.nextLine();
         interesado = null;
         int x = 0;
@@ -335,9 +336,9 @@ public class Funcionario extends Empleado{
                         
                     }
                 }
-            }else{
-            System.out.println("Interesado No Existe");
-        }
+            }//else{
+            //System.out.println("Interesado No Existe");
+        //}
         //}
         //if (interesado==null){
         //    System.out.println("Interesado No Existe");
@@ -359,7 +360,7 @@ public class Funcionario extends Empleado{
             //FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().set(x, interesado);
         //}
        
-    }
+    }System.out.println("Interesado no existe");
     }}
     
     /*

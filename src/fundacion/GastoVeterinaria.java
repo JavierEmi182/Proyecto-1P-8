@@ -62,7 +62,7 @@ public class GastoVeterinaria {
 //Metodos
     @Override
     public String toString() {
-        return "***Gastos de Veterinaria***\n" + "Animal: " + animal + ", Fecha: " + fecha + "\nMonto: " + monto +", Veterinaria"+veterinaria;
+        return "***Gastos de Veterinaria***\n" + "Animal: " + animal + ", Fecha: " + fecha + "\nMonto: " + monto +"\n"+veterinaria;
     }
     
 
