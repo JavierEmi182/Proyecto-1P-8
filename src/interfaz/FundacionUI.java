@@ -76,8 +76,12 @@ public class FundacionUI {
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato4);
         //
         //Interesados
-        Interesado interesado1 = new Interesado("Ricardo Espinoza","0987654321","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
+        Interesado interesado1 = new Interesado("Ricardo Espinoza","0987654321","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Macho");
+        Interesado interesado2= new Interesado ("Mark Zucaritas","0960504693","Samborondón","0987546328","jossececilia1619@gmail.com","Perro","Golden Retriever","Macho");
+        Interesado interesado3= new Interesado ("Sponge Bob","0960557593","Fondo Bikini","098775246328","jossececilia1619@gmail.com","Gato","Angora","Macho");
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado1);
+        FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado2);
+        FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado3);
         //interesado1.agregarAdopcion(perro4);
         
         //Adopciones

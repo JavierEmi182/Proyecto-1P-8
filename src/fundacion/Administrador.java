@@ -296,6 +296,7 @@ public class Administrador extends Empleado {
         ArrayList<Interesado> registroInteresado = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados();
      
         String cuerpo;
+        int cont = 0;
         if(registroAnimal.size()>0){
             if(registroInteresado.size()>0){
                 for(Animal animal : registroAnimal){
@@ -304,11 +305,17 @@ public class Administrador extends Empleado {
                     for(Interesado interesado: registroInteresado){
                         if (animal.getRaza().toUpperCase().equals(interesado.getRaza().toUpperCase()) && animal.getSexo().toUpperCase().equals(interesado.getSexo().toUpperCase())){
                             cuerpo = "Saludos "+interesado.getNombre()+",<br>"+"Acabamos de recibir un animal acorde a sus preferencias; a continuación dejamos los datos del mismo: <br>"+animal.toCorreo();
+                            System.out.println("Espere por favor, se están enviando los mails a las personas interesadas");
                             JavaMailUtil.SendMail(interesado.getCorreoElectronico(),cuerpo);
+                            cont+=1;
                         }
                     }
-                }}
+                }
+              }
             }
+        }
+        if (cont<1){
+            System.out.println("No existen animales en la fundación que cumplan con las preferencias de las personas interesadas");
         }
     }
    
