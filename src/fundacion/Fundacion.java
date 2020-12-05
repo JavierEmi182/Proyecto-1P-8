@@ -98,6 +98,7 @@ public class Fundacion {
         }return null;
     }
     //consultar gastos medicos de un animal
+    /*
     public String consultarGastoAnimal(Animal a ){
         for(GastoVeterinaria g: registroGastosVeterinarios){
                 if((g.getAnimal().getCodigo() == a.getCodigo()) && g.getAnimal()!=null){
@@ -105,7 +106,7 @@ public class Fundacion {
                 }
             }
         return null;
-    }
+    }*/
     
 
 
@@ -254,7 +255,7 @@ public class Fundacion {
         }return null;
     }
  
-    
+    /*
     public static boolean isNumeric(String string) {
     if (string == null || string.isEmpty()) {
         return false;
@@ -284,7 +285,7 @@ public class Fundacion {
         }
     }
     return true;
-}
+}*/
     
     
     

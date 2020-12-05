@@ -254,14 +254,25 @@ public class Administrador extends Empleado {
                             System.out.println("Animal no encontrado");
                         }
                     } 
-                    
+                    ArrayList<GastoVeterinaria> registroGastos = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroGastosVeterinarios();
+                    for (GastoVeterinaria gastoVet: registroGastos){
+                        if (gastoVet!=null){
+                            if (gastoVet.getAnimal().getCodigo()==animal.getCodigo()){
+                           System.out.println(gastoVet.toString());
+                        }
+                        }
+                        else{
+                            System.out.println(animal.getNombre()+" no tiene gastos de atención médica registrados");
+                        }
+                    }
+                    /*
                     String consulta = FundacionUI.fundacionAmigosDeCuatroPatas.consultarGastoAnimal(animal);
                     if (consulta!=null){
                         System.out.println(consulta);
                     }else{
                         System.out.println(animal.getNombre()+" no tiene gastos de atención médica registrada");
                     }
-                   
+                   */
                     condicion = false;
                     break;
                 default: 
