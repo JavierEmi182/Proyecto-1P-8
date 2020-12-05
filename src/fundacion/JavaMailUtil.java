@@ -29,8 +29,8 @@ public class JavaMailUtil {
  
     public static void SendMail(String receptor, String cuerpo) throws IOException {
         
-        final String from = "amigoscuatropatasg8@gmail.com"; // from address. As this is using Gmail SMTP.
-        final String password = "proyectoparcial"; // password for from mail address. 
+        final String from = "amigoscuatropatasg8@gmail.com"; // mail de donde se envia.
+        final String password = "proyectoparcial"; // contraseña de donde se envia. 
  
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -51,23 +51,23 @@ public class JavaMailUtil {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receptor));
-            message.setSubject("Saludos desde Fundacion Amigos de Cuatro Patas");    
+            message.setSubject("Saludos desde Fundacion Amigos de Cuatro Patas");    //Asunto
     
             MimeBodyPart mimeBodyPart = new MimeBodyPart();
-            mimeBodyPart.setContent(cuerpo, "text/html");
+            mimeBodyPart.setContent(cuerpo, "text/html");    //Cuerpo principal
      
             Multipart multipart = new MimeMultipart();
             
             multipart.addBodyPart(mimeBodyPart);
     
-            MimeBodyPart despedida =new MimeBodyPart();
+            MimeBodyPart despedida =new MimeBodyPart();  //Firma
             despedida.setContent("Gracias por su atencion, <b> Fundacion Amigo de Cuatro Patas</b>", "text/html");
             multipart.addBodyPart(despedida);
             message.setContent(multipart);
  
             Transport.send(message);
  
-            System.out.println("Mail successfully sent..");
+            System.out.println("Se envio el mail de manera correcta..");
  
         } catch (MessagingException e) {
             e.printStackTrace();

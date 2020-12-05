@@ -58,13 +58,7 @@ public class Administrador extends Empleado {
         sc.next();}
         sueldo=sc.nextDouble();}while(sueldo<=0);
         sc.nextLine();
-        
-        //System.out.println("Ingrese el sueldo: ");
-        //double sueldo = sc.nextDouble();
-        //sc.nextLine();
-        
-        
-        
+                               
         System.out.println("****  Creación de la cuenta del Empleado  ****");
         String usuario = "";
         String contraseña = "";
@@ -179,17 +173,12 @@ public class Administrador extends Empleado {
                     codigoAnimal = 0;
                     while(true){
                         
-                        //int codigoAnimal;
                         do{System.out.println("Ingrese el codigo del animal atendido: ");
                         while(!sc.hasNextInt()){
                         System.out.println("Ingrese un formato valido");
                         sc.next();}
                         codigoAnimal=sc.nextInt();}while(codigoAnimal<=0);
-                        sc.nextLine();
-                        
-                        //System.out.println("Ingrese el código del animal atentido: ");
-                        //codigoAnimal  = sc.nextInt();
-                        //sc.nextLine();
+                        sc.nextLine();                        
                         
                         animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
                         if(animal == null) {
@@ -208,11 +197,7 @@ public class Administrador extends Empleado {
                     sc.next();}
                     monto=sc.nextDouble();}while(monto<=0);
                     sc.nextLine();
-                    
-                    //System.out.println("Ingrese monto incurrido en el gasto animal");
-                    //double monto = sc.nextDouble();
-                    //sc.nextLine();
-                    
+                                        
                     String nombre = "";
                     while(true){
                         System.out.println("Ingrese nombre de la Veterinaria que lo atendió: ");
@@ -234,17 +219,12 @@ public class Administrador extends Empleado {
                  
                     while(true){
                         
-                        //int codigoAnimal;
                         do{System.out.println("Ingrese el código del animal atendido");
                         while(!sc.hasNextInt()){
                         System.out.println("Ingrese un formato valido");
                         sc.next();}
                         codigoAnimal=sc.nextInt();}while(codigoAnimal<=0);
                         sc.nextLine();
-                        
-                        //System.out.println("Ingrese el código del animal atentido: ");
-                        //codigoAnimal  = sc.nextInt();
-                        //sc.nextLine();
                         
                         animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
                         if (animal != null){

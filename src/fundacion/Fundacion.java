@@ -97,19 +97,7 @@ public class Fundacion {
             
         }return null;
     }
-    //consultar gastos medicos de un animal
-    /*
-    public String consultarGastoAnimal(Animal a ){
-        for(GastoVeterinaria g: registroGastosVeterinarios){
-                if((g.getAnimal().getCodigo() == a.getCodigo()) && g.getAnimal()!=null){
-                    return g.toString();
-                }
-            }
-        return null;
-    }*/
     
-
-
     //metodo para validar credenciales al inicio del programa 
     public Empleado validarCredenciales(String usuario1, String contrasena1){
         Empleado emp = null;
@@ -168,15 +156,6 @@ public class Fundacion {
             registroVeterinaria.add(vet);
         
     }
-    /*
-    public String mostrarRegistroVeterinarias(){
-        if (registroVeterinaria.size()>0){
-            for (Veterinaria vet: registroVeterinaria){
-            return vet.toString();
-            }
-        }
-        return "No hay Registros de Veterinarias por mostrar ";
-    }*/
         
     public void registrarGastoVeterinaria(GastoVeterinaria gasto){
         registroGastosVeterinarios.add(gasto);
@@ -254,41 +233,7 @@ public class Fundacion {
             
         }return null;
     }
- 
-    /*
-    public static boolean isNumeric(String string) {
-    if (string == null || string.isEmpty()) {
-        return false;
-    }
-    int i = 0;
-    int stringLength = string.length();
-    if (string.charAt(0) == '-') {
-        if (stringLength > 1) {
-            i++;
-        } else {
-            return false;
-        }
-    }
-    if (!Character.isDigit(string.charAt(i))
-            || !Character.isDigit(string.charAt(stringLength - 1))) {
-        return false;
-    }
-    i++;
-    stringLength--;
-    if (i >= stringLength) {
-        return true;
-    }
-    for (; i < stringLength; i++) {
-        if (!Character.isDigit(string.charAt(i))
-                && string.charAt(i) != '.') {
-            return false;
-        }
-    }
-    return true;
-}*/
-    
-    
-    
+                
     public static LocalDate toLocalDate(String date){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         //String date = "16/08/2016";

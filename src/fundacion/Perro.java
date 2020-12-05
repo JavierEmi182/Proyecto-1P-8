@@ -63,27 +63,7 @@ public class Perro extends Animal{
             }
             return costoFinal;
         }return -1;
-        
-        /**if (tamanio.equals(tamanio.GRANDE)){
-            costoKilo=4;
-            kilosMes=10;
-            double costoFinal= (costoKilo*kilosMes) + costoPaseos;
-            return super.calcularCostoMes()+costoFinal;}
-        else if(tamanio.equals(tamanio.MEDIANO)){
-            costoKilo=5;
-            kilosMes=6;
-            double costoFinal=(costoKilo*kilosMes)+costoPaseos;
-            return super.calcularCostoMes()+costoFinal;
-                    }
-        else{
-            costoKilo=5;
-            kilosMes=4;
-            double costoFinal=(costoKilo*kilosMes)+costoPaseos;
-            return super.calcularCostoMes()+costoFinal;
-        }
-    */
-    
-   
+              
 }
     @Override
     public String toString(){

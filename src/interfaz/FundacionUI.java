@@ -55,7 +55,7 @@ public class FundacionUI {
         //Usuario: Bpuertas  contraseña: Money 
          
          //Perros y Gatos
-        Perro perro1 = new Perro(fecha, "Kira", "Mestizo", "Hembra", 27,"Tiene cuatro patas, dos ojos",1, Tamanio.MEDIANO);
+        Perro perro1 = new Perro(fecha, "Kira", "Mestizo", "Hembra", 27,"Super juguetona y se lleva bien con los gatos",1, Tamanio.MEDIANO);
         Perro perro2 = new Perro(fecha, "Dustin", "Pastor Aleman", "Macho", 36,"Pastor de pelo largo y bastante docil",7, Tamanio.GRANDE);
         Perro perro3 = new Perro(fecha, "Jack", "Fox Terrier", "Macho", 7,"Cariñoso pero temperamentar con otros perros",2, Tamanio.PEQUENIO);
         Perro perro4 = new Perro(fecha, "Tom", "Golden Retriever", "Macho", 27,"Muy cariñoso y jugueton, educado",3, Tamanio.GRANDE);
@@ -76,13 +76,12 @@ public class FundacionUI {
         FundacionUI.fundacionAmigosDeCuatroPatas.registroAnimal(gato4);
         //
         //Interesados
-        Interesado interesado1 = new Interesado("Ricardo Espinoza","0987654321","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Macho");
+        Interesado interesado1 = new Interesado("Ricardo Espinoza","0987654321","Via a la Costa","0917459821","j.e.v.e.ldu@gmail.com","Perro","Golden Retriever","Hembra");
         Interesado interesado2= new Interesado ("Mark Zucaritas","0960504693","Samborondón","0987546328","jossececilia1619@gmail.com","Perro","Golden Retriever","Macho");
         Interesado interesado3= new Interesado ("Sponge Bob","0960557593","Fondo Bikini","098775246328","jossececilia1619@gmail.com","Gato","Angora","Macho");
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado1);
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado2);
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado3);
-        //interesado1.agregarAdopcion(perro4);
         
         //Adopciones
         Adopcion adop1 = new Adopcion(interesado1,perro4);
@@ -104,8 +103,7 @@ public class FundacionUI {
     
     
     
-    ///aun a prueba, no se valida correctamente
-    // Hay que poner en los contructores this.fundacion = fundacion . NO inicializarlo (fundacion = New Fundacion)
+    
     public void presentarMenuPrincipal() throws IOException{
         String usuario="";
         String contraseña= "";

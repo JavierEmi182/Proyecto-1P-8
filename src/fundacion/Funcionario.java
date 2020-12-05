@@ -52,24 +52,13 @@ public class Funcionario extends Empleado{
         System.out.println("Ingrese sexo (MACHO O HEMBRA)");
         sexo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings( sexo, "MACHO", "HEMBRA");
         
-        //Otra manera de hacerlo
-        /*do{
-        System.out.println("Sexo: ");
-        sexo = sc.nextLine();
-        }while(!(sexo.toUpperCase().equals("MACHO") || sexo.toUpperCase().equals("Hembra")));
-        */
-
         double peso;
         do{System.out.println("Peso (KG) separacion decimal por punto: ");
         while(!sc.hasNextDouble()){
         System.out.println("Ingrese un formato valido");
         sc.next();}
         peso=sc.nextDouble();}while(peso<=0);
-        sc.nextLine();
-        
-        //System.out.println("Peso: (KG)");
-        //double peso = sc.nextDouble();
-        //sc.nextLine();
+        sc.nextLine();        
         
         int edad;
         do{System.out.println("Edad: ");
@@ -77,16 +66,10 @@ public class Funcionario extends Empleado{
         System.out.println("Ingrese un formato valido");
         sc.next();}
         edad=sc.nextInt();}while(edad<=0);
-        sc.nextLine();
-        
-        //System.out.println("Edad: ");
-        //int edad = sc.nextInt();
-        //sc.nextLine();
+        sc.nextLine();        
         
         System.out.println("Observaciones: ");
         String observaciones  = sc.nextLine();
-        
-        //System.out.println(tipo+"     "+sexo);
 
         if(tipo.toUpperCase().equals("PERRO")){
             System.out.println("Ingrese tamaño: ");
@@ -135,7 +118,7 @@ public class Funcionario extends Empleado{
                         System.out.println(perro.toString());
                     }else if(raza.toUpperCase().equals("TODAS")){
                         System.out.println(perro.toString());
-                        //-----------------------------
+                        
                     }
                 }
             }else if(tipo.toUpperCase().equals("GATO") && ani instanceof Gato){
@@ -151,7 +134,7 @@ public class Funcionario extends Empleado{
                         System.out.println(gato.toString());
                     }else if(raza.toUpperCase().equals("TODAS")){
                         System.out.println(gato.toString());
-                        //-------------------------------
+
                     }
                 }
             }else if(tipo.toUpperCase().equals("AMBOS") && ani instanceof Perro) {
@@ -191,16 +174,10 @@ public class Funcionario extends Empleado{
         System.out.println("Ingrese sexo animal: (MACHO, HEMBRA)");
         String sexo = null;
         sexo = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(sexo, "MACHO","HEMBRA");
-        //String raza = "TODAS";
-        
-        //System.out.println(tipo+ "    " +sexo);
-        
-        //if (!(tipo.toUpperCase().equals("AMBOS"))){
+
             System.out.println("Ingrese raza del Animal: ");
             String raza = sc.nextLine();
-        //}
-        
-        
+                
         Interesado interesado= new Interesado(nombre, id, direccion, telefono,correo,tipo,raza,sexo);
         FundacionUI.fundacionAmigosDeCuatroPatas.registarInteresados(interesado);
     }
@@ -274,14 +251,12 @@ public class Funcionario extends Empleado{
             codigo=sc.nextInt();}while(codigo<=0);
             sc.nextLine();
             
-            //System.out.println("Ingrese codigo de adopcion: ");                                   
-            //int codigo = sc.nextInt();
-            //sc.nextLine();
+
             
               for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
                 if (adopciones.getCodigo() == codigo){
                     System.out.println(adopciones.toString());
-                    //System.out.println(adopciones.getAdoptante().toString());
+
                 }
             }
         }else{
@@ -310,7 +285,7 @@ public class Funcionario extends Empleado{
                     System.out.println("Desea editar los datos? (si/no)");
                     String resp = sc.nextLine();
                     if(resp.toUpperCase().equals("SI")){
-                        //String direccion, String numerTelefono, String correoElectronico, String tipo,String raza,String sexo
+                        
                         System.out.println("Nueva direccion: ");
                         String direccion = sc.nextLine();
                         i.setDireccion(direccion);
@@ -335,22 +310,13 @@ public class Funcionario extends Empleado{
                     
                 }else{
                     
-                //x = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().indexOf(i);
-                //interesado = i;
-                //Adopcion adopcion = null;
-                //for(Adopcion adop :FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
-                    //if(adop.getAdoptante()==i){
-                        //System.out.println(adop.toString());
-                        //adopcion = adop;
-                    //}
-                //}if(adopcion == null){
                     
                     System.out.println(i.toStringSinPreferencias());
                     System.out.println("\nNo ha adoptado ningun animal");
                     System.out.println("Desea editar los datos? (si/no)");
                     String resp = sc.nextLine();
                     if(resp.toUpperCase().equals("SI")){
-                        //String direccion, String numerTelefono, String correoElectronico, String tipo,String raza,String sexo
+                        
                         System.out.println("Nueva direccion: ");
                         String direccion = sc.nextLine();
                         i.setDireccion(direccion);
@@ -373,41 +339,11 @@ public class Funcionario extends Empleado{
                         
                     }
                 }
-            }//else{
-            //System.out.println("Interesado No Existe");
-        //}
-        //}
-        //if (interesado==null){
-        //    System.out.println("Interesado No Existe");
-        //}
-        
-        //System.out.println("Desea actualizar sus datos ? ");
-        //String actualizacion = null;
-        //actualizacion = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(actualizacion, "SI", "NO");
-        //if(actualizacion.toUpperCase().equals("SI")){
-            //System.out.println("Actualize Direccion: ");
-            //String direccion = sc.nextLine();
-            //interesado.setDireccion(direccion);
-            //System.out.println("Actualize Correo: ");
-            //String correo = sc.nextLine();
-            //interesado.setCorreoElectronico(correo);
-            //System.out.println("ACtualize Telefono: ");
-            //String telefono = sc.nextLine();
-            //interesado.setNumeroTelefono(telefono);
-            //FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroInteresados().set(x, interesado);
-        //}
+            }
        
     }System.out.println("Interesado no existe");
     }}
     
-    /*
-    //metodos
-    public void registrarNuevoAnimal(Date fechaIngreso, String nombre, String raza, String sexo, double peso, String observaciones, int edad, Tamanio tamanio){
-        if (tamanio!=null){
-           Perro p1= new Perro(Date fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad,Tamanio tamanio);
-    }   else{
-           Gato g1= new Gato(Date fechaIngreso, String nombre,String raza, String sexo, double peso, String observaciones, int edad);
-        }
-    }*/ 
+
 
 
