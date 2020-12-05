@@ -170,12 +170,10 @@ public class Administrador extends Empleado {
         int codigoAnimal;
         System.out.println("¿Qué desea realizar?");
         System.out.println("1. Registrar Gastos de Atención Médica");
-        System.out.println("2. Consultar Gastos de Atención médica");
-        System.out.print("Ingrese 1 ó 2: ");
-        String opcion = sc.nextLine();
-        
+        System.out.println("2. Consultar Gastos de Atención médica");       
         do{
-            
+            System.out.print("Ingrese 1 ó 2: ");
+            String opcion = sc.nextLine();
             switch(opcion){
                 case "1":
                     codigoAnimal = 0;
@@ -229,6 +227,7 @@ public class Administrador extends Empleado {
                     
                     gastoVeterinaria = new GastoVeterinaria(animal,monto,veterinaria);
                     FundacionUI.fundacionAmigosDeCuatroPatas.registrarGastoVeterinaria(gastoVeterinaria);
+                    System.out.println("Gasto médico de "+animal.getNombre()+" registrado");
                     condicion = false;
                     break;
                 case "2":
@@ -251,32 +250,27 @@ public class Administrador extends Empleado {
                         if (animal != null){
                             break;
                         }else{
-                            System.out.println("Animal no encontrado");
+                            System.out.println("Animal no registrado en la fundación");
                         }
                     } 
                     ArrayList<GastoVeterinaria> registroGastos = FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroGastosVeterinarios();
+                    int cont = 0;
                     for (GastoVeterinaria gastoVet: registroGastos){
-                        if (gastoVet!=null){
-                            if (gastoVet.getAnimal().getCodigo()==animal.getCodigo()){
-                           System.out.println(gastoVet.toString());
-                        }
-                        }
-                        else{
-                            System.out.println(animal.getNombre()+" no tiene gastos de atención médica registrados");
-                        }
+                            if (gastoVet.getAnimal().getCodigo()== animal.getCodigo()){
+                                if (gastoVet.toString()!=null){
+                                     System.out.println(gastoVet.toString());
+                                     cont+=1;
+                                }
+                            }             
                     }
-                    /*
-                    String consulta = FundacionUI.fundacionAmigosDeCuatroPatas.consultarGastoAnimal(animal);
-                    if (consulta!=null){
-                        System.out.println(consulta);
-                    }else{
-                        System.out.println(animal.getNombre()+" no tiene gastos de atención médica registrada");
+                    if(cont<1){
+                        System.out.println(animal.getNombre()+" no tiene gastos de atención médica registrados");
                     }
-                   */
                     condicion = false;
                     break;
                 default: 
                     System.out.println("Opcion no encontrada");
+                  
                     break;
             }                    
         }while(condicion ==true);
