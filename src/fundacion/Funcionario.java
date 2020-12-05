@@ -10,6 +10,7 @@ import interfaz.FundacionUI;
 import java.io.IOException;
 import java.util.Collections;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -26,11 +27,13 @@ public class Funcionario extends Empleado{
     public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena) {
         super( nombre, direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
     }
     
     public Funcionario(String nombre, String direccion, String numeroTelefono, String correoElectronico, double sueldo, String usuario, String contrasena) {
         super( nombre, direccion, numeroTelefono, correoElectronico, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
     }
     
     //Metodos
@@ -56,12 +59,30 @@ public class Funcionario extends Empleado{
         }while(!(sexo.toUpperCase().equals("MACHO") || sexo.toUpperCase().equals("Hembra")));
         */
 
-        System.out.println("Peso: (KG)");
-        double peso = sc.nextDouble();
+        double peso;
+        do{System.out.println("Peso (KG) separacion decimal por punto: ");
+        while(!sc.hasNextDouble()){
+        System.out.println("Ingrese un formato valido");
+        sc.next();}
+        peso=sc.nextDouble();}while(peso<=0);
         sc.nextLine();
-        System.out.println("Edad: ");
-        int edad = sc.nextInt();
+        
+        //System.out.println("Peso: (KG)");
+        //double peso = sc.nextDouble();
+        //sc.nextLine();
+        
+        int edad;
+        do{System.out.println("Edad: ");
+        while(!sc.hasNextInt()){
+        System.out.println("Ingrese un formato valido");
+        sc.next();}
+        edad=sc.nextInt();}while(edad<=0);
         sc.nextLine();
+        
+        //System.out.println("Edad: ");
+        //int edad = sc.nextInt();
+        //sc.nextLine();
+        
         System.out.println("Observaciones: ");
         String observaciones  = sc.nextLine();
         
@@ -188,10 +209,16 @@ public class Funcionario extends Empleado{
         Animal animal;
         Interesado interesado;
         System.out.println("*****Registrar Adopcion*****");
-        System.out.println("Ingrese codigo del animal");
-        int codigo = sc.nextInt();
+        
+        int codigo;
+        do{System.out.println("Ingrese codigo del animal: ");
+        while(!sc.hasNextInt()){
+        System.out.println("Ingrese un formato valido");
+        sc.next();}
+        codigo=sc.nextInt();}while(codigo<=0);
         sc.nextLine();
-        System.out.println("Ingrese ID de la persona");
+        
+        System.out.println("Ingrese ID de la persona: ");
         String id = sc.nextLine();
         animal= null;
         
@@ -238,9 +265,19 @@ public class Funcionario extends Empleado{
         String respuesta = null;
         respuesta = FundacionUI.fundacionAmigosDeCuatroPatas.validacionStrings(respuesta, "SI", "NO");
         if (respuesta.toUpperCase().equals("SI")){
-            System.out.println("Ingrese codigo de adopcion: ");
-            int codigo = sc.nextInt();
+            
+            int codigo;
+            do{System.out.println("Ingrese codigo de adopcion: ");
+            while(!sc.hasNextInt()){
+            System.out.println("Ingrese un formato valido");
+            sc.next();}
+            codigo=sc.nextInt();}while(codigo<=0);
             sc.nextLine();
+            
+            //System.out.println("Ingrese codigo de adopcion: ");                                   
+            //int codigo = sc.nextInt();
+            //sc.nextLine();
+            
               for(Adopcion adopciones : FundacionUI.fundacionAmigosDeCuatroPatas.getRegistroAdopciones()){
                 if (adopciones.getCodigo() == codigo){
                     System.out.println(adopciones.toString());

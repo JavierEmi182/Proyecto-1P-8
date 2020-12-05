@@ -10,6 +10,8 @@ import java.time.LocalDate;
  * @author user
  */
 public class GastoVeterinaria {
+
+    
     private Veterinaria veterinaria;
     private Animal animal;
     private LocalDate fecha;
@@ -61,7 +63,7 @@ public class GastoVeterinaria {
 //Metodos
     @Override
     public String toString() {
-        return "***Gastos de Veterinaria***\n" + "Animal: " + animal + ", Fecha: " + fecha + "\nMonto: " + monto +"\n"+veterinaria;
+        return "***Gastos de Veterinaria***\n" + "Animal: " + animal + ", Fecha: " + fecha + "\nMonto: " +monto +"\n"+veterinaria;
     }
     
 

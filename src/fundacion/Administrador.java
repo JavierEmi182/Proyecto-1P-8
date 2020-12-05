@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 /**
@@ -24,12 +25,15 @@ public class Administrador extends Empleado {
     public Administrador( String nombre, String direccion, String numeroTelefono, String correoElectronico, LocalDate fechaInicio, double sueldo, String usuario, String contrasena, String cuentaBancaria) {
         super(nombre,direccion, numeroTelefono, correoElectronico, fechaInicio, sueldo, usuario, contrasena);
         sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);        
+        
         this.cuentaBancaria = cuentaBancaria;
        
     }
     public Administrador( String nombre, String direccion, String numeroTelefono, String correoElectronico, double sueldo, String usuario, String contrasena, String cuentaBancaria) {
         super(nombre,direccion, numeroTelefono, correoElectronico, sueldo, usuario, contrasena);   
         sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
         this.cuentaBancaria = cuentaBancaria;       
     }
     
@@ -47,9 +51,17 @@ public class Administrador extends Empleado {
         System.out.println("Ingrese correo electrónico: ");
         String correoElectronico = sc.nextLine();
         
-        System.out.println("Ingrese el sueldo: ");
-        double sueldo = sc.nextDouble();
+        double sueldo;
+        do{System.out.println("Ingrese el sueldo: ");
+        while(!sc.hasNextDouble()){
+        System.out.println("Ingrese un formato valido");
+        sc.next();}
+        sueldo=sc.nextDouble();}while(sueldo<=0);
         sc.nextLine();
+        
+        //System.out.println("Ingrese el sueldo: ");
+        //double sueldo = sc.nextDouble();
+        //sc.nextLine();
         
         
         
@@ -168,9 +180,19 @@ public class Administrador extends Empleado {
                 case "1":
                     codigoAnimal = 0;
                     while(true){
-                        System.out.println("Ingrese el código del animal atentido: ");
-                        codigoAnimal  = sc.nextInt();
+                        
+                        //int codigoAnimal;
+                        do{System.out.println("Ingrese el codigo del animal atendido: ");
+                        while(!sc.hasNextInt()){
+                        System.out.println("Ingrese un formato valido");
+                        sc.next();}
+                        codigoAnimal=sc.nextInt();}while(codigoAnimal<=0);
                         sc.nextLine();
+                        
+                        //System.out.println("Ingrese el código del animal atentido: ");
+                        //codigoAnimal  = sc.nextInt();
+                        //sc.nextLine();
+                        
                         animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
                         if(animal == null) {
                             System.out.println("Animal no encontrado");
@@ -179,14 +201,23 @@ public class Administrador extends Empleado {
                         }else{
                             break;
                         }
-                    }                   
-                    System.out.println("Ingrese monto incurrido en el gasto animal");
-                    double monto = sc.nextDouble();
+                    }
+                    
+                    double monto;
+                    do{System.out.println("Ingrese monto incurrido en el gasto animal: (separacion decimal por punto) ");
+                    while(!sc.hasNextDouble()){
+                    System.out.println("Ingrese un formato valido");
+                    sc.next();}
+                    monto=sc.nextDouble();}while(monto<=0);
                     sc.nextLine();
+                    
+                    //System.out.println("Ingrese monto incurrido en el gasto animal");
+                    //double monto = sc.nextDouble();
+                    //sc.nextLine();
                     
                     String nombre = "";
                     while(true){
-                        System.out.println("Ingrese nombre de la Veterinaria que lo atendió");
+                        System.out.println("Ingrese nombre de la Veterinaria que lo atendió: ");
                         nombre = sc.nextLine();
                         veterinaria = FundacionUI.fundacionAmigosDeCuatroPatas.buscarVeterinaria(nombre);
                         if (veterinaria ==null){
@@ -203,9 +234,19 @@ public class Administrador extends Empleado {
                 case "2":
                  
                     while(true){
-                        System.out.println("Ingrese el código del animal atentido: ");
-                        codigoAnimal  = sc.nextInt();
+                        
+                        //int codigoAnimal;
+                        do{System.out.println("Ingrese el código del animal atendido");
+                        while(!sc.hasNextInt()){
+                        System.out.println("Ingrese un formato valido");
+                        sc.next();}
+                        codigoAnimal=sc.nextInt();}while(codigoAnimal<=0);
                         sc.nextLine();
+                        
+                        //System.out.println("Ingrese el código del animal atentido: ");
+                        //codigoAnimal  = sc.nextInt();
+                        //sc.nextLine();
+                        
                         animal = FundacionUI.fundacionAmigosDeCuatroPatas.buscarAnimal(codigoAnimal);
                         if (animal != null){
                             break;
